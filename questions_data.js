@@ -1,2002 +1,2002 @@
 const mcqData = [
   {
-    "question": "Rigger Level 3 Assessment Question [Q1. (Original MCQ #2)]",
+    "question": "Q106: Who not do critical lift?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Aramco Rigger3",
+      "B) Aramco Rigger1",
+      "C) Rigging supervisor",
+      "D) Mechanical Engineer"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q2. (Original MCQ #3)]",
+    "question": "Q248: Refer to graphic what is the name of the equipment show?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q3. (Original MCQ #6)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q4. (Original MCQ #7)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q5. (Original MCQ #8)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q6. (Original MCQ #9)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q7. (Original MCQ #11)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Chain Block",
+      "B) Come along",
+      "C) Plate clamp",
+      "D) Block and tackle"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q8. (Original MCQ #12)]",
+    "question": "Q119: What is main thing of Equipment Beam Clamp used At Overhead it is Unsafe..?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Destroyed or Bend",
+      "B) Rope",
+      "C) Chain",
+      "D) Belt"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q9. (Original MCQ #14)]",
+    "question": "Q37: Chain hoists?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Protect loads from sharp edges",
+      "B) Lift two loads at the same time",
+      "C) Lift loads vertically",
+      "D) Pull loads horizontally"
     ],
-    "answer": "B"
+    "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q10. (Original MCQ #15)]",
+    "question": "Q190: Refer to graphic. What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Use the outriggers",
+      "B) Raise the hoist",
+      "C) Lower the load slowly",
+      "D) Use the whip line"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q11. (Original MCQ #17)]",
+    "question": "Q80: If to lift a load the hand signal must give by?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Supervisor",
+      "B) The riggers",
+      "C) Banks man",
+      "D) Crane operator"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q242: Which drawing shown the best hitch arrangement for the load?",
+    "options": [
+      "A) C",
+      "B) A",
+      "C) D",
+      "D) B"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q12. (Original MCQ #18)]",
+    "question": "Q277: A lift plan states that a rigid load is rigged using a refer to graphic at 60 degrees with 5/8\" Dia wire rope slings (6X37, IPS, IWRC). What is the capacity of the hitch arrangement shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 11950",
+      "B) 17940",
+      "C) 9750",
+      "D) 6900"
     ],
-    "answer": "B"
+    "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q13. (Original MCQ #19)]",
+    "question": "Q97: What does rated capacity mean?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Minimum weight the equipment can lift",
+      "B) Maximum weight the equipment can safely lift",
+      "C) The weight that the equipment will break",
+      "D) The weight of the equipment"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q236: Refer to graphic what is the name of the equipment show?",
+    "options": [
+      "A) Hook and Hook Turnbuckle",
+      "B) Hole and eye Turnbuckle",
+      "C) Clevis and clevis Turnbuckle",
+      "D) Hook and Clevis Turnbuckle"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q162: Refer to graphic. What is the name of the component indicated by the arrow?",
+    "options": [
+      "A) Main hoist",
+      "B) Outriggers",
+      "C) Whip line",
+      "D) Counter weight"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q14. (Original MCQ #20)]",
+    "question": "Q297: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 10,000LB",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 1/2\u201d",
+      "B) 3/4\u201d",
+      "C) 7/8\u201d",
+      "D) 1\u201d"
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q15. (Original MCQ #21)]",
+    "question": "Q42: What is the maximum weight that can be lifted using a two-man pole lift?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 350 Kilo grams",
+      "B) 60 Kilo grams",
+      "C) 75 Kilo grams",
+      "D) 90 Kilo grams"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q313: A lift plan states that a load is rigged using a refer to graphic at 30 degrees with 1\" Dia wire rope slings (6X37, IPS, FC). What is the capacity of the hitch arrangement shown?",
+    "options": [
+      "A) 3445",
+      "B) 15800",
+      "C) 17100",
+      "D) 12600"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q85: When inspecting a come-along hoist for wear and damage, you must?",
+    "options": [
+      "A) Check that the hook is well oiled",
+      "B) Make sure that the chain cannot move",
+      "C) Check that the chain has not shrunk",
+      "D) Check for excessive were in the chain"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q157: Refer to graphic. What is the name of the crane show?",
+    "options": [
+      "A) Tower crane",
+      "B) Mobile crane",
+      "C) Jib crane",
+      "D) Wall crane"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q180: Refer to graphic. What is the meaning of the hand signal shown?",
+    "options": [
+      "A) Stop",
+      "B) Swing",
+      "C) Extend the boom",
+      "D) Lower the load"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q16. (Original MCQ #22)]",
+    "question": "Q14: SCREW JACK MOSTLY USED FOR SMALL_____?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) MOVEMENT",
+      "B) ADJUSTMENT",
+      "C) LIFTING",
+      "D) TRAVELLING"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q173: Refer to graphic what is the name of the equipment show?",
+    "options": [
+      "A) D-shackle",
+      "B) Eye bolt",
+      "C) Wire rope clip",
+      "D) Bow shackle"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q17. (Original MCQ #23)]",
+    "question": "Q178: Refer to graphic. What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Swing the boom slowly",
+      "B) Lower the hoist slowly",
+      "C) Lower the boom slowly",
+      "D) Extend the boom"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q230: Refer to graphic what is showing in below picture?",
+    "options": [
+      "A) Roller jib crane",
+      "B) Dollies Hand Operator winch",
+      "C) Skid roller move",
+      "D) Dollies pinch Bar"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q39: A Lifting beam\u2026.?",
+    "options": [
+      "A) Lift two loads that same time",
+      "B) Distributes the weight of load evenly",
+      "C) Guides a heavy load",
+      "D) Directs heavy objects over large obstacles"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q99: A hook is a?",
+    "options": [
+      "A) Spreader of load weight",
+      "B) Connector on hoists, cranes and slings",
+      "C) Protector of sling eyes",
+      "D) Lifting point on loads"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q285: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 3/4\u201d DIA WIRE ROPE SLING 6 X 19, IPS, FC",
+    "options": [
+      "A) 9,500 lbs.",
+      "B) 10,050 lbs.",
+      "C) 12,375 lbs.",
+      "D) 13,400 lbs."
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q120: What is the Equipment for use Raise chock and alignment Machinery..?",
+    "options": [
+      "A) Dollies",
+      "B) Come-along",
+      "C) Wedges",
+      "D) Stop"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q203: Refer to graphic. What is the name of the Equipment Shown?",
+    "options": [
+      "A) Spreader beam",
+      "B) Plate clamp",
+      "C) Chain hoist",
+      "D) Beam clamp"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q101: Screw jack are most often use for?",
+    "options": [
+      "A) Lifting against metal",
+      "B) Because they are not heavy",
+      "C) They make small adjustments",
+      "D) They have a cylinder"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q253: Refer to graphic what is the name of the equipment show?",
+    "options": [
+      "A) Hook",
+      "B) Wire rope clip",
+      "C) Beam clamp",
+      "D) Wedge"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q109: A shackle is used to?",
+    "options": [
+      "A) Make an eye in the load",
+      "B) Support a load",
+      "C) Join two separate load",
+      "D) Connect a sling to a load"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q18. (Original MCQ #24)]",
+    "question": "Q205: What below drawing shown that before any lifting operation is carried out, the rigger must?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q19. (Original MCQ #25)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q20. (Original MCQ #26)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q21. (Original MCQ #27)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Inform the superintendent",
+      "B) Clean the load to be lifted",
+      "C) Erect a large sign",
+      "D) Barricade the area"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q22. (Original MCQ #30)]",
+    "question": "Q202: Refer to graphic. What is the name of the equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q23. (Original MCQ #32)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Wire rope clip",
+      "B) Plate clamp",
+      "C) Lifting beam",
+      "D) Beam clamp"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q24. (Original MCQ #33)]",
+    "question": "Q305: A lift plan states that a load is rigged using a refer to graphic at 45 degrees with 12Ton, Wire rope slings (6X37, IPS, IWRC). What Diameter of sling is required for the load shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q25. (Original MCQ #35)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q26. (Original MCQ #37)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q27. (Original MCQ #38)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q28. (Original MCQ #39)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q29. (Original MCQ #40)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q30. (Original MCQ #42)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q31. (Original MCQ #43)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 1-1/2",
+      "B) 1-3/4",
+      "C) 1-1/8",
+      "D) 1-1/4"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q32. (Original MCQ #44)]",
+    "question": "Q200: Refer to graphic (picture). What is the name of the equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Chain hoist",
+      "B) Cone-along",
+      "C) Hand-operated winch",
+      "D) Turnbuckle"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q33. (Original MCQ #48)]",
+    "question": "Q319: A lift plan states that a load is rigged using a refer to graphic at 60 degrees with 16,000LBS, Wire rope slings (6 X 37, IPS, FC). What Diameter of sling is required for the load shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 3/4\"",
+      "B) 7/8\"",
+      "C) 9/16\"",
+      "D) 11/4\""
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q34. (Original MCQ #50)]",
+    "question": "Q62: Synthetic slings are used when a load?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q35. (Original MCQ #52)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q36. (Original MCQ #54)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q37. (Original MCQ #55)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q38. (Original MCQ #57)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Has sharp edges",
+      "B) Would be damaged by other types of slings",
+      "C) Is less than 2 tons",
+      "D) More than 5 tons"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q39. (Original MCQ #58)]",
+    "question": "Q323: REFFER TO GRAPIC AND THE TABLES WHAT DIAMETER OF SLING IS REQUIRED FOR THE LOAD SHOWN? 6\u00d737, IPS, FC WIRE ROPE SLING TRELEG BREDLE 60* 28000LBS (RIGID LOAD)",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q40. (Original MCQ #60)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q41. (Original MCQ #61)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q42. (Original MCQ #62)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q43. (Original MCQ #63)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 1/2",
+      "B) 3/4",
+      "C) 1",
+      "D) 1-1/8"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q44. (Original MCQ #64)]",
+    "question": "Q154: Refer to graphic. What is the name of the crane show?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Lattice boom crane",
+      "B) Overhead crane",
+      "C) Tower boom crane",
+      "D) Hydraulic boom crane"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q45. (Original MCQ #65)]",
+    "question": "Q176: Refer to graphic. What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Use the main hoist",
+      "B) Lower the hoist",
+      "C) Lower the load",
+      "D) Raise the boom"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q46. (Original MCQ #66)]",
+    "question": "Q324: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING FLEXIBLE LOAD",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 3/4\u201d",
+      "B) 7/8\u201d",
+      "C) 1\u201d",
+      "D) 1-1/4\u201d"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q58: If an eye bolt develops a crack, you must?",
+    "options": [
+      "A) Destroy it",
+      "B) Weld the crack",
+      "C) Use it carefully",
+      "D) Reduce its capacity"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q47. (Original MCQ #68)]",
+    "question": "Q12: IF THE THREDS OF A PINE OF SHACKLE IS DAMAGED WHAT WIL YOU DO?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) REMOVE IT FROM SERVICE",
+      "B) REDUCE SWL",
+      "C) USE NEW PIN",
+      "D) REPAIR IT"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q48. (Original MCQ #70)]",
+    "question": "Q306: 7\"(8000LBS) Nylon web sling the load capacity of the sling?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 15800Kg",
+      "B) 36000Kg",
+      "C) 14363Kg",
+      "D) 19000Kg"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q49. (Original MCQ #72)]",
+    "question": "Q68: PPE Select All?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q50. (Original MCQ #73)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q51. (Original MCQ #75)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Hard hot",
+      "B) Safety Glass",
+      "C) Hand gloves",
+      "D) Sports shoes"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q52. (Original MCQ #76)]",
+    "question": "Q63: The biggest single case of fatalities associated with cranes is?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q53. (Original MCQ #77)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q54. (Original MCQ #78)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Hooks falling",
+      "B) Booms braking",
+      "C) Jumping from the driver cab",
+      "D) Working overhead power lines"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q55. (Original MCQ #79)]",
+    "question": "Q245: Refer to graphic. What is the name of the sling shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q56. (Original MCQ #81)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q57. (Original MCQ #82)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q58. (Original MCQ #83)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q59. (Original MCQ #84)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q60. (Original MCQ #85)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q61. (Original MCQ #90)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q62. (Original MCQ #91)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q63. (Original MCQ #92)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q64. (Original MCQ #93)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Rope",
+      "B) Chain",
+      "C) Endless",
+      "D) Belt"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q65. (Original MCQ #94)]",
+    "question": "Q47: When a load is being lifted, the rigger must?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Stand directly beneath the load",
+      "B) Sit under the crane driver\u2019s cabin",
+      "C) Stand clear of the load",
+      "D) Sit on top of the load"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q303: A lift plan states that a Rigid load is rigged using a refer to graphic at 45 degrees with 3/4\" Dia wire rope slings (6X37, IPS, Fc). What is the capacity of the hitch arrangement shown?",
+    "options": [
+      "A) 16800",
+      "B) 12600",
+      "C) 15400",
+      "D) 8900"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q302: 6X37, IPS, FC \u00bc DIA WIR ROPE SLING CAPACITY OF THE HITCH ARRGEMENT SHOWN?",
+    "options": [
+      "A) 750",
+      "B) 2250",
+      "C) 1600",
+      "D) 1750"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q66. (Original MCQ #95)]",
+    "question": "Q192: Refer to graphic. What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Lower the load",
+      "B) Raise the boom",
+      "C) Lower the hoist",
+      "D) Lower the boom"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q67. (Original MCQ #99)]",
+    "question": "Q174: Refer to graphic what is the name of the equipment show?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) D-Shackle",
+      "B) Turnbuckle",
+      "C) Bow shackle",
+      "D) Wire rope clip"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q197: Refer to graphic. What is the meaning of the hand signal shown?",
+    "options": [
+      "A) Travel Back",
+      "B) Travel Both Track",
+      "C) Travel one Track",
+      "D) Stop Travel"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q81: Hand operated winches?",
+    "options": [
+      "A) Adjusting sling lengths",
+      "B) Pull and lift loads over long distances",
+      "C) Balance loads",
+      "D) Protect slings from sharp edges"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q68. (Original MCQ #101)]",
+    "question": "Q233: Refer to graphic. What is the name of the connecting equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Turnbuckle",
+      "B) Spreader beam",
+      "C) Shoulder type eye bolt",
+      "D) Eye bolt"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q69. (Original MCQ #102)]",
+    "question": "Q217: Refer to graphic what kind of hitch arrangement shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Two leg bridle",
+      "B) Two leg basket",
+      "C) Two leg choker",
+      "D) Double rope choker"
     ],
-    "answer": "C"
+    "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q70. (Original MCQ #103)]",
+    "question": "Q43: Before any lifting operation is carried out, the rigger must?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Inform the superintendent",
+      "B) Clean the load to be lifted",
+      "C) Erect a large sign",
+      "D) Barricade the area"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q71. (Original MCQ #104)]",
+    "question": "Q289: A lift plan states that a Rigid load is rigged using a refer to graphic at 45 degrees with 13,000LBS, Nylon Web slings (8000Lb). What Diameter of sling is required for the load shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 6\"",
+      "B) 8\"",
+      "C) 5\"",
+      "D) 9\""
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q67: What equipment prevents a load from being crushed?",
+    "options": [
+      "A) Chaffing gear",
+      "B) Beam clamp",
+      "C) Spreader beam",
+      "D) Turnbuckle"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q72. (Original MCQ #105)]",
+    "question": "Q206: Which drawing shown the best hitch arrangement for the load?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) C",
+      "B) A",
+      "C) D",
+      "D) B"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q73. (Original MCQ #106)]",
+    "question": "Q219: REFFER TO GRAPIC which equipment shown below?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Wedges",
+      "B) Pinch Bar",
+      "C) Roller",
+      "D) Dolly"
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q74. (Original MCQ #107)]",
+    "question": "Q308: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 5/8\u201d DIA WIRE ROPE SLING 6 X 19, IPS, FC",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 7,500 lbs.",
+      "B) 9,350 lbs.",
+      "C) 11,400 lbs.",
+      "D) 13,400 lbs."
     ],
-    "answer": "C"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q75. (Original MCQ #108)]",
+    "question": "Q268: Refer to graphic. What is the name of the hitch shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q76. (Original MCQ #109)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Double choker",
+      "B) Single basket",
+      "C) Single vertical",
+      "D) Single choker"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q77. (Original MCQ #110)]",
+    "question": "Q13: MAXIMUM CAPACITY OF STEP JACK IS___?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q78. (Original MCQ #111)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 10TONE",
+      "B) 20TONE",
+      "C) 24TONE",
+      "D) 5TONE"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q79. (Original MCQ #112)]",
+    "question": "Q138: Safety belts and Life lines must be used When Working on high Structures Scaffolding and ladders exceeding..?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q80. (Original MCQ #113)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 40 FT",
+      "B) 30 FT",
+      "C) 20 FT",
+      "D) 10 FT"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q81. (Original MCQ #115)]",
+    "question": "Q75: The function of beam clamp?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Temporary attachment at overhead",
+      "B) Make an eye in beam clamp",
+      "C) Attach plates without making whole",
+      "D) Holding the two separate load"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q208: Refer to graphic. What Equipment Used for move the Load\u2026\u2026?",
+    "options": [
+      "A) Chain Hoist",
+      "B) Come- a long",
+      "C) Hand operator Winch",
+      "D) Turn Buckle"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q82. (Original MCQ #118)]",
+    "question": "Q194: Refer to graphic. What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Lower the load",
+      "B) Raise the boom slowly",
+      "C) Raise the hoist slowly",
+      "D) Lower the boom"
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q83. (Original MCQ #119)]",
+    "question": "Q54: What is a major type of damage to wire rope slings?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q84. (Original MCQ #120)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Broken stitches",
+      "B) Broken links",
+      "C) Kinking",
+      "D) Stretched links"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q85. (Original MCQ #121)]",
+    "question": "Q258: In this Graphic what is # 1.",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q86. (Original MCQ #123)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q87. (Original MCQ #124)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Boom",
+      "B) Main hoist",
+      "C) Crawler",
+      "D) A Frame"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q88. (Original MCQ #125)]",
+    "question": "Q49: When lowering any object to the floor you should?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Let the object drop",
+      "B) Bend the knees and use your leg muscles",
+      "C) Ask a second person to help",
+      "D) Bend from the waist"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q89. (Original MCQ #126)]",
+    "question": "Q40: Inspection of Turnbuckle select all the correct option given below?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Bent chain",
+      "B) Broken wires",
+      "C) Damage threads",
+      "D) Bent and distortion"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q90. (Original MCQ #128)]",
+    "question": "Q232: Refer to picture: what is the name of the connecting equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Sling",
+      "B) Shackle",
+      "C) Eye bolt",
+      "D) Shoulder type eye bolt"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q91. (Original MCQ #129)]",
+    "question": "Q304: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8\u201d DIA WIRE ROPE SLING 6 X 19, IPS, FC",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 13,575 lbs.",
+      "B) 18,100 lbs.",
+      "C) 22,200 lbs.",
+      "D) 23,600 lbs."
     ],
-    "answer": "C"
+    "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q92. (Original MCQ #130)]",
+    "question": "Q77: When load is lifting?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Chat with others",
+      "B) Keep an eye on the load",
+      "C) Remove PPE",
+      "D) Sleep in crane"
     ],
-    "answer": "C"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q93. (Original MCQ #135)]",
+    "question": "Q124: How to catching Hook?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Center point",
+      "B) Hook point",
+      "C) Down side",
+      "D) Hold hook and must Back Shank"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q94. (Original MCQ #137)]",
+    "question": "Q112: IF you are working overhead power lines for any crane operation when the maximum safe distance?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q95. (Original MCQ #139)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Cover up",
+      "B) De-energized",
+      "C) Tab of",
+      "D) Safety cover"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q96. (Original MCQ #140)]",
+    "question": "Q298: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 5,250 LB",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q97. (Original MCQ #143)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q98. (Original MCQ #144)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) \u00bd\u201d",
+      "B) 5/8\u201d",
+      "C) 3/4\u201d",
+      "D) 7/8\u201d"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q99. (Original MCQ #146)]",
+    "question": "Q36: When inspecting a chain fall hoist for wear and damage, one of the main things to look for is?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Hook safety latch works correctly",
+      "B) Hydraulic fluid level is correct",
+      "C) Threads are not damaged",
+      "D) Hand chain is greased"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q72: A Plate clamp for\u2026\u2026?",
+    "options": [
+      "A) Stacks steel plates",
+      "B) Lifts steel plates without the need of holes",
+      "C) Spreads the weight of the load",
+      "D) Protects steel plates from damage"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q133: 1000 Lbs. Weight how 2 feet move is?",
+    "options": [
+      "A) Belt",
+      "B) Chain host",
+      "C) Pinch bar",
+      "D) Plate clamp"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q100. (Original MCQ #147)]",
+    "question": "Q163: Refer to graphic. What is the name of the component indicated by the arrow?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Boom",
+      "B) Main hoist",
+      "C) Whip line",
+      "D) Jib"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q101. (Original MCQ #148)]",
+    "question": "Q221: Refer to graphic. What is the name of the equipment shown below?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q102. (Original MCQ #149)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q103. (Original MCQ #150)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q104. (Original MCQ #153)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Chain hoist",
+      "B) Come-along",
+      "C) Turnbuckle",
+      "D) Hand operated winch"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q105. (Original MCQ #154)]",
+    "question": "Q237: Refer to picture: What is the name of the connecting equipment shown below?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q106. (Original MCQ #155)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Jaw to eye combination turnbuckle",
+      "B) Jaw to jaw combination turnbuckle",
+      "C) Hook to eye combination turnbuckle",
+      "D) Hook to hook combination turnbuckle"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q107. (Original MCQ #157)]",
+    "question": "Q22: A plate clamp?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q108. (Original MCQ #159)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q109. (Original MCQ #161)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Spreads the weight of the load",
+      "B) Stack steel plates",
+      "C) Protects steel plates from damage",
+      "D) Lifts steel plates without the need of holes"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q110. (Original MCQ #162)]",
+    "question": "Q59: What type of sling should you use when there could be contact with acid?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Nylon fiber",
+      "B) Polyester fiber",
+      "C) Natural fiber",
+      "D) Wire rope"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q111. (Original MCQ #163)]",
+    "question": "Q274: Refer to graphic. What is the name of the hitch shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q112. (Original MCQ #164)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Four leg vertical",
+      "B) Four leg bridle",
+      "C) Four leg choker",
+      "D) Double leg basket"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q113. (Original MCQ #165)]",
+    "question": "Q41: A Hook is a\u2026\u2026?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q114. (Original MCQ #168)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q115. (Original MCQ #170)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Lifting point on the loads",
+      "B) Protector of sling eyes",
+      "C) Spreader of load weight",
+      "D) Connector on hoists, Cranes and slings"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q116. (Original MCQ #174)]",
+    "question": "Q31: When lowering an object to the ground what should you do select All?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Bend your knees",
+      "B) Use your leg muscles",
+      "C) Bent your back",
+      "D) Keep your back as straight as possible"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q117. (Original MCQ #175)]",
+    "question": "Q113: NOT\u2026?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Cover up",
+      "B) Head",
+      "C) Riding Load",
+      "D) Load cap"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q118. (Original MCQ #176)]",
+    "question": "Q55: A lifting beam?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q119. (Original MCQ #177)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Lifts two loads at the same time",
+      "B) Directs heavy objects over large obstacles",
+      "C) Distributes the weight of a load evenly",
+      "D) Guides a heavy load"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q120. (Original MCQ #178)]",
+    "question": "Q127: What type Equipment /materials kept at all clear in the Workshop any Time?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q121. (Original MCQ #179)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Tool Boxes",
+      "B) Fire Exits",
+      "C) Windows",
+      "D) Tables"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q122. (Original MCQ #180)]",
+    "question": "Q9: INSPECTION OF WIRE ROPE SLING. SELECT ALL THE CORRECT OPTION GIVEN BELOW?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) BROKEN WIRE",
+      "B) CUTS",
+      "C) CORROSION",
+      "D) BURN"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q142: When you lifting any Pipe of Materials you should wear?",
+    "options": [
+      "A) Safety glass",
+      "B) Safety gloves",
+      "C) Hand hats",
+      "D) Safety shoes"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q160: Refer to graphic. What is the name of the crane shown?",
+    "options": [
+      "A) Gantry",
+      "B) Tower",
+      "C) Crawler",
+      "D) Mobile"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q244: Refer to graphic. What kind of damage to the sling is shown?",
+    "options": [
+      "A) Broken wires",
+      "B) Corrosion on",
+      "C) Kinking",
+      "D) Flattening"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q87: A come-along?",
+    "options": [
+      "A) Make vertical lifts and horizontal pulls",
+      "B) Make eyes for wire ropes",
+      "C) Protect slings from sharp edges",
+      "D) Lift two loads at the same time"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q56: Before you leave lifting working area select all?",
+    "options": [
+      "A) Return to store all equipment",
+      "B) Sleep in crane",
+      "C) Clean and check the area",
+      "D) Remove the PPE"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q292: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 12,000 LB",
+    "options": [
+      "A) 7/8\u201d",
+      "B) 5/8\u201d",
+      "C) 9/16\u201d",
+      "D) 1/2\u201d"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q183: Refer to graphic. What is the meaning of the hand signal shown?",
+    "options": [
+      "A) Lower the hoist",
+      "B) Lower the boom",
+      "C) Use the main hoist",
+      "D) Raise the hoist slowly"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q123. (Original MCQ #181)]",
+    "question": "Q260: Refer to graphic what is the name of the equipment show?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q124. (Original MCQ #184)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Shackle",
+      "B) Master link",
+      "C) Hook",
+      "D) Safety latch"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q125. (Original MCQ #185)]",
+    "question": "Q209: Refer To graphic. Which graphic shows the best method of lifting?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) C",
+      "B) D",
+      "C) A",
+      "D) B"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q149: What do the letter WLL lifting and rigging equipment mean?",
+    "options": [
+      "A) Working layer limit",
+      "B) Working Load limit",
+      "C) Working load layer",
+      "D) Work long limit"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q187: Refer to picture: What is the meaning of the hand signal shown?",
+    "options": [
+      "A) Raise the boom and lower the hoist",
+      "B) Lower the boom and extend the hoist",
+      "C) Lower the boom and raise the hoist",
+      "D) Lower the boom"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q199: Refer to graphic. What is the name of the sling shown?",
+    "options": [
+      "A) Endless belt",
+      "B) Endless wire rope",
+      "C) Sing leg belt",
+      "D) Endless chain"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q25: If the threads on the pin of a shackle are damaged you must?",
+    "options": [
+      "A) Not use it",
+      "B) Use it on small loads only",
+      "C) Still use it",
+      "D) Reduce its capacity"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q126. (Original MCQ #186)]",
+    "question": "Q218: Refer to graphic witch equipment safe for easy move?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Come Along",
+      "B) Skid roller move",
+      "C) Dollies &hand operator winch",
+      "D) Dollies pinch bar"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q127. (Original MCQ #187)]",
+    "question": "Q265: Refer to graphic what is showing in below picture?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Marking of safe working limit (Load)",
+      "B) Inspection of shackles",
+      "C) Inspection of Turn Buckles",
+      "D) Inspection of slings"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q128. (Original MCQ #188)]",
+    "question": "Q271: Refer to graphic. What is the name of the hitch shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q129. (Original MCQ #192)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Double wrap hitch",
+      "B) Double choker hitch",
+      "C) Single choker hitch",
+      "D) Double basket hitch"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q130. (Original MCQ #193)]",
+    "question": "Q241: Refer to graphic. What is the name of the connecting equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q131. (Original MCQ #196)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Sling",
+      "B) Plate clamp",
+      "C) Shackle",
+      "D) Hoist"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q132. (Original MCQ #200)]",
+    "question": "Q288: A lift plan states that a load is rigged using a refer to graphic at 30 degrees with 18,900 LB, Wire rope slings (6X37, IPS, IWRC). What Diameter of sling is required for the load shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 1-1/8",
+      "B) 1",
+      "C) 1-1/4",
+      "D) 7/8"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q70: Hydraulic jack using over to\u2026\u2026\u2026?",
+    "options": [
+      "A) 20 Ton",
+      "B) 40 Ton",
+      "C) 24 Ton",
+      "D) 30 Ton"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q246: Refer to graphic what is the name of the equipment show?",
+    "options": [
+      "A) SINGLE VERTICAL",
+      "B) SINGLE CHOCKER",
+      "C) SINGLE BASKET",
+      "D) DOUBLE BASKET"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q133. (Original MCQ #201)]",
+    "question": "Q125: Don\u2019t walk in area\u2026\u2026?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Rest room area",
+      "B) Suspend the load",
+      "C) Laydown area",
+      "D) Parking area"
     ],
-    "answer": "C"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q134. (Original MCQ #202)]",
+    "question": "Q264: Refer to graphic what is showing in below picture?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Marking of safe working limit (Load)",
+      "B) Inspection of shackles",
+      "C) Inspection of Turn Buckles",
+      "D) Inspection of slings"
     ],
-    "answer": "C"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q135. (Original MCQ #207)]",
+    "question": "Q96: The biggest single cause of fatalities associated with cranes is?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Hooks falling",
+      "B) Booms braking",
+      "C) Jumping from the driver\u2019s cab",
+      "D) Contact with electrical power lines"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q136. (Original MCQ #208)]",
+    "question": "Q123: What time use Safety Belt.?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Only use lifting time",
+      "B) Fall\u2019s passible",
+      "C) Group meeting time",
+      "D) After accident"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q137. (Original MCQ #209)]",
+    "question": "Q231: Refer to graphic what is the name of the component indicated by the arrow?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Wire rope eye",
+      "B) Thimble",
+      "C) D Shackle",
+      "D) Bow shackle"
     ],
-    "answer": "C"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q138. (Original MCQ #210)]",
+    "question": "Q20: What is the most important item of safety equipment used by a rigger?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Safety hat",
+      "B) Sport shoes",
+      "C) Coveralls",
+      "D) Crane"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q161: Refer to graphic. What is the name of the component indicated by the arrow?",
+    "options": [
+      "A) Boom",
+      "B) Main hoist",
+      "C) Whip line",
+      "D) Jib"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q139. (Original MCQ #214)]",
+    "question": "Q175: Refer to graphic. What is the name of the connecting equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Spreader beam",
+      "B) Plate clamp",
+      "C) Beam clamp",
+      "D) Eye bolt"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q198: Refer to graphic what is the damage of web sling below?",
+    "options": [
+      "A) Cuts",
+      "B) Broken",
+      "C) Kinking",
+      "D) Corrosion"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q34: When inspecting a chain hoist for wear and damage, one of the main things to look for is?",
+    "options": [
+      "A) That it is painted",
+      "B) The manufactures name",
+      "C) That is looks clean",
+      "D) A damaged load hook"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q140. (Original MCQ #219)]",
+    "question": "Q228: Refer to graphic what is showing in below picture?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Wire rope",
+      "B) Knots",
+      "C) Slings",
+      "D) Belt"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q141. (Original MCQ #222)]",
+    "question": "Q18: What do the letter SWL=RWL lifting and rigging equipment mean?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Strong/Recommended working limit",
+      "B) Safe/Recommended working limit (load)",
+      "C) Swing/Recommended the load",
+      "D) Stamped/Recommended with limit"
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q142. (Original MCQ #223)]",
+    "question": "Q103: What position you must use hydraulic jacks?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q143. (Original MCQ #226)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Horizontal",
+      "B) On an angle",
+      "C) Upside down",
+      "D) Vertical"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q144. (Original MCQ #227)]",
+    "question": "Q250: Refer to graphic what kind of damage shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Eye bolt bent",
+      "B) Wire rope bent",
+      "C) Shackle",
+      "D) Thread damage"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q321: (6 X 37, IPS, IWRC). 5/8\u2019\u2019 DIA WIR ROPE SLING CAPACITY OF HITCH SHOWN?",
+    "options": [
+      "A) 9690",
+      "B) 16700",
+      "C) 13800",
+      "D) 25600"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q207: Refer to graphic. What is the name of the Equipment shown\u2026\u2026?",
+    "options": [
+      "A) Rubber wedge",
+      "B) Steel wedge",
+      "C) Plastic wedge",
+      "D) Wooden wedge"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q145. (Original MCQ #229)]",
+    "question": "Q115: When we are put a sling in a hook you must check?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q146. (Original MCQ #230)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q147. (Original MCQ #231)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Shackle",
+      "B) Safety latch",
+      "C) Tag line",
+      "D) Wire rope clip"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q148. (Original MCQ #233)]",
+    "question": "Q278: A lift plan states that a load is rigged using a refer to graphic at 30 degrees with 1/2\" Dia wire rope slings (6X37, IPS, IWRC). What is the capacity of the hitch arrangement shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 4300",
+      "B) 6450",
+      "C) 8600",
+      "D) 6100"
     ],
-    "answer": "C"
+    "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q149. (Original MCQ #234)]",
+    "question": "Q316: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 5/8\u201d",
+      "B) 3/4\u201d",
+      "C) 7/8\u201d",
+      "D) 1\u201d"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q30: When accident is happened. Select All",
+    "options": [
+      "A) Uncertified equipment",
+      "B) Unsafe Condition equipment",
+      "C) Uncertified Law",
+      "D) Uncertified Time"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q225: Refer to graphic what is showing in below picture?",
+    "options": [
+      "A) Screw jack",
+      "B) Step jack",
+      "C) Hydraulic jack",
+      "D) Dollies"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q150. (Original MCQ #235)]",
+    "question": "Q210: Refer to the graphic. Which graphic Shows A Balanced Lift .?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q151. (Original MCQ #238)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q152. (Original MCQ #239)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) C",
+      "B) A",
+      "C) B",
+      "D) D"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q153. (Original MCQ #246)]",
+    "question": "Q91: How do you determine the SWL of a turnbuckle?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) It\u2019s size",
+      "B) It can adjust any load",
+      "C) Diameter of the threaded rods",
+      "D) The body"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q134: Dolly Skid unsafe?",
+    "options": [
+      "A) Fuller damage",
+      "B) That the handle is straight",
+      "C) A crock in the hoist body",
+      "D) The hydraulic fluid level"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q154. (Original MCQ #248)]",
+    "question": "Q186: Refer to picture: What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q155. (Original MCQ #249)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Raise the boom slowly",
+      "B) Raise the boom",
+      "C) Raise the boom and lower the hoist",
+      "D) Lower the boom and raise the hoist"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q156. (Original MCQ #250)]",
+    "question": "Q165: Refer to graphic. What is the name of the crane shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q157. (Original MCQ #255)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q158. (Original MCQ #256)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Hydraulic-boom crane",
+      "B) Counterweight crane",
+      "C) Truck-mounted mobile crane",
+      "D) Crawler crane"
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q159. (Original MCQ #257)]",
+    "question": "Q214: Refer to Graphic. Witch Equipment safe for easy move?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q160. (Original MCQ #258)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Roller jib crane",
+      "B) Dollies Hand Operator winch",
+      "C) Skid roller move",
+      "D) Dollies pinch Bar"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q161. (Original MCQ #261)]",
+    "question": "Q27: If a beam clamp is found to have cracks on its body, you must?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q162. (Original MCQ #262)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q163. (Original MCQ #263)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q164. (Original MCQ #265)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q165. (Original MCQ #270)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q166. (Original MCQ #272)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q167. (Original MCQ #274)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q168. (Original MCQ #276)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q169. (Original MCQ #277)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q170. (Original MCQ #278)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q171. (Original MCQ #279)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "A"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q172. (Original MCQ #280)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q173. (Original MCQ #281)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) It only on small loads",
+      "B) Still use it",
+      "C) Red use its capacity",
+      "D) Not use it"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q174. (Original MCQ #282)]",
+    "question": "Q90: Turnbuckles?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Adjust the lengths of sling",
+      "B) Suspend heavy loads",
+      "C) Reduce tuition on the loads",
+      "D) Protect slings form damage"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q175. (Original MCQ #283)]",
+    "question": "Q227: Refer to graphic what is showing in below picture?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q176. (Original MCQ #284)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q177. (Original MCQ #285)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q178. (Original MCQ #286)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q179. (Original MCQ #287)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q180. (Original MCQ #288)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q181. (Original MCQ #290)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Center point",
+      "B) Hook point",
+      "C) Down side",
+      "D) Hold hook and must Back Shank"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q182. (Original MCQ #294)]",
+    "question": "Q71: Before any lifting operation is carried out the rigger must (Select All)?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q183. (Original MCQ #296)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Check the load",
+      "B) Barricade the area",
+      "C) Arrange fire extinguisher",
+      "D) Inform the superintendent"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q184. (Original MCQ #297)]",
+    "question": "Q310: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8\u201d DIA WIRE ROPE SLING 6 X 19, IPS, FC",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q185. (Original MCQ #298)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) 18,100 lbs.",
+      "B) 22,200 lbs.",
+      "C) 44,400 lbs.",
+      "D) 57,800 lbs."
     ],
     "answer": "C"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q186. (Original MCQ #300)]",
+    "question": "Q195: Refer to graphic. What is the meaning of the hand signal shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Travel Back",
+      "B) Travel Both Track",
+      "C) Travel one Track",
+      "D) Stop Travel"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q187. (Original MCQ #301)]",
+    "question": "Q121: What the Wedge used For Try to roister the 4 Ton Weight of load?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Steel Wedge",
+      "B) Wooden Wedge",
+      "C) Plastic Wedge",
+      "D) Robber Wedge"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q17: What type of life line must be used when working near energized electrical equipment?",
+    "options": [
+      "A) Wire rope",
+      "B) Non-conductive fiber rope",
+      "C) Metal chain",
+      "D) Leather"
     ],
     "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q188. (Original MCQ #302)]",
+    "question": "Q94: When inspecting a turnbuckle for wear and damage, one of the main things to look for that they?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) End fitting are not distorted",
+      "B) End fittings are painted",
+      "C) Eyes are not the same",
+      "D) Threads are greased"
     ],
     "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q189. (Original MCQ #304)]",
+    "question": "Q73: Dollies are commonly used where?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Uneven ground",
+      "B) Over through short distance",
+      "C) Uneven ground",
+      "D) Restricted closed area"
     ],
-    "answer": "A"
+    "answer": "B"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q190. (Original MCQ #305)]",
+    "question": "Q98: If a hook does not have a safety latch attached, it?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Use with a reduced capacity",
+      "B) Should be reversed",
+      "C) Can be used safely as it is",
+      "D) Should not used"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q191. (Original MCQ #306)]",
+    "question": "Q66: What type of sling should you use when there could be contact with electrical equipment?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Synthetic fiber",
+      "B) Endless wire rope",
+      "C) Single wire rope",
+      "D) Chain brothers"
     ],
-    "answer": "C"
+    "answer": "A"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q192. (Original MCQ #307)]",
+    "question": "Q172: Refer to graphic. What is the name of the hoisting equipment shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q193. (Original MCQ #310)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q194. (Original MCQ #311)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q195. (Original MCQ #312)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q196. (Original MCQ #313)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "B"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q197. (Original MCQ #314)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q198. (Original MCQ #321)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
-    ],
-    "answer": "C"
-  },
-  {
-    "question": "Rigger Level 3 Assessment Question [Q199. (Original MCQ #323)]",
-    "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Dolly",
+      "B) Shackle",
+      "C) Turnbuckle",
+      "D) Wire rope block"
     ],
     "answer": "D"
   },
   {
-    "question": "Rigger Level 3 Assessment Question [Q200. (Original MCQ #325)]",
+    "question": "Q273: Refer to graphic. What is the name of the hitch shown?",
     "options": [
-      "A) Follow standard rigging load chart and safety factor regulations.",
-      "B) Proceed with lift after supervisor verbal authorization only.",
-      "C) Halt operation immediately and inspect sling tension/hardware.",
-      "D) Comply with general site safety protocol and rigging manual."
+      "A) Double choker hitch",
+      "B) Double wrap double basket hitch",
+      "C) Single choker hitch",
+      "D) Double basket hitch"
     ],
     "answer": "B"
+  },
+  {
+    "question": "Q259: What missing in hook?",
+    "options": [
+      "A) Safety latch",
+      "B) Master link",
+      "C) Shackle",
+      "D) Shackle pin"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q57: An eyebolt?",
+    "options": [
+      "A) Makes and eye in the wire rope",
+      "B) Attaches slings and shackles to loads",
+      "C) Protects the eye of a sling",
+      "D) Spreads the weight to the load"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q179: Refer to graphic. What is the meaning of the hand signal shown?",
+    "options": [
+      "A) Lower the boom",
+      "B) Retract the boom",
+      "C) Lower the load",
+      "D) Extend the boom"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q182: REFFER TO GRAPHIC WHAT IS THE MEANING OF THE HAND SIGNAL SHOWN?",
+    "options": [
+      "A) STOP",
+      "B) SWING",
+      "C) RAISE THE HOST",
+      "D) RAISE THE BOOM"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q204: What is the reason of graphic shown below?",
+    "options": [
+      "A) Keep an under the load",
+      "B) Keep an the visible load",
+      "C) Keep load low and slow",
+      "D) Keep an eye on the Load"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q5: Write down the (G.I) of Rigger?",
+    "options": [
+      "A) G.I is 7.025",
+      "B) G.I is 8.012",
+      "C) G.I is 2.100",
+      "D) G.I is 6.012"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q148: What affects the capacity of a crane?",
+    "options": [
+      "A) The length of the load",
+      "B) The Radius",
+      "C) The wheels",
+      "D) The number of wheels"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q269: Refer to graphic. What is the name of the hitch shown?",
+    "options": [
+      "A) Two leg bridle hitch",
+      "B) Double wrap choker hitch",
+      "C) Two leg choker hitch",
+      "D) Double wrap basket hitch"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q279: A lift plan states that a rigid load is rigged using a refer to graphic at 60 degrees with 14Ton, Wire rope slings (6X37, IPS, IWRC). What Diameter of sling is required for the load shown?",
+    "options": [
+      "A) 1-1/8",
+      "B) 7/8",
+      "C) 1-1/4",
+      "D) 1"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q4: WHAT TYPE OF LIFELINE MUST BE USED WHEN WORKING NEAR ENERGIZED ELECRICAL EQUIPMENT?",
+    "options": [
+      "A) WIRE ROPE",
+      "B) METAL CHAIN",
+      "C) NON-CONDUCTIVE FIBER ROPE",
+      "D) LEATHER"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q167: Refer to graphic. What is the name of the component indicated by the arrow?",
+    "options": [
+      "A) Control line",
+      "B) Counter weight",
+      "C) Main boom",
+      "D) Outrigger"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q290: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 8 TON",
+    "options": [
+      "A) \u00bd\u201d",
+      "B) 5/8\u201d",
+      "C) 7/8\u201d",
+      "D) 1\u201d"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q23: If the jaws of a plate clamp are coated with dirt or grease you must?",
+    "options": [
+      "A) Use the clamp only on small plate",
+      "B) Not use the clamp",
+      "C) Replace the jaws",
+      "D) Clean and inspect them before use"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q114: When inspecting a roller one of the main things to look for is..??",
+    "options": [
+      "A) Roller and Broken Teeth",
+      "B) Flat and damage",
+      "C) It is painted",
+      "D) It looks clean"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q287: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING RIGID LOAD",
+    "options": [
+      "A) 1/2\u201d",
+      "B) 5/8\u201d",
+      "C) 3/4\u201d",
+      "D) 7/8\u201d"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q185: Refer to graphic. What is the meaning of the hand signal shown?",
+    "options": [
+      "A) Stop",
+      "B) Emergency stop",
+      "C) Extend the boom",
+      "D) Swing slow"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q135: What is Must Condition use Roller if it is Unsafe?",
+    "options": [
+      "A) Fuller damage",
+      "B) The hydraulic fluid level",
+      "C) A crock in the hoist body",
+      "D) Flat and Damage"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q45: At what height must a safety belt be worn when there is no working platform?",
+    "options": [
+      "A) Any height",
+      "B) 6 feet & above",
+      "C) 2o feet & above",
+      "D) Below 20 feet"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q151: Refer to graphic LOAD is heavy for manual lift showing in below picture?",
+    "options": [
+      "A) Ask the supervisor lift for you",
+      "B) Ask for someone help for lift",
+      "C) Wait for someone lift for you",
+      "D) Leave it there without lift"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q3: What is the maximum crane\u2019s rated load capacity for lift?",
+    "options": [
+      "A) Maximum 85% of load capacity,",
+      "B) Maximum 60% of load capacity,",
+      "C) Maximum 45% of load capacity,",
+      "D) Maximum 30% of load capacity,"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q272: Refer to graphic. What kind of hitch is shown?",
+    "options": [
+      "A) Two leg choker",
+      "B) Two leg bridle",
+      "C) Double basket",
+      "D) Single basket"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q270: Refer to graphic. What is the name of the hitch shown?",
+    "options": [
+      "A) Single vertical basket hitch",
+      "B) Single choker hitch",
+      "C) Single vertical choker hitch",
+      "D) Double basket hitch"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q126: What is the Damage of winch?",
+    "options": [
+      "A) Threads",
+      "B) Hydraulic pipe",
+      "C) Handle Operational",
+      "D) Screw bolt"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q64: Turnbuckles\u2026\u2026\u2026?",
+    "options": [
+      "A) Adjust the tension on a sling",
+      "B) Lift heavy loads",
+      "C) Protect slings from sharp edges",
+      "D) Lift two loads at the same time"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q60: What type of sling provides the most flexibility and grip?",
+    "options": [
+      "A) Wire rope slings",
+      "B) Chain slings",
+      "C) Synthetic fiber slings",
+      "D) Wire mesh slings"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q144: If you found a fire exit Blocked by a wooden Pallet would you..?",
+    "options": [
+      "A) Leave It",
+      "B) Move it at Quitting Time",
+      "C) Move it immediately",
+      "D) Wait for someone else to move it"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q320: A lift plan states that a load is rigged using a refer to graphic at 60 degrees with 3500LB, Wire rope slings (6 X 37, IPS, IWRC). What Diameter of sling is required for the load shown?",
+    "options": [
+      "A) 3/8",
+      "B) 1/2",
+      "C) 7/16",
+      "D) 1-1/2"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q152: Refer to graphic. What is the Type of the Eye bolt?",
+    "options": [
+      "A) Damage thread eye bolt",
+      "B) Lubricated eye bolt",
+      "C) Broken eye bolt",
+      "D) Colored eye bolt"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q215: REFFER TO GRAPHIC WHAT KIND OF HITCH IS SHOWN?",
+    "options": [
+      "A) FOUR LEG VERTICAL",
+      "B) DOUBLE LEG BASKET",
+      "C) FOUR LEG BRIDLE",
+      "D) FOUR LEG CHOCKER"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q168: Refer to graphic. What is the name of the component shown below?",
+    "options": [
+      "A) Boom",
+      "B) Outrigger",
+      "C) Main hoist",
+      "D) Counter weight"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q48: When lifting any object, the back must be?",
+    "options": [
+      "A) Allowed to bend",
+      "B) Used to lift the object",
+      "C) Kept as straight as possible",
+      "D) Kept at an angle"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q169: Refer to graphic. What is the name of the hoisting equipment shown?",
+    "options": [
+      "A) Come-along",
+      "B) Chain fall",
+      "C) Block and tackle",
+      "D) Hand winch"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q309: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8\u201d DIA WIRE ROPE SLING 6 X 19, IPS, FC",
+    "options": [
+      "A) 9,600 lbs.",
+      "B) 12,800 lbs.",
+      "C) 18,100 lbs.",
+      "D) 22,200 lbs."
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q171: Refer to graphic. What is the name of the equipment shown below?",
+    "options": [
+      "A) Boom",
+      "B) Jib",
+      "C) Whip line",
+      "D) Main hoist"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q69: at what height must a safety belt be worn when the is no working platform?",
+    "options": [
+      "A) 1.8Mtr (6FT)",
+      "B) 16.5Mtr (30FT)",
+      "C) 11Mtr (20FT)",
+      "D) 5.6Mtr (10FT)"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q129: What type of Equipment used for arrangement at overhead Attachments?",
+    "options": [
+      "A) Shackle",
+      "B) Slings",
+      "C) Beam clamp",
+      "D) Chain hoist"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q95: When inspecting a turnbuckle for wear and damage, one of the main things to look for that they?",
+    "options": [
+      "A) Size is indicted",
+      "B) Body has been painted",
+      "C) Eyes are not the same",
+      "D) Hook are not spread"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Q267: Refer to graphic. What is the name of the hitch shown?",
+    "options": [
+      "A) One leg choker",
+      "B) Two leg bridle",
+      "C) Two leg choker",
+      "D) Two leg basket"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q283: A lift plan states that a load is rigged using a refer to graphic at 45 degrees with 3/4\" Dia wire rope slings (6X37, IPS, IWRC). What is the capacity of the hitch arrangement shown?",
+    "options": [
+      "A) 17866",
+      "B) 10050",
+      "C) 16450",
+      "D) 9500"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q216: Refer to graphic what kind of hitch arrangement shown?",
+    "options": [
+      "A) Double leg basket",
+      "B) Double rope choker",
+      "C) Two leg choker",
+      "D) Double rope basket"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q255: Refer to picture: What is the name of the rigging equipment shown?",
+    "options": [
+      "A) Car jack",
+      "B) Hydraulic jack",
+      "C) Step jack",
+      "D) Screw jack"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q33: When checking wire slings for wear and damage, one of the main things to look for is?",
+    "options": [
+      "A) Corrosion",
+      "B) It the sling is greased",
+      "C) The manufacturer\u2019s name",
+      "D) How the sling is painted"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Q82: When inspecting a hand-operated winch for wear and damage, one of the main things to look for?",
+    "options": [
+      "A) The manufacturers on it",
+      "B) Broken wires in the wire rope",
+      "C) How clean the winch look",
+      "D) How the winch is painted"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q238: Refer to picture: What is the name of the equipment shown?",
+    "options": [
+      "A) Jaw and eye combination turnbuckle",
+      "B) Eye and eye combination turnbuckle",
+      "C) Hook and eye combination turnbuckle",
+      "D) Hook and hook combination turnbuckle"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q314: A lift plan states that a Rigid load is rigged using a refer to graphic at 60 degrees with 19,000LBS, Wire rope slings (6X37, IPS, FC). What Diameter of sling is required for the load shown?",
+    "options": [
+      "A) 5/8\"",
+      "B) 3/4\"",
+      "C) 7/8\"",
+      "D) 1\""
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Q235: REFFER TO GRAPHIC WHAT TYPE OF SLING SHOWN?",
+    "options": [
+      "A) EYE TO EYE WIRE ROPE SLING",
+      "B) WIRE ROPE SLING",
+      "C) SINGLE LEG BELT",
+      "D) ENDLESS SLING"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q46: Tag lines must be used on lifts?",
+    "options": [
+      "A) High",
+      "B) All",
+      "C) Long",
+      "D) Heavy"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Q300: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8\u201d DIA WIRE ROPE SLING 6 X 19, IPS, FC 30 degrees",
+    "options": [
+      "A) 9,600 lbs.",
+      "B) 12,800 lbs.",
+      "C) 16,700 lbs.",
+      "D) 25,600 lbs."
+    ],
+    "answer": "A"
   }
 ];
