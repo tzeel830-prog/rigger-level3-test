@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rigger Level 3 - Online Test System</title>
+    <!-- html2canvas library for direct JPG image export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .header { text-align: center; border-bottom: 2px solid #004080; padding-bottom: 15px; margin-bottom: 20px; }
         .header h2 { color: #004080; margin: 5px 0; font-size: 20px; }
         .header p { margin: 3px 0; font-size: 14px; color: #555; }
-        .timer-box { background: #fffae6; border: 1px solid #ffe58f; padding: 10px; text-align: center; font-weight: bold; font-size: 18px; color: #d46b08; margin-bottom: 20px; border-radius: 5px; }
-        .btn { background: #004080; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .timer-box { position: sticky; top: 10px; z-index: 100; background: #fffae6; border: 2px solid #ffa940; padding: 12px; text-align: center; font-weight: bold; font-size: 20px; color: #d46b08; margin-bottom: 20px; border-radius: 6px; }
+        .btn { background: #004080; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; }
         .btn:hover { background: #00264d; }
         .hidden { display: none; }
-        .question-card { margin-bottom: 20px; padding: 15px; background: #fafafa; border: 1px solid #ddd; border-radius: 5px; }
-        input[type="text"], input[type="email"], input[type="password"] { width: 100%; padding: 10px; margin: 8px 0 15px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .question-card { margin-bottom: 20px; padding: 18px; background: #fafafa; border: 1px solid #ddd; border-radius: 6px; }
+        .question-title { font-weight: bold; margin-bottom: 12px; color: #111; }
+        .option-label { display: block; margin: 8px 0; cursor: pointer; font-size: 15px; }
+        .feedback-text { font-weight: bold; margin-top: 8px; display: block; font-size: 14px; }
+        input[type="text"], input[type="email"], input[type="password"] { width: 100%; padding: 12px; margin: 8px 0 18px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 15px; }
+        .alert-error { color: #a8071a; background: #fff1f0; border: 1px solid #ffa39e; padding: 10px; border-radius: 4px; margin-bottom: 15px; }
     </style>
+    <!-- Load Questions Dataset -->
+    <script src="questions_data.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="printable-area">
     <!-- Agency Header -->
     <div class="header">
         <h2>Hadeeqa Manpower Express Overseas Employment Promoters</h2>
@@ -29,15 +37,21 @@
         <p><strong>Prepared By:</strong> Tanzeel Javed | <strong>Phone:</strong> 03310303441</p>
     </div>
 
-    <!-- Student Login Section -->
+    <!-- Student Login -->
     <div id="login-section">
-        <h3>Student Portal - Rigger Level 3 Test</h3>
-        <p>Please enter your details to start the test. (Note: The test can be submitted only once and has a 1-hour time limit).</p>
+        <h3>Student Portal - Rigger Level 3 Certification Test</h3>
+        <p><strong>Rules:</strong> Single Attempt per Email. Time Limit: 60 Minutes. Instant True/False feedback enabled during test.</p>
+        
+        <div id="error-msg" class="alert-error hidden"></div>
+
         <label>Full Name:</label>
-        <input type="text" id="student-name" placeholder="Enter your name">
+        <input type="text" id="student-name" placeholder="Enter your full name">
+        
         <label>Email Address:</label>
-        <input type="email" id="student-email" placeholder="Enter your email">
+        <input type="email" id="student-email" placeholder="Enter your email address">
+        
         <button class="btn" onclick="startTest()">Start Test</button>
+        
         <hr style="margin-top: 30px;">
         <button style="background: #555;" class="btn" onclick="openAdminLogin()">Admin Panel Login</button>
     </div>
@@ -45,97 +59,166 @@
     <!-- Test Section -->
     <div id="test-section" class="hidden">
         <div class="timer-box">Time Remaining: <span id="timer">60:00</span></div>
-        <div id="quiz-container">
-            <!-- Dynamic Questions will load here -->
-        </div>
-        <button class="btn" onclick="submitTest()">Submit Test</button>
+        <div id="quiz-container"></div>
+        <button class="btn" style="width: 100%; margin-top: 20px;" onclick="submitTest()">Submit Test</button>
     </div>
 
-    <!-- Result / Success Section -->
+    <!-- Student Result Screen (Hidden Score/Answers) -->
     <div id="result-section" class="hidden">
-        <h3>Test Submitted Successfully!</h3>
-        <p>Thank you. Your responses have been securely recorded.</p>
-        <p id="final-score-display"></p>
+        <h3 style="color: #389e0d;">Test Submitted Successfully!</h3>
+        <p>Your responses have been securely recorded in the admin system.</p>
+        <p><em>Note: Final evaluations and result sheets are managed exclusively by the agency administration.</em></p>
     </div>
 
-    <!-- Admin Panel Section -->
+    <!-- Admin Panel -->
     <div id="admin-section" class="hidden">
-        <h3>Admin Panel - Student Results</h3>
-        <p>Protected Area (Password: admin123)</p>
+        <h3>Admin Panel - Candidate Evaluation Results</h3>
+        <p>Protected Access (Password Required)</p>
         <div id="admin-login-box">
             <label>Admin Password:</label>
-            <input type="password" id="admin-pass" placeholder="Enter password">
+            <input type="password" id="admin-pass" placeholder="Enter admin password">
             <button class="btn" onclick="verifyAdmin()">Login</button>
+            <button style="background: #777;" class="btn" onclick="location.reload()">Back</button>
         </div>
         <div id="admin-dashboard" class="hidden">
-            <h4>Submitted Student Results List:</h4>
+            <h4>Submitted Student Records & JPG Export:</h4>
             <div id="results-list"></div>
-            <button style="background: #d9534f; margin-top: 20px;" class="btn" onclick="location.reload()">Logout</button>
+            <br>
+            <button style="background: #d9534f;" class="btn" onclick="location.reload()">Logout</button>
         </div>
     </div>
 </div>
 
 <script>
-    let timeLeft = 3600; // 1 Hour in seconds
+    let timeLeft = 3600; 
     let timerInterval;
 
+    function getAttemptedEmails() {
+        return JSON.parse(localStorage.getItem('rigger_attempted_emails') || '[]');
+    }
+
+    function recordEmailAttempt(email) {
+        let attempted = getAttemptedEmails();
+        if(!attempted.includes(email.toLowerCase())) {
+            attempted.push(email.toLowerCase());
+            localStorage.setItem('rigger_attempted_emails', JSON.stringify(attempted));
+        }
+    }
+
     function startTest() {
-        const name = document.getElementById('student-name').value;
-        const email = document.getElementById('student-email').value;
+        const name = document.getElementById('student-name').value.trim();
+        const email = document.getElementById('student-email').value.trim().toLowerCase();
+        const errorBox = document.getElementById('error-msg');
+
         if(!name || !email) {
-            alert("Please enter both Name and Email to start the test!");
+            errorBox.innerText = "Please enter both Name and Email to proceed.";
+            errorBox.classList.remove('hidden');
             return;
         }
-        
-        // Hide login, show test
+
+        let attempted = getAttemptedEmails();
+        if(attempted.includes(email)) {
+            errorBox.innerText = `Access Denied! The email (${email}) has already been used. Only 1 attempt is allowed.`;
+            errorBox.classList.remove('hidden');
+            return;
+        }
+
+        errorBox.classList.add('hidden');
+        recordEmailAttempt(email); 
+
         document.getElementById('login-section').classList.add('hidden');
         document.getElementById('test-section').classList.remove('hidden');
-        
-        // Load sample questions
-        loadQuestions();
-        
-        // Start Timer
+
+        renderQuestions();
+        startTimer();
+    }
+
+    function startTimer() {
         timerInterval = setInterval(() => {
             let minutes = Math.floor(timeLeft / 60);
             let seconds = timeLeft % 60;
             document.getElementById('timer').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
             if(timeLeft <= 0) {
                 clearInterval(timerInterval);
-                alert("Time is up! Submitting test automatically.");
+                alert("Time Limit Reached! Submitting test automatically.");
                 submitTest();
             }
             timeLeft--;
         }, 1000);
     }
 
-    function loadQuestions() {
+    function renderQuestions() {
         const container = document.getElementById('quiz-container');
-        let html = "";
-        for(let i = 1; i <= 5; i++) { // Showing sample mockup questions for preview
-            html += `<div class="question-card">
-                <p><strong>Q${i}: Sample Rigger Level 3 Question ${i}</strong></p>
-                <label><input type="radio" name="q${i}" value="A"> A) Option A description</label><br>
-                <label><input type="radio" name="q${i}" value="B"> B) Option B description</label><br>
-                <label><input type="radio" name="q${i}" value="C"> C) Option C description</label><br>
-                <label><input type="radio" name="q${i}" value="D"> D) Option D description</label>
-            </div>`;
+        if (typeof mcqData === 'undefined' || mcqData.length === 0) {
+            container.innerHTML = "<p style='color:red;'>Questions dataset not loaded properly. Please check questions_data.js file.</p>";
+            return;
         }
+
+        let html = "";
+        mcqData.forEach((q, index) => {
+            let i = index + 1;
+            html += `<div class="question-card" id="q_card_${i}">
+                <div class="question-title">Q${i}: ${q.question}</div>
+                <label class="option-label"><input type="radio" name="q_${i}" value="A" onclick="checkInstantFeedback(${i}, 'A', '${q.answer}')"> ${q.options[0] || ''}</label>
+                <label class="option-label"><input type="radio" name="q_${i}" value="B" onclick="checkInstantFeedback(${i}, 'B', '${q.answer}')"> ${q.options[1] || ''}</label>
+                <label class="option-label"><input type="radio" name="q_${i}" value="C" onclick="checkInstantFeedback(${i}, 'C', '${q.answer}')"> ${q.options[2] || ''}</label>
+                <label class="option-label"><input type="radio" name="q_${i}" value="D" onclick="checkInstantFeedback(${i}, 'D', '${q.answer}')"> ${q.options[3] || ''}</label>
+                <span id="feedback_${i}" class="feedback-text"></span>
+            </div>`;
+        });
         container.innerHTML = html;
+    }
+
+    // Instant True/False feedback when student clicks an option
+    function checkInstantFeedback(qNo, selectedVal, correctVal) {
+        let feedbackSpan = document.getElementById(`feedback_${qNo}`);
+        if (selectedVal === correctVal) {
+            feedbackSpan.style.color = "#389e0d";
+            feedbackSpan.innerText = "✔ Correct (True)";
+        } else {
+            feedbackSpan.style.color = "#cf1322";
+            feedbackSpan.innerText = "✖ Incorrect (False)";
+        }
     }
 
     function submitTest() {
         clearInterval(timerInterval);
-        const name = document.getElementById('student-name').value;
-        const email = document.getElementById('student-email').value;
-        
-        // Save submission locally
+        const name = document.getElementById('student-name').value.trim();
+        const email = document.getElementById('student-email').value.trim().toLowerCase();
+
+        let correctCount = 0;
+        let total = mcqData.length;
+        let detailedEval = [];
+
+        mcqData.forEach((q, index) => {
+            let i = index + 1;
+            let selectedOpt = document.querySelector(`input[name="q_${i}"]:checked`);
+            let userAns = selectedOpt ? selectedOpt.value : "None";
+            let isTrue = (userAns === q.answer);
+            
+            if(isTrue) correctCount++;
+            
+            detailedEval.push({
+                qNo: i,
+                userAns: userAns,
+                correctAns: q.answer,
+                status: isTrue ? "True" : "False"
+            });
+        });
+
+        // Save Submissions for Admin
         let submissions = JSON.parse(localStorage.getItem('rigger_submissions') || '[]');
-        submissions.push({ name, email, time: new Date().toLocaleString() });
+        submissions.push({ 
+            name: name, 
+            email: email, 
+            time: new Date().toLocaleString(),
+            score: `${correctCount}/${total}`,
+            details: detailedEval
+        });
         localStorage.setItem('rigger_submissions', JSON.stringify(submissions));
 
         document.getElementById('test-section').classList.add('hidden');
         document.getElementById('result-section').classList.remove('hidden');
-        document.getElementById('final-score-display').innerText = `Candidate: ${name} (${email}) - Status: Submitted Successfully.`;
     }
 
     function openAdminLogin() {
@@ -149,15 +232,23 @@
             document.getElementById('admin-login-box').classList.add('hidden');
             document.getElementById('admin-dashboard').classList.remove('hidden');
             
-            // Load submissions
             let submissions = JSON.parse(localStorage.getItem('rigger_submissions') || '[]');
             let listHtml = "";
             if(submissions.length === 0) {
-                listHtml = "<p>No student submissions yet.</p>";
+                listHtml = "<p>No student submissions recorded yet.</p>";
             } else {
                 submissions.forEach((sub, index) => {
-                    listHtml += `<div style="background:#fff; padding:10px; border:1px solid #ddd; margin-bottom:5px;">
-                        <strong>#${index+1} Name:</strong> ${sub.name} | <strong>Email:</strong> ${sub.email} | <strong>Submitted At:</strong> ${sub.time}
+                    listHtml += `<div id="sub_report_${index}" style="background:#fff; padding:15px; border:1px solid #ccc; margin-bottom:15px; border-radius:5px;">
+                        <h4 style="margin:0 0 5px 0;">Candidate #${index+1}: ${sub.name} (${sub.email})</h4>
+                        <p style="margin:3px 0;"><strong>Score:</strong> ${sub.score} | <strong>Submitted At:</strong> ${sub.time}</p>
+                        <details style="margin-top:10px;">
+                            <summary style="cursor:pointer; color:#004080; font-weight:bold;">View Full True/False Answer Sheet</summary>
+                            <div style="max-height:200px; overflow-y:auto; margin-top:8px; font-size:13px; background:#f0f0f0; padding:10px;">
+                                ${sub.details.map(d => `<div>Q${d.qNo}: Chosen [${d.userAns}] | Correct [${d.correctAns}] -> <strong>Result: ${d.status}</strong></div>`).join('')}
+                            </div>
+                        </details>
+                        <br>
+                        <button class="btn" style="background:#28a745; font-size:14px; padding:6px 12px;" onclick="downloadSubReportAsJPG(${index}, '${sub.name}')">📥 Download as JPG</button>
                     </div>`;
                 });
             }
@@ -165,6 +256,17 @@
         } else {
             alert("Incorrect Password! Access Denied.");
         }
+    }
+
+    // Function to convert candidate report card into JPG image directly without screenshot
+    function downloadSubReportAsJPG(index, studentName) {
+        let reportElement = document.getElementById(`sub_report_${index}`);
+        html2canvas(reportElement).then(canvas => {
+            let link = document.createElement('a');
+            link.download = `${studentName}_Rigger_Level3_Result.jpg`;
+            link.href = canvas.toDataURL('image/jpeg', 1.0);
+            link.click();
+        });
     }
 </script>
 
