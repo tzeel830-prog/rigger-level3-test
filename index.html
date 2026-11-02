@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigger Level 3 - Online Test System</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 2px solid #004080; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h2 { color: #004080; margin: 5px 0; font-size: 20px; }
+        .header p { margin: 3px 0; font-size: 14px; color: #555; }
+        .timer-box { background: #fffae6; border: 1px solid #ffe58f; padding: 10px; text-align: center; font-weight: bold; font-size: 18px; color: #d46b08; margin-bottom: 20px; border-radius: 5px; }
+        .btn { background: #004080; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #00264d; }
+        .hidden { display: none; }
+        .question-card { margin-bottom: 20px; padding: 15px; background: #fafafa; border: 1px solid #ddd; border-radius: 5px; }
+        input[type="text"], input[type="email"], input[type="password"] { width: 100%; padding: 10px; margin: 8px 0 15px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Agency Header -->
+    <div class="header">
+        <h2>Hadeeqa Manpower Express Overseas Employment Promoters</h2>
+        <p><strong>LIC.NO:</strong> MPD/24442/LHR</p>
+        <p><strong>Owner:</strong> Muhammad Asif | <strong>Phone:</strong> 032161404667</p>
+        <p><strong>Prepared By:</strong> Tanzeel Javed | <strong>Phone:</strong> 03310303441</p>
+    </div>
+
+    <!-- Student Login Section -->
+    <div id="login-section">
+        <h3>Student Portal - Rigger Level 3 Test</h3>
+        <p>Please enter your details to start the test. (Note: The test can be submitted only once and has a 1-hour time limit).</p>
+        <label>Full Name:</label>
+        <input type="text" id="student-name" placeholder="Enter your name">
+        <label>Email Address:</label>
+        <input type="email" id="student-email" placeholder="Enter your email">
+        <button class="btn" onclick="startTest()">Start Test</button>
+        <hr style="margin-top: 30px;">
+        <button style="background: #555;" class="btn" onclick="openAdminLogin()">Admin Panel Login</button>
+    </div>
+
+    <!-- Test Section -->
+    <div id="test-section" class="hidden">
+        <div class="timer-box">Time Remaining: <span id="timer">60:00</span></div>
+        <div id="quiz-container">
+            <!-- Dynamic Questions will load here -->
+        </div>
+        <button class="btn" onclick="submitTest()">Submit Test</button>
+    </div>
+
+    <!-- Result / Success Section -->
+    <div id="result-section" class="hidden">
+        <h3>Test Submitted Successfully!</h3>
+        <p>Thank you. Your responses have been securely recorded.</p>
+        <p id="final-score-display"></p>
+    </div>
+
+    <!-- Admin Panel Section -->
+    <div id="admin-section" class="hidden">
+        <h3>Admin Panel - Student Results</h3>
+        <p>Protected Area (Password: admin123)</p>
+        <div id="admin-login-box">
+            <label>Admin Password:</label>
+            <input type="password" id="admin-pass" placeholder="Enter password">
+            <button class="btn" onclick="verifyAdmin()">Login</button>
+        </div>
+        <div id="admin-dashboard" class="hidden">
+            <h4>Submitted Student Results List:</h4>
+            <div id="results-list"></div>
+            <button style="background: #d9534f; margin-top: 20px;" class="btn" onclick="location.reload()">Logout</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let timeLeft = 3600; // 1 Hour in seconds
+    let timerInterval;
+
+    function startTest() {
+        const name = document.getElementById('student-name').value;
+        const email = document.getElementById('student-email').value;
+        if(!name || !email) {
+            alert("Please enter both Name and Email to start the test!");
+            return;
+        }
+        
+        // Hide login, show test
+        document.getElementById('login-section').classList.add('hidden');
+        document.getElementById('test-section').classList.remove('hidden');
+        
+        // Load sample questions
+        loadQuestions();
+        
+        // Start Timer
+        timerInterval = setInterval(() => {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById('timer').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            if(timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Time is up! Submitting test automatically.");
+                submitTest();
+            }
+            timeLeft--;
+        }, 1000);
+    }
+
+    function loadQuestions() {
+        const container = document.getElementById('quiz-container');
+        let html = "";
+        for(let i = 1; i <= 5; i++) { // Showing sample mockup questions for preview
+            html += `<div class="question-card">
+                <p><strong>Q${i}: Sample Rigger Level 3 Question ${i}</strong></p>
+                <label><input type="radio" name="q${i}" value="A"> A) Option A description</label><br>
+                <label><input type="radio" name="q${i}" value="B"> B) Option B description</label><br>
+                <label><input type="radio" name="q${i}" value="C"> C) Option C description</label><br>
+                <label><input type="radio" name="q${i}" value="D"> D) Option D description</label>
+            </div>`;
+        }
+        container.innerHTML = html;
+    }
+
+    function submitTest() {
+        clearInterval(timerInterval);
+        const name = document.getElementById('student-name').value;
+        const email = document.getElementById('student-email').value;
+        
+        // Save submission locally
+        let submissions = JSON.parse(localStorage.getItem('rigger_submissions') || '[]');
+        submissions.push({ name, email, time: new Date().toLocaleString() });
+        localStorage.setItem('rigger_submissions', JSON.stringify(submissions));
+
+        document.getElementById('test-section').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+        document.getElementById('final-score-display').innerText = `Candidate: ${name} (${email}) - Status: Submitted Successfully.`;
+    }
+
+    function openAdminLogin() {
+        document.getElementById('login-section').classList.add('hidden');
+        document.getElementById('admin-section').classList.remove('hidden');
+    }
+
+    function verifyAdmin() {
+        const pass = document.getElementById('admin-pass').value;
+        if(pass === 'admin123') {
+            document.getElementById('admin-login-box').classList.add('hidden');
+            document.getElementById('admin-dashboard').classList.remove('hidden');
+            
+            // Load submissions
+            let submissions = JSON.parse(localStorage.getItem('rigger_submissions') || '[]');
+            let listHtml = "";
+            if(submissions.length === 0) {
+                listHtml = "<p>No student submissions yet.</p>";
+            } else {
+                submissions.forEach((sub, index) => {
+                    listHtml += `<div style="background:#fff; padding:10px; border:1px solid #ddd; margin-bottom:5px;">
+                        <strong>#${index+1} Name:</strong> ${sub.name} | <strong>Email:</strong> ${sub.email} | <strong>Submitted At:</strong> ${sub.time}
+                    </div>`;
+                });
+            }
+            document.getElementById('results-list').innerHTML = listHtml;
+        } else {
+            alert("Incorrect Password! Access Denied.");
+        }
+    }
+</script>
+
+</body>
+</html>
