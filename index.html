@@ -120,7 +120,7 @@
       </div>
 
       <div class="flex justify-center">
-        <button id="btnStartQuiz" onclick="validateAndStart()" class="aramco-gradient text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transform transition hover:-translate-y-0.5 flex items-center gap-3">
+        <button id="btnStartQuiz" type="button" onclick="startQuizDirectly()" class="aramco-gradient text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transform transition hover:-translate-y-0.5 flex items-center gap-3 cursor-pointer z-10">
           <i class="fa-solid fa-play"></i> Start Practice Test Now
         </button>
       </div>
@@ -280,28 +280,36 @@
     let secondsElapsed = 0;
     let fetchedLiveResults = [];
 
-    function validateAndStart() {
-      const name = document.getElementById('candidateName').value.trim();
-      const badge = document.getElementById('candidateBadge').value.trim().toLowerCase();
+    function startQuizDirectly() {
+      const nameInput = document.getElementById('candidateName');
+      const badgeInput = document.getElementById('candidateBadge');
 
-      if (!name || !badge) {
-        alert("Please enter both Student Name and Student Email Address!");
+      const name = nameInput ? nameInput.value.trim() : "";
+      const badge = badgeInput ? badgeInput.value.trim().toLowerCase() : "";
+
+      if (!name) {
+        alert("Meharbani karke Student Full Name likhein!");
+        return;
+      }
+      if (!badge) {
+        alert("Meharbani karke Student Email Address likhein!");
         return;
       }
 
-      // Check local storage for duplicate attempt
-      let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
-      if (localLogs.some(l => l.badge && l.badge.toLowerCase() === badge)) {
-        alert("Error: Yeh Email Address pehle se test submit kar chuka hai! Ek email se sirf ek dafa hi test diya ja sakta hai.");
-        return;
+      // Check single attempt lock in localStorage
+      try {
+        let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+        if (localLogs.some(l => l.badge && l.badge.toLowerCase() === badge)) {
+          alert("Yeh Email Address pehle se test submit kar chuka hai! Ek email se sirf ek dafa hi test diya ja sakta hai.");
+          return;
+        }
+      } catch(e) {
+        console.log("Local storage check skipped", e);
       }
 
       candidateInfo.name = name;
       candidateInfo.badge = badge;
-      startQuiz();
-    }
 
-    function startQuiz() {
       document.getElementById('startScreen').classList.add('hidden');
       document.getElementById('quizScreen').classList.remove('hidden');
       document.getElementById('quizTimer').classList.remove('hidden');
@@ -313,22 +321,26 @@
 
     function startTimer() {
       secondsElapsed = 0;
+      if (timerInterval) clearInterval(timerInterval);
       timerInterval = setInterval(() => {
         secondsElapsed++;
         const hrs = String(Math.floor(secondsElapsed / 3600)).padStart(2, '0');
         const mins = String(Math.floor((secondsElapsed % 3600) / 60)).padStart(2, '0');
         const secs = String(secondsElapsed % 60).padStart(2, '0');
-        document.getElementById('timeDisplay').innerText = `${hrs}:${mins}:${secs}`;
+        const timerElem = document.getElementById('timeDisplay');
+        if (timerElem) timerElem.innerText = `${hrs}:${mins}:${secs}`;
       }, 1000);
     }
 
     function buildPaletteGrid() {
       const grid = document.getElementById('questionPaletteGrid');
+      if (!grid) return;
       grid.innerHTML = '';
       mcqData.forEach((_, idx) => {
         const btn = document.createElement('button');
         btn.id = `palette-btn-${idx}`;
         btn.innerText = idx + 1;
+        btn.type = 'button';
         btn.onclick = () => loadQuestion(idx);
         btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200`;
         grid.appendChild(btn);
@@ -359,84 +371,100 @@
         }
       });
 
-      document.getElementById('answeredCountBadge').innerText = `${Object.keys(userAnswers).length}/${mcqData.length}`;
+      const countBadge = document.getElementById('answeredCountBadge');
+      if (countBadge) countBadge.innerText = `${Object.keys(userAnswers).length}/${mcqData.length}`;
     }
 
     function loadQuestion(index) {
       currentQuestionIndex = index;
       const q = mcqData[index];
 
-      document.getElementById('questionCounter').innerText = `Question ${index + 1} of ${mcqData.length}`;
+      const qCounter = document.getElementById('questionCounter');
+      if (qCounter) qCounter.innerText = `Question ${index + 1} of ${mcqData.length}`;
       
       const badge = document.getElementById('questionCategoryBadge');
-      if (index < 49) {
-        badge.innerText = `Mandatory Sequence Range (Q277 - Q325)`;
-        badge.className = "bg-emerald-100 text-aramcoGreen text-xs font-bold px-3 py-1 rounded-md border border-emerald-300";
-      } else {
-        badge.innerText = `Random Bank MCQ`;
-        badge.className = "bg-blue-100 text-aramcoBlue text-xs font-bold px-3 py-1 rounded-md border border-blue-300";
+      if (badge) {
+        if (index < 49) {
+          badge.innerText = `Mandatory Sequence Range (Q277 - Q325)`;
+          badge.className = "bg-emerald-100 text-aramcoGreen text-xs font-bold px-3 py-1 rounded-md border border-emerald-300";
+        } else {
+          badge.innerText = `Random Bank MCQ`;
+          badge.className = "bg-blue-100 text-aramcoBlue text-xs font-bold px-3 py-1 rounded-md border border-blue-300";
+        }
       }
 
-      document.getElementById('questionText').innerText = q.question;
+      const qText = document.getElementById('questionText');
+      if (qText) qText.innerText = q.question;
 
       const container = document.getElementById('optionsContainer');
-      container.innerHTML = '';
+      if (container) {
+        container.innerHTML = '';
 
-      const feedbackDiv = document.getElementById('instantFeedback');
-      if (userAnswers[index] !== undefined) {
-        const isCorrect = userAnswers[index] === q.answer;
-        feedbackDiv.classList.remove('hidden');
-        if (isCorrect) {
-          feedbackDiv.innerText = "✓ TRUE - Selected Answer is Correct";
-          feedbackDiv.className = "p-3 rounded-lg font-bold text-center text-sm mb-4 bg-emerald-100 text-emerald-800 border border-emerald-300";
+        const feedbackDiv = document.getElementById('instantFeedback');
+        if (userAnswers[index] !== undefined) {
+          const isCorrect = userAnswers[index] === q.answer;
+          if (feedbackDiv) {
+            feedbackDiv.classList.remove('hidden');
+            if (isCorrect) {
+              feedbackDiv.innerText = "✓ TRUE - Selected Answer is Correct";
+              feedbackDiv.className = "p-3 rounded-lg font-bold text-center text-sm mb-4 bg-emerald-100 text-emerald-800 border border-emerald-300";
+            } else {
+              feedbackDiv.innerText = "✗ FALSE - Selected Answer is Incorrect";
+              feedbackDiv.className = "p-3 rounded-lg font-bold text-center text-sm mb-4 bg-rose-100 text-rose-800 border border-rose-300";
+            }
+          }
         } else {
-          feedbackDiv.innerText = "✗ FALSE - Selected Answer is Incorrect";
-          feedbackDiv.className = "p-3 rounded-lg font-bold text-center text-sm mb-4 bg-rose-100 text-rose-800 border border-rose-300";
+          if (feedbackDiv) feedbackDiv.classList.add('hidden');
         }
-      } else {
-        feedbackDiv.classList.add('hidden');
+
+        q.options.forEach((opt) => {
+          const optKey = opt.charAt(0);
+          const isSelected = userAnswers[index] === optKey;
+
+          const optDiv = document.createElement('div');
+          optDiv.className = `p-4 rounded-xl border-2 cursor-pointer transition flex items-center justify-between ${
+            isSelected 
+              ? 'border-aramcoGreen bg-emerald-50 text-emerald-950 font-semibold shadow-sm' 
+              : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-slate-50'
+          }`;
+          optDiv.onclick = () => selectOption(optKey);
+
+          optDiv.innerHTML = `
+            <div class="flex items-center space-x-3">
+              <span class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                isSelected ? 'bg-aramcoGreen text-white' : 'bg-gray-200 text-gray-700'
+              }">${optKey}</span>
+              <span class="text-base">${opt.substring(3)}</span>
+            </div>
+            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+              isSelected ? 'border-aramcoGreen bg-aramcoGreen' : 'border-gray-300'
+            }">
+              ${isSelected ? '<i class="fa-solid fa-check text-white text-xs"></i>' : ''}
+            </div>
+          `;
+
+          container.appendChild(optDiv);
+        });
       }
-
-      q.options.forEach((opt) => {
-        const optKey = opt.charAt(0);
-        const isSelected = userAnswers[index] === optKey;
-
-        const optDiv = document.createElement('div');
-        optDiv.className = `p-4 rounded-xl border-2 cursor-pointer transition flex items-center justify-between ${
-          isSelected 
-            ? 'border-aramcoGreen bg-emerald-50 text-emerald-950 font-semibold shadow-sm' 
-            : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-slate-50'
-        }`;
-        optDiv.onclick = () => selectOption(optKey);
-
-        optDiv.innerHTML = `
-          <div class="flex items-center space-x-3">
-            <span class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
-              isSelected ? 'bg-aramcoGreen text-white' : 'bg-gray-200 text-gray-700'
-            }">${optKey}</span>
-            <span class="text-base">${opt.substring(3)}</span>
-          </div>
-          <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-            isSelected ? 'border-aramcoGreen bg-aramcoGreen' : 'border-gray-300'
-          }">
-            ${isSelected ? '<i class="fa-solid fa-check text-white text-xs"></i>' : ''}
-          </div>
-        `;
-
-        container.appendChild(optDiv);
-      });
 
       const bookmarkIcon = document.getElementById('bookmarkIcon');
-      if (bookmarkedQuestions.has(index)) {
-        bookmarkIcon.className = "fa-solid fa-bookmark text-yellow-500";
-      } else {
-        bookmarkIcon.className = "fa-regular fa-bookmark";
+      if (bookmarkIcon) {
+        if (bookmarkedQuestions.has(index)) {
+          bookmarkIcon.className = "fa-solid fa-bookmark text-yellow-500";
+        } else {
+          bookmarkIcon.className = "fa-regular fa-bookmark";
+        }
       }
 
-      document.getElementById('btnPrev').disabled = (index === 0);
-      document.getElementById('btnNext').innerHTML = (index === mcqData.length - 1) 
-        ? 'Finish <i class="fa-solid fa-check-double"></i>' 
-        : 'Next <i class="fa-solid fa-arrow-right"></i>';
+      const btnPrev = document.getElementById('btnPrev');
+      if (btnPrev) btnPrev.disabled = (index === 0);
+
+      const btnNext = document.getElementById('btnNext');
+      if (btnNext) {
+        btnNext.innerHTML = (index === mcqData.length - 1) 
+          ? 'Finish <i class="fa-solid fa-check-double"></i>' 
+          : 'Next <i class="fa-solid fa-arrow-right"></i>';
+      }
 
       updatePaletteStatus();
     }
@@ -476,7 +504,7 @@
         if (!confirmSubmit) return;
       }
 
-      clearInterval(timerInterval);
+      if (timerInterval) clearInterval(timerInterval);
 
       let correctCount = 0;
       mcqData.forEach((q, idx) => {
@@ -498,30 +526,52 @@
       };
 
       // Save Local Storage backup
-      let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
-      localLogs.push(resultPayload);
-      localStorage.setItem('academy_rigger_results', JSON.stringify(localLogs));
+      try {
+        let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+        localLogs.push(resultPayload);
+        localStorage.setItem('academy_rigger_results', JSON.stringify(localLogs));
+      } catch(e) {
+        console.log("Local storage save error", e);
+      }
 
       // Save Live Cloud Database (Firebase)
       if (db) {
-        db.ref('rigger_test_submissions').push(resultPayload);
+        try {
+          db.ref('rigger_test_submissions').push(resultPayload);
+        } catch(e) {
+          console.log("Firebase sync error", e);
+        }
       }
 
       document.getElementById('quizScreen').classList.add('hidden');
       document.getElementById('quizTimer').classList.add('hidden');
       document.getElementById('resultScreen').classList.remove('hidden');
 
-      document.getElementById('certCandidateName').innerText = candidateInfo.name;
-      document.getElementById('certBadge').innerText = candidateInfo.badge;
-      document.getElementById('certDate').innerText = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+      const certName = document.getElementById('certCandidateName');
+      if (certName) certName.innerText = candidateInfo.name;
+
+      const certBadge = document.getElementById('certBadge');
+      if (certBadge) certBadge.innerText = candidateInfo.badge;
+
+      const certDate = document.getElementById('certDate');
+      if (certDate) certDate.innerText = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     }
 
     function openAdminModal() {
-      document.getElementById('adminModal').classList.remove('hidden');
+      const modal = document.getElementById('adminModal');
+      if (modal) modal.classList.remove('hidden');
+
       const tbody = document.getElementById('adminTableBody');
+      if (!tbody) return;
       tbody.innerHTML = '';
 
-      let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+      let localLogs = [];
+      try {
+        localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+      } catch(e) {
+        localLogs = [];
+      }
+
       fetchedLiveResults = localLogs.reverse();
 
       if (fetchedLiveResults.length === 0) {
@@ -549,7 +599,8 @@
     }
 
     function closeAdminModal() {
-      document.getElementById('adminModal').classList.add('hidden');
+      const modal = document.getElementById('adminModal');
+      if (modal) modal.classList.add('hidden');
     }
 
     function forwardStudentResult(index) {
@@ -560,7 +611,13 @@
     }
 
     function exportToCSV() {
-      let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+      let localLogs = [];
+      try {
+        localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+      } catch(e) {
+        localLogs = [];
+      }
+
       if (localLogs.length === 0) {
         alert("No results to export!");
         return;
