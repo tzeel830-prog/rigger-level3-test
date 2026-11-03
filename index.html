@@ -1,274 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rigger Level 3 - Online Test System</title>
-    <!-- html2canvas library for direct JPG image export -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .header { text-align: center; border-bottom: 2px solid #004080; padding-bottom: 15px; margin-bottom: 20px; }
-        .header h2 { color: #004080; margin: 5px 0; font-size: 20px; }
-        .header p { margin: 3px 0; font-size: 14px; color: #555; }
-        .timer-box { position: sticky; top: 10px; z-index: 100; background: #fffae6; border: 2px solid #ffa940; padding: 12px; text-align: center; font-weight: bold; font-size: 20px; color: #d46b08; margin-bottom: 20px; border-radius: 6px; }
-        .btn { background: #004080; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; }
-        .btn:hover { background: #00264d; }
-        .hidden { display: none; }
-        .question-card { margin-bottom: 20px; padding: 18px; background: #fafafa; border: 1px solid #ddd; border-radius: 6px; }
-        .question-title { font-weight: bold; margin-bottom: 12px; color: #111; }
-        .option-label { display: block; margin: 8px 0; cursor: pointer; font-size: 15px; }
-        .feedback-text { font-weight: bold; margin-top: 8px; display: block; font-size: 14px; }
-        input[type="text"], input[type="email"], input[type="password"] { width: 100%; padding: 12px; margin: 8px 0 18px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 15px; }
-        .alert-error { color: #a8071a; background: #fff1f0; border: 1px solid #ffa39e; padding: 10px; border-radius: 4px; margin-bottom: 15px; }
-    </style>
-    <!-- Load Questions Dataset -->
-    <script src="questions_data.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy Rigger Level 3 Practice & Certification Test</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- html2canvas for Exporting Result Card as Image/JPG -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Firebase Live Database SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            aramcoGreen: '#008338',
+            aramcoBlue: '#00A3E0',
+            aramcoDarkGreen: '#006228',
+            aramcoDarkBlue: '#0082b3',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F3F4F6;
+    }
+    .aramco-gradient {
+      background: linear-gradient(135deg, #008338 0%, #00A3E0 100%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #00A3E0;
+      border-radius: 4px;
+    }
+  </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between text-gray-800">
 
-<div class="container" id="printable-area">
-    <!-- Agency Header -->
-    <div class="header">
-        <h2>Hadeeqa Manpower Express Overseas Employment Promoters</h2>
-        <p><strong>LIC.NO:</strong> MPD/24442/LHR</p>
-        <p><strong>Owner:</strong> Muhammad Asif | <strong>Phone:</strong> 032161404667</p>
-        <p><strong>Prepared By:</strong> Tanzeel Javed | <strong>Phone:</strong> 03310303441</p>
-    </div>
-
-    <!-- Student Login -->
-    <div id="login-section">
-        <h3>Student Portal - Rigger Level 3 Certification Test</h3>
-        <p><strong>Rules:</strong> Single Attempt per Email. Time Limit: 60 Minutes. Instant True/False feedback enabled during test.</p>
-        
-        <div id="error-msg" class="alert-error hidden"></div>
-
-        <label>Full Name:</label>
-        <input type="text" id="student-name" placeholder="Enter your full name">
-        
-        <label>Email Address:</label>
-        <input type="email" id="student-email" placeholder="Enter your email address">
-        
-        <button class="btn" onclick="startTest()">Start Test</button>
-        
-        <hr style="margin-top: 30px;">
-        <button style="background: #555;" class="btn" onclick="openAdminLogin()">Admin Panel Login</button>
-    </div>
-
-    <!-- Test Section -->
-    <div id="test-section" class="hidden">
-        <div class="timer-box">Time Remaining: <span id="timer">60:00</span></div>
-        <div id="quiz-container"></div>
-        <button class="btn" style="width: 100%; margin-top: 20px;" onclick="submitTest()">Submit Test</button>
-    </div>
-
-    <!-- Student Result Screen (Hidden Score/Answers) -->
-    <div id="result-section" class="hidden">
-        <h3 style="color: #389e0d;">Test Submitted Successfully!</h3>
-        <p>Your responses have been securely recorded in the admin system.</p>
-        <p><em>Note: Final evaluations and result sheets are managed exclusively by the agency administration.</em></p>
-    </div>
-
-    <!-- Admin Panel -->
-    <div id="admin-section" class="hidden">
-        <h3>Admin Panel - Candidate Evaluation Results</h3>
-        <p>Protected Access (Password Required)</p>
-        <div id="admin-login-box">
-            <label>Admin Password:</label>
-            <input type="password" id="admin-pass" placeholder="Enter admin password">
-            <button class="btn" onclick="verifyAdmin()">Login</button>
-            <button style="background: #777;" class="btn" onclick="location.reload()">Back</button>
+  <!-- Header Section -->
+  <header class="aramco-gradient text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="bg-white px-3 py-1.5 rounded-lg shadow-md flex items-center justify-center">
+          <span class="font-bold text-xl text-[#008338] tracking-wider">RIGGER</span>
         </div>
-        <div id="admin-dashboard" class="hidden">
-            <h4>Submitted Student Records & JPG Export:</h4>
-            <div id="results-list"></div>
-            <br>
-            <button style="background: #d9534f;" class="btn" onclick="location.reload()">Logout</button>
+        <div>
+          <h1 class="text-xl md:text-2xl font-bold tracking-wide">Rigger Level 3 Academy Portal</h1>
+          <p class="text-xs md:text-sm text-blue-100 font-medium">Saudi Aramco Preparation & Practice Test</p>
         </div>
+      </div>
+      
+      <div class="flex items-center space-x-3">
+        <button onclick="openAdminModal()" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 border border-white/30">
+          <i class="fa-solid fa-user-shield"></i> Teacher / Admin Results
+        </button>
+        
+        <div id="quizTimer" class="hidden bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center space-x-2 border border-white/30">
+          <i class="fa-regular fa-clock text-yellow-300 text-sm"></i>
+          <span id="timeDisplay" class="font-mono text-sm md:text-base font-bold">00:00:00</span>
+        </div>
+      </div>
     </div>
-</div>
+  </header>
 
-<script>
-    let timeLeft = 3600; 
-    let timerInterval;
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
 
-    function getAttemptedEmails() {
-        return JSON.parse(localStorage.getItem('rigger_attempted_emails') || '[]');
+    <!-- Welcome / Start Screen -->
+    <div id="startScreen" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 max-w-3xl mx-auto border-t-8 border-aramcoGreen">
+      <div class="text-center mb-8">
+        <span class="bg-emerald-100 text-aramcoGreen text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Academy Practice & Exam Module</span>
+        <h2 class="text-3xl font-extrabold text-gray-900 mt-3 mb-2">Rigger Level 3 Student Test</h2>
+        <p class="text-gray-600">Apna Name aur Student Roll No / ID likh kar test shuru karein</p>
+      </div>
+
+      <!-- Student Information Form -->
+      <div class="bg-gray-50 border border-gray-200 p-5 rounded-xl mb-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Student Full Name *</label>
+          <input type="text" id="candidateName" placeholder="Enter Student Name (e.g. Muhammad Ali)" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-aramcoGreen focus:border-aramcoGreen outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Student Email Address (Single Attempt Allowed) *</label>
+          <input type="email" id="candidateBadge" placeholder="Enter Student Email (e.g. student@gmail.com)" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-aramcoGreen focus:border-aramcoGreen outline-none">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-slate-50 border border-gray-200 rounded-xl p-4 text-center">
+          <i class="fa-solid fa-list-check text-aramcoBlue text-2xl mb-2"></i>
+          <h3 class="font-bold text-gray-800">Total Questions</h3>
+          <p class="text-2xl font-black text-aramcoGreen">200 MCQs</p>
+        </div>
+        <div class="bg-slate-50 border border-gray-200 rounded-xl p-4 text-center">
+          <i class="fa-solid fa-layer-group text-aramcoBlue text-2xl mb-2"></i>
+          <h3 class="font-bold text-gray-800">Sequential Range</h3>
+          <p class="text-xl font-black text-aramcoBlue">Q277 - Q325 First</p>
+        </div>
+        <div class="bg-slate-50 border border-gray-200 rounded-xl p-4 text-center">
+          <i class="fa-solid fa-trophy text-aramcoBlue text-2xl mb-2"></i>
+          <h3 class="font-bold text-gray-800">Passing Score</h3>
+          <p class="text-2xl font-black text-aramcoGreen">80%</p>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <button id="btnStartQuiz" onclick="validateAndStart()" class="aramco-gradient text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transform transition hover:-translate-y-0.5 flex items-center gap-3">
+          <i class="fa-solid fa-play"></i> Start Practice Test Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Quiz Screen -->
+    <div id="quizScreen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
+      
+      <!-- Main Question Container -->
+      <div class="lg:col-span-3 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between border-t-4 border-aramcoBlue min-h-[500px]">
+        <div>
+          <div class="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
+            <span id="questionCategoryBadge" class="bg-emerald-100 text-aramcoGreen text-xs font-bold px-3 py-1 rounded-md">
+              Mandatory Sequence
+            </span>
+            <span id="questionCounter" class="text-gray-500 text-sm font-semibold">
+              Question 1 of 200
+            </span>
+          </div>
+
+          <h3 id="questionText" class="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-relaxed">
+            Question text loading...
+          </h3>
+
+          <div id="optionsContainer" class="space-y-3 mb-6">
+            <!-- Dynamic Options inserted via JS -->
+          </div>
+
+          <!-- Instant True/False Feedback Badge -->
+          <div id="instantFeedback" class="hidden p-3 rounded-lg font-bold text-center text-sm mb-4"></div>
+        </div>
+
+        <div class="flex flex-wrap justify-between items-center gap-3 pt-4 border-t border-gray-100">
+          <button id="btnPrev" onclick="prevQuestion()" class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> Previous
+          </button>
+          
+          <button id="btnBookmark" onclick="toggleBookmark()" class="px-4 py-2.5 rounded-lg border border-yellow-400 text-yellow-600 hover:bg-yellow-50 font-semibold transition">
+            <i class="fa-regular fa-bookmark" id="bookmarkIcon"></i> Mark Question
+          </button>
+
+          <button id="btnNext" onclick="nextQuestion()" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white font-bold px-6 py-2.5 rounded-lg shadow transition flex items-center gap-2">
+            Next <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    <!-- Result / Review Screen (Student View: Submission Confirmation Only) -->
+    <div id="resultScreen" class="hidden space-y-8">
+      
+      <div id="resultCertificateCard" class="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border-t-8 border-aramcoGreen text-center">
+        <div class="w-20 h-20 bg-emerald-100 text-aramcoGreen rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Test Submitted Successfully!</h2>
+        <p class="text-gray-600 mb-6">Aapka test record securely submit ho chuka hai. Detailed result teacher / admin portal par send kar diya gaya hai.</p>
+
+        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-left space-y-2 mb-6">
+          <p class="text-sm text-gray-600"><strong>Student Name:</strong> <span id="certCandidateName" class="font-bold text-gray-800">--</span></p>
+          <p class="text-sm text-gray-600"><strong>Registered Email:</strong> <span id="certBadge" class="font-bold text-aramcoBlue">--</span></p>
+          <p class="text-sm text-gray-600"><strong>Submission Date:</strong> <span id="certDate" class="font-bold text-gray-800">--</span></p>
+        </div>
+
+        <p class="text-xs text-gray-500">Aap is screen ka screenshot le sakte hain. Results aapke instructor / admin dwara issue kiye jayenge.</p>
+      </div>
+
+    </div>
+
+    <!-- Result / Review Screen -->
+    <div id="resultScreen" class="hidden space-y-8">
+      
+      <!-- Result Card for JPG Export -->
+      <div id="resultCertificateCard" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 max-w-4xl mx-auto border-t-8 border-aramcoGreen">
+        <div class="flex justify-between items-center border-b pb-4 mb-6">
+          <div class="flex items-center space-x-3">
+            <div class="bg-aramcoGreen text-white px-3 py-1 rounded font-black text-lg">ACADEMY</div>
+            <div>
+              <h3 class="font-bold text-gray-900 text-lg">Rigger Level 3 Practice Result</h3>
+              <p class="text-xs text-gray-500">Saudi Aramco Preparation Academy Test</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <p id="certDate" class="text-xs text-gray-500 font-semibold">Date: --</p>
+            <p id="certTime" class="text-xs text-gray-500">Time: --</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 bg-slate-50 p-4 rounded-xl border">
+          <div>
+            <p class="text-xs text-gray-500 uppercase font-bold">Student Name</p>
+            <p id="certCandidateName" class="text-lg font-black text-gray-800">--</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-500 uppercase font-bold">Student Email</p>
+            <p id="certBadge" class="text-lg font-black text-aramcoBlue">--</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-gray-50 border p-4 rounded-xl text-center">
+            <p class="text-xs text-gray-500 font-bold uppercase">Total Marks</p>
+            <p id="resTotal" class="text-2xl font-black text-gray-800">200</p>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center">
+            <p class="text-xs text-emerald-700 font-bold uppercase">Correct</p>
+            <p id="resCorrect" class="text-2xl font-black text-emerald-600">0</p>
+          </div>
+          <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl text-center">
+            <p class="text-xs text-rose-700 font-bold uppercase">Wrong</p>
+            <p id="resWrong" class="text-2xl font-black text-rose-600">0</p>
+          </div>
+          <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center">
+            <p class="text-xs text-blue-700 font-bold uppercase">Percentage</p>
+            <p id="resPercentage" class="text-2xl font-black text-aramcoBlue">0%</p>
+          </div>
+        </div>
+
+        <div id="certStatusBox" class="p-4 rounded-xl text-center font-extrabold text-xl mb-4">
+          STATUS
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+        <button onclick="downloadResultImage()" class="bg-aramcoGreen hover:bg-aramcoDarkGreen text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+          <i class="fa-solid fa-file-image"></i> Download Result Card (JPG)
+        </button>
+        <button onclick="restartQuiz()" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+          <i class="fa-solid fa-rotate-right"></i> Take Another Test
+        </button>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10 max-w-4xl mx-auto border-t-4 border-gray-200">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">Detailed Answer Review</h3>
+        <div id="reviewContainer" class="space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-2">
+          <!-- Dynamic Review Cards -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Admin Panel Modal -->
+  <div id="adminModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-6 max-h-[90vh] flex flex-col border-t-8 border-aramcoBlue">
+      <div class="flex justify-between items-center pb-4 border-b">
+        <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+          <i class="fa-solid fa-user-shield text-aramcoBlue"></i> Teacher Results & Student Database
+        </h3>
+        <button onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="flex-grow overflow-y-auto custom-scrollbar py-4">
+        <table class="w-full text-left text-sm text-gray-600">
+          <thead class="bg-gray-100 text-gray-700 font-bold uppercase text-xs">
+            <tr>
+              <th class="p-3">Student Name</th>
+              <th class="p-3">Student Email</th>
+              <th class="p-3">Score</th>
+              <th class="p-3">Status</th>
+              <th class="p-3">Date</th>
+              <th class="p-3">Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <!-- Dynamic Live Rows -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pt-4 border-t flex flex-wrap justify-between items-center gap-2">
+        <button onclick="exportToCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm shadow transition flex items-center gap-2">
+          <i class="fa-solid fa-file-excel"></i> Download Excel Report (.CSV)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-gray-400 py-4 text-center text-xs">
+    <p>Saudi Aramco Rigger Level 3 Preparation Portal &copy; 2026. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Include Questions Data File -->
+  <script src="questions_data.js"></script>
+
+  <!-- Script & Database Logic -->
+  <script>
+    // 1. Firebase Live Cloud Realtime Database Setup
+    const firebaseConfig = {
+      databaseURL: "https://rigger-level3-test-default-rtdb.firebaseio.com"
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const db = firebase.database();
+
+    if (typeof mcqData === 'undefined') {
+      var mcqData = [];
     }
 
-    function recordEmailAttempt(email) {
-        let attempted = getAttemptedEmails();
-        if(!attempted.includes(email.toLowerCase())) {
-            attempted.push(email.toLowerCase());
-            localStorage.setItem('rigger_attempted_emails', JSON.stringify(attempted));
-        }
-    }
+    let candidateInfo = { name: '', badge: '' };
+    let currentQuestionIndex = 0;
+    let userAnswers = {};
+    let bookmarkedQuestions = new Set();
+    let timerInterval = null;
+    let secondsElapsed = 0;
+    let fetchedLiveResults = [];
 
-    function startTest() {
-        const name = document.getElementById('student-name').value.trim();
-        const email = document.getElementById('student-email').value.trim().toLowerCase();
-        const errorBox = document.getElementById('error-msg');
+    function validateAndStart() {
+      const name = document.getElementById('candidateName').value.trim();
+      const badge = document.getElementById('candidateBadge').value.trim().toLowerCase();
 
-        if(!name || !email) {
-            errorBox.innerText = "Please enter both Name and Email to proceed.";
-            errorBox.classList.remove('hidden');
-            return;
-        }
+      if (!name || !badge) {
+        alert("Please enter both Student Name and Student Email Address!");
+        return;
+      }
 
-        let attempted = getAttemptedEmails();
-        if(attempted.includes(email)) {
-            errorBox.innerText = `Access Denied! The email (${email}) has already been used. Only 1 attempt is allowed.`;
-            errorBox.classList.remove('hidden');
-            return;
-        }
+      // Check if this email has already submitted a test
+      db.ref('rigger_test_submissions').once('value', (snapshot) => {
+        const data = snapshot.val();
+        let alreadyAttempted = false;
 
-        errorBox.classList.add('hidden');
-        recordEmailAttempt(email); 
-
-        document.getElementById('login-section').classList.add('hidden');
-        document.getElementById('test-section').classList.remove('hidden');
-
-        renderQuestions();
-        startTimer();
-    }
-
-    function startTimer() {
-        timerInterval = setInterval(() => {
-            let minutes = Math.floor(timeLeft / 60);
-            let seconds = timeLeft % 60;
-            document.getElementById('timer').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            if(timeLeft <= 0) {
-                clearInterval(timerInterval);
-                alert("Time Limit Reached! Submitting test automatically.");
-                submitTest();
+        if (data) {
+          Object.keys(data).forEach(k => {
+            if (data[k].badge && data[k].badge.toLowerCase() === badge) {
+              alreadyAttempted = true;
             }
-            timeLeft--;
-        }, 1000);
-    }
-
-    function renderQuestions() {
-        const container = document.getElementById('quiz-container');
-        if (typeof mcqData === 'undefined' || mcqData.length === 0) {
-            container.innerHTML = "<p style='color:red;'>Questions dataset not loaded properly. Please check questions_data.js file.</p>";
-            return;
+          });
         }
 
-        let html = "";
-        mcqData.forEach((q, index) => {
-            let i = index + 1;
-            html += `<div class="question-card" id="q_card_${i}">
-                <div class="question-title">Q${i}: ${q.question}</div>
-                <label class="option-label"><input type="radio" name="q_${i}" value="A" onclick="checkInstantFeedback(${i}, 'A', '${q.answer}')"> ${q.options[0] || ''}</label>
-                <label class="option-label"><input type="radio" name="q_${i}" value="B" onclick="checkInstantFeedback(${i}, 'B', '${q.answer}')"> ${q.options[1] || ''}</label>
-                <label class="option-label"><input type="radio" name="q_${i}" value="C" onclick="checkInstantFeedback(${i}, 'C', '${q.answer}')"> ${q.options[2] || ''}</label>
-                <label class="option-label"><input type="radio" name="q_${i}" value="D" onclick="checkInstantFeedback(${i}, 'D', '${q.answer}')"> ${q.options[3] || ''}</label>
-                <span id="feedback_${i}" class="feedback-text"></span>
-            </div>`;
-        });
-        container.innerHTML = html;
+        let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+        if (localLogs.some(l => l.badge && l.badge.toLowerCase() === badge)) {
+          alreadyAttempted = true;
+        }
+
+        if (alreadyAttempted) {
+          alert("Error: Yeh Email Address pehle se test submit kar chuka hai! Ek email se sirf ek dafa hi test diya ja sakta hai.");
+          return;
+        }
+
+        candidateInfo.name = name;
+        candidateInfo.badge = badge;
+        startQuiz();
+      });
     }
 
-    // Instant True/False feedback when student clicks an option
-    function checkInstantFeedback(qNo, selectedVal, correctVal) {
-        let feedbackSpan = document.getElementById(`feedback_${qNo}`);
-        if (selectedVal === correctVal) {
-            feedbackSpan.style.color = "#389e0d";
-            feedbackSpan.innerText = "✔ Correct (True)";
+    function updatePaletteStatus() {
+      mcqData.forEach((q, idx) => {
+        const btn = document.getElementById(`palette-btn-${idx}`);
+        if (!btn) return;
+
+        let isCurrent = idx === currentQuestionIndex;
+        let isAnswered = userAnswers[idx] !== undefined;
+        let isMarked = bookmarkedQuestions.has(idx);
+
+        if (isCurrent) {
+          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative ring-2 ring-aramcoBlue border-aramcoBlue text-white bg-aramcoBlue`;
+        } else if (isAnswered) {
+          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-emerald-600 text-white border-emerald-700`;
         } else {
-            feedbackSpan.style.color = "#cf1322";
-            feedbackSpan.innerText = "✖ Incorrect (False)";
+          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200`;
         }
-    }
 
-    function submitTest() {
-        clearInterval(timerInterval);
-        const name = document.getElementById('student-name').value.trim();
-        const email = document.getElementById('student-email').value.trim().toLowerCase();
-
-        let correctCount = 0;
-        let total = mcqData.length;
-        let detailedEval = [];
-
-        mcqData.forEach((q, index) => {
-            let i = index + 1;
-            let selectedOpt = document.querySelector(`input[name="q_${i}"]:checked`);
-            let userAns = selectedOpt ? selectedOpt.value : "None";
-            let isTrue = (userAns === q.answer);
-            
-            if(isTrue) correctCount++;
-            
-            detailedEval.push({
-                qNo: i,
-                userAns: userAns,
-                correctAns: q.answer,
-                status: isTrue ? "True" : "False"
-            });
-        });
-
-        // Save Submissions for Admin
-        let submissions = JSON.parse(localStorage.getItem('rigger_submissions') || '[]');
-        submissions.push({ 
-            name: name, 
-            email: email, 
-            time: new Date().toLocaleString(),
-            score: `${correctCount}/${total}`,
-            details: detailedEval
-        });
-        localStorage.setItem('rigger_submissions', JSON.stringify(submissions));
-
-        document.getElementById('test-section').classList.add('hidden');
-        document.getElementById('result-section').classList.remove('hidden');
-    }
-
-    function openAdminLogin() {
-        document.getElementById('login-section').classList.add('hidden');
-        document.getElementById('admin-section').classList.remove('hidden');
-    }
-
-    function verifyAdmin() {
-        const pass = document.getElementById('admin-pass').value;
-        if(pass === 'admin123') {
-            document.getElementById('admin-login-box').classList.add('hidden');
-            document.getElementById('admin-dashboard').classList.remove('hidden');
-            
-            let submissions = JSON.parse(localStorage.getItem('rigger_submissions') || '[]');
-            let listHtml = "";
-            if(submissions.length === 0) {
-                listHtml = "<p>No student submissions recorded yet.</p>";
-            } else {
-                submissions.forEach((sub, index) => {
-                    listHtml += `<div id="sub_report_${index}" style="background:#fff; padding:15px; border:1px solid #ccc; margin-bottom:15px; border-radius:5px;">
-                        <h4 style="margin:0 0 5px 0;">Candidate #${index+1}: ${sub.name} (${sub.email})</h4>
-                        <p style="margin:3px 0;"><strong>Score:</strong> ${sub.score} | <strong>Submitted At:</strong> ${sub.time}</p>
-                        <details style="margin-top:10px;">
-                            <summary style="cursor:pointer; color:#004080; font-weight:bold;">View Full True/False Answer Sheet</summary>
-                            <div style="max-height:200px; overflow-y:auto; margin-top:8px; font-size:13px; background:#f0f0f0; padding:10px;">
-                                ${sub.details.map(d => `<div>Q${d.qNo}: Chosen [${d.userAns}] | Correct [${d.correctAns}] -> <strong>Result: ${d.status}</strong></div>`).join('')}
-                            </div>
-                        </details>
-                        <br>
-                        <button class="btn" style="background:#28a745; font-size:14px; padding:6px 12px;" onclick="downloadSubReportAsJPG(${index}, '${sub.name}')">📥 Download as JPG</button>
-                    </div>`;
-                });
-            }
-            document.getElementById('results-list').innerHTML = listHtml;
+        if (isMarked) {
+          btn.innerHTML = `${idx + 1}<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-yellow-400 rounded-full"></span>`;
         } else {
-            alert("Incorrect Password! Access Denied.");
+          btn.innerText = idx + 1;
         }
+      });
+
+      document.getElementById('answeredCountBadge').innerText = `${Object.keys(userAnswers).length}/${mcqData.length}`;
     }
 
-    // Function to convert candidate report card into JPG image directly without screenshot
-    function downloadSubReportAsJPG(index, studentName) {
-        let reportElement = document.getElementById(`sub_report_${index}`);
-        html2canvas(reportElement).then(canvas => {
-            let link = document.createElement('a');
-            link.download = `${studentName}_Rigger_Level3_Result.jpg`;
-            link.href = canvas.toDataURL('image/jpeg', 1.0);
-            link.click();
+    function loadQuestion(index) {
+      currentQuestionIndex = index;
+      const q = mcqData[index];
+
+      document.getElementById('questionCounter').innerText = `Question ${index + 1} of ${mcqData.length}`;
+      
+      const badge = document.getElementById('questionCategoryBadge');
+      if (index < 49) {
+        badge.innerText = `Mandatory Sequence Range (Q277 - Q325)`;
+        badge.className = "bg-emerald-100 text-aramcoGreen text-xs font-bold px-3 py-1 rounded-md border border-emerald-300";
+      } else {
+        badge.innerText = `Random Bank MCQ`;
+        badge.className = "bg-blue-100 text-aramcoBlue text-xs font-bold px-3 py-1 rounded-md border border-blue-300";
+      }
+
+      document.getElementById('questionText').innerText = q.question;
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      const feedbackDiv = document.getElementById('instantFeedback');
+      if (userAnswers[index] !== undefined) {
+        const isCorrect = userAnswers[index] === q.answer;
+        feedbackDiv.classList.remove('hidden');
+        if (isCorrect) {
+          feedbackDiv.innerText = "✓ TRUE - Selected Answer is Correct";
+          feedbackDiv.className = "p-3 rounded-lg font-bold text-center text-sm mb-4 bg-emerald-100 text-emerald-800 border border-emerald-300";
+        } else {
+          feedbackDiv.innerText = "✗ FALSE - Selected Answer is Incorrect";
+          feedbackDiv.className = "p-3 rounded-lg font-bold text-center text-sm mb-4 bg-rose-100 text-rose-800 border border-rose-300";
+        }
+      } else {
+        feedbackDiv.classList.add('hidden');
+      }
+
+      q.options.forEach((opt) => {
+        const optKey = opt.charAt(0);
+        const isSelected = userAnswers[index] === optKey;
+
+        const optDiv = document.createElement('div');
+        optDiv.className = `p-4 rounded-xl border-2 cursor-pointer transition flex items-center justify-between ${
+          isSelected 
+            ? 'border-aramcoGreen bg-emerald-50 text-emerald-950 font-semibold shadow-sm' 
+            : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-slate-50'
+        }`;
+        optDiv.onclick = () => selectOption(optKey);
+
+        optDiv.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <span class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+              isSelected ? 'bg-aramcoGreen text-white' : 'bg-gray-200 text-gray-700'
+            }">${optKey}</span>
+            <span class="text-base">${opt.substring(3)}</span>
+          </div>
+          <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+            isSelected ? 'border-aramcoGreen bg-aramcoGreen' : 'border-gray-300'
+          }">
+            ${isSelected ? '<i class="fa-solid fa-check text-white text-xs"></i>' : ''}
+          </div>
+        `;
+
+        container.appendChild(optDiv);
+      });
+
+      const bookmarkIcon = document.getElementById('bookmarkIcon');
+      if (bookmarkedQuestions.has(index)) {
+        bookmarkIcon.className = "fa-solid fa-bookmark text-yellow-500";
+      } else {
+        bookmarkIcon.className = "fa-regular fa-bookmark";
+      }
+
+      document.getElementById('btnPrev').disabled = (index === 0);
+      document.getElementById('btnNext').innerHTML = (index === mcqData.length - 1) 
+        ? 'Finish <i class="fa-solid fa-check-double"></i>' 
+        : 'Next <i class="fa-solid fa-arrow-right"></i>';
+
+      updatePaletteStatus();
+    }
+
+    function selectOption(optKey) {
+      userAnswers[currentQuestionIndex] = optKey;
+      loadQuestion(currentQuestionIndex);
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        loadQuestion(currentQuestionIndex - 1);
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < mcqData.length - 1) {
+        loadQuestion(currentQuestionIndex + 1);
+      } else {
+        submitQuiz();
+      }
+    }
+
+    function toggleBookmark() {
+      if (bookmarkedQuestions.has(currentQuestionIndex)) {
+        bookmarkedQuestions.delete(currentQuestionIndex);
+      } else {
+        bookmarkedQuestions.add(currentQuestionIndex);
+      }
+      loadQuestion(currentQuestionIndex);
+    }
+
+    function submitQuiz() {
+      const answeredCount = Object.keys(userAnswers).length;
+      if (answeredCount < mcqData.length) {
+        const confirmSubmit = confirm(`Aapne ${answeredCount} of ${mcqData.length} MCQs ka jawab diya hy. Test submit kar dein?`);
+        if (!confirmSubmit) return;
+      }
+
+      clearInterval(timerInterval);
+
+      let correctCount = 0;
+      mcqData.forEach((q, idx) => {
+        if (userAnswers[idx] === q.answer) {
+          correctCount++;
+        }
+      });
+
+      const percentage = Math.round((correctCount / mcqData.length) * 100);
+      const isPassed = percentage >= 80;
+
+      const resultPayload = {
+        name: candidateInfo.name,
+        badge: candidateInfo.badge,
+        score: `${correctCount}/${mcqData.length}`,
+        percentage: `${percentage}%`,
+        status: isPassed ? 'PASSED' : 'FAILED',
+        date: new Date().toLocaleString()
+      };
+
+      // Save Local Storage backup
+      let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+      localLogs.push(resultPayload);
+      localStorage.setItem('academy_rigger_results', JSON.stringify(localLogs));
+
+      // Save Live Cloud Database (Firebase)
+      db.ref('rigger_test_submissions').push(resultPayload);
+
+      document.getElementById('quizScreen').classList.add('hidden');
+      document.getElementById('quizTimer').classList.add('hidden');
+      document.getElementById('resultScreen').classList.remove('hidden');
+
+      document.getElementById('certCandidateName').innerText = candidateInfo.name;
+      document.getElementById('certBadge').innerText = candidateInfo.badge;
+      document.getElementById('certDate').innerText = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    }
+
+    function openAdminModal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+      const tbody = document.getElementById('adminTableBody');
+      tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-400">Loading student results...</td></tr>`;
+
+      db.ref('rigger_test_submissions').on('value', (snapshot) => {
+        tbody.innerHTML = '';
+        fetchedLiveResults = [];
+        const data = snapshot.val();
+
+        let combined = [];
+        if (data) {
+          Object.keys(data).forEach(k => combined.push(data[k]));
+        }
+        let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
+        localLogs.forEach(l => {
+          if (!combined.some(c => c.badge === l.badge && c.date === l.date)) {
+            combined.push(l);
+          }
         });
-    }
-</script>
 
-</body>
-</html>
+        if (combined.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-400">No student submissions recorded yet.</td></tr>`;
+          return;
+        }
+
+        fetchedLiveResults = combined.reverse();
+
+        fetchedLiveResults.forEach((rec, i) => {
+          const tr = document.createElement('tr');
+          tr.className = "border-b hover:bg-gray-50";
+          tr.innerHTML = `
+            <td class="p-3 font-semibold text-gray-800">${rec.name}</td>
+            <td class="p-3 font-mono text-xs">${rec.badge}</td>
+            <td class="p-3 font-bold text-aramcoBlue">${rec.score} (${rec.percentage})</td>
+            <td class="p-3"><span class="px-2 py-1 text-xs font-bold rounded ${rec.status === 'PASSED' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${rec.status}</span></td>
+            <td class="p-3 text-xs text-gray-400">${rec.date}</td>
+            <td class="p-3">
+              <button onclick="forwardStudentResult(${i})" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white text-xs font-bold px-3 py-1.5 rounded shadow transition flex items-center gap-1">
+                <i class="fa-solid fa-share-nodes"></i> Forward
+              </button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      });
+    }
+
+    function forwardStudentResult(index) {
+      const rec = fetchedLiveResults[index];
+      const message = `*Rigger Level 3 Practice Result*\n\n*Student Name:* ${rec.name}\n*Email:* ${rec.badge}\n*Score:* ${rec.score} (${rec.percentage})\n*Status:* ${rec.status}\n*Date:* ${rec.date}`;
+      const encodedMsg = encodeURIComponent(message);
+      window.open(`https://api.whatsapp.com/send?text=${encodedMsg}`, '_blank');
+    }
+<!-- ... existing code ... />
