@@ -3,12 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hadqeeqa Manpower - Rigger Level 3 Assessment</title>
-  <!-- Tailwind CSS -->
+  <title>Saudi Aramco Rigger Level 3 Academy Portal</title>
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
+  
+  <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- Firebase SDK Imports for Cloud Database Sync -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // Safe Global Variables & Fallback Config (Fixes ReferenceError)
+    const appId = typeof window.__app_id !== 'undefined' ? window.__app_id : 'rigger-level3-academy-portal';
+    
+    let firebaseConfig = {
+      apiKey: "demo-api-key",
+      authDomain: "rigger-portal.firebaseapp.com",
+      projectId: "rigger-portal",
+      storageBucket: "rigger-portal.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:demo"
+    };
+
+    if (typeof window.__firebase_config !== 'undefined' && window.__firebase_config) {
+      try {
+        firebaseConfig = typeof window.__firebase_config === 'string' 
+          ? JSON.parse(window.__firebase_config) 
+          : window.__firebase_config;
+      } catch(e) {
+        console.warn("Using default fallback Firebase configuration.");
+      }
+    }
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // Bind to global window scope safely
+      window.db = db;
+      window.auth = auth;
+      window.appId = appId;
+      window.collection = collection;
+      window.addDoc = addDoc;
+      window.getDocs = getDocs;
+      window.onSnapshot = onSnapshot;
+
+      signInAnonymously(auth).catch((err) => console.log("Cloud Auth Info:", err.message));
+    } catch (e) {
+      console.warn("Firebase Init fallback:", e.message);
+    }
+  </script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -23,38 +73,23 @@
       }
     }
   </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; background-color: #F3F4F6; }
-    .aramco-gradient { background: linear-gradient(135deg, #008338 0%, #00A3E0 100%); }
-    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: #00A3E0; border-radius: 4px; }
-  </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between text-gray-800">
+<body class="bg-gray-100 min-h-screen text-gray-800 font-sans flex flex-col justify-between">
 
   <!-- Header -->
-  <header class="aramco-gradient text-white shadow-lg sticky top-0 z-50">
+  <header class="bg-gradient-to-r from-aramcoGreen to-aramcoBlue text-white shadow-lg sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <div class="bg-white px-3 py-1.5 rounded-lg shadow-md flex items-center justify-center">
-          <span class="font-bold text-xl text-[#008338] tracking-wider">HADQEEQA</span>
-        </div>
+        <i class="fa-solid fa-helmet-safety text-2xl md:text-3xl text-yellow-300"></i>
         <div>
-          <h1 class="text-xl md:text-2xl font-bold tracking-wide flex items-center gap-2">
-            Rigger Level 3 Academy Portal
-            <span class="bg-yellow-400 text-gray-900 text-xs px-2 py-0.5 rounded font-black uppercase">EXPRESS OEP</span>
-          </h1>
-          <p class="text-xs md:text-sm text-blue-100 font-medium">
-            Lic #: <span class="font-bold underline">MPD/2442/LHR</span> | Saudi Aramco Preparation Test
-          </p>
+          <h1 class="font-bold text-base md:text-xl leading-tight">HADQEEQA MANPOWER EXPRESS</h1>
+          <p class="text-xs opacity-90 hidden sm:block">Saudi Aramco Rigger Level 3 Assessment & Practice Portal</p>
         </div>
       </div>
       
       <div class="flex items-center space-x-3">
         <button id="btnAdminModal" onclick="openAdminModal()" type="button" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 border border-white/30 cursor-pointer">
-          <i class="fa-solid fa-user-shield"></i> Teacher / Admin Results
+          <i class="fa-solid fa-cloud"></i> Live Admin Cloud Results
         </button>
         
         <div id="quizTimer" class="hidden bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center space-x-2 border border-white/30">
@@ -65,444 +100,190 @@
     </div>
   </header>
 
-  <!-- Main Body -->
-  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
+  <!-- Main Content Container -->
+  <main class="max-w-4xl mx-auto w-full p-4 flex-grow">
 
-    <!-- Registration Screen -->
-    <div id="startScreen" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 max-w-3xl mx-auto border-t-8 border-aramcoGreen">
+    <!-- Start / Registration Screen -->
+    <div id="startScreen" class="bg-white rounded-2xl shadow-xl p-6 md:p-8 my-6 border-t-4 border-aramcoGreen">
       <div class="text-center mb-6">
-        <div class="inline-block bg-emerald-50 border border-emerald-200 px-4 py-1.5 rounded-full mb-3">
-          <span class="text-aramcoGreen text-xs font-bold uppercase tracking-wider">HADQEEQA MANPOWER EXPRESS OVERSEAS EMPLOYMENT PROMOTER</span>
-        </div>
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Rigger Level 3 Student Assessment</h2>
-        <p class="text-gray-600 text-sm">Apna Name aur Student Email Address likh kar test shuru karein</p>
+        <span class="bg-emerald-100 text-aramcoGreen px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Official Assessment</span>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-800 mt-2">Candidate Registration</h2>
+        <p class="text-gray-500 text-xs md:text-sm mt-1">Licensed Overseas Employment Promoter - MPD/2442/LHR</p>
       </div>
 
-      <!-- Agency Credentials Card -->
-      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-700">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-building text-aramcoBlue"></i>
-          <span><strong>Agency:</strong> Hadqeeqa Manpower Express OEP</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-id-card text-aramcoGreen"></i>
-          <span><strong>License No:</strong> MPD/2442/LHR</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-user-tie text-aramcoBlue"></i>
-          <span><strong>Owner:</strong> MUHAMMAD ASIF (Cell: 03216140467)</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-chalkboard-user text-aramcoGreen"></i>
-          <span><strong>Prepared By:</strong> TANZEEL BUTT</span>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-xl mb-6 text-xs md:text-sm border">
+        <div><strong>Agency Owner:</strong> MUHAMMAD ASIF (03216140467)</div>
+        <div><strong>Prepared By:</strong> TANZEEL BUTT</div>
+        <div><strong>Total Questions:</strong> 200 MCQs (0% Duplicates)</div>
+        <div><strong>Passing Criteria:</strong> 80% or Higher</div>
       </div>
 
-      <!-- Registration Form -->
-      <div class="bg-gray-50 border border-gray-200 p-5 rounded-xl mb-6 space-y-4">
+      <form id="regForm" onsubmit="event.preventDefault(); startQuizDirectly();" class="space-y-4 max-w-md mx-auto">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Student Full Name *</label>
-          <input type="text" id="candidateName" placeholder="Enter Student Full Name" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-aramcoGreen outline-none bg-white">
+          <input id="candidateName" type="text" required placeholder="Enter your full name" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-aramcoGreen focus:border-transparent outline-none">
         </div>
         <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Student Email Address (Single Attempt Allowed) *</label>
-          <input type="email" id="candidateBadge" placeholder="Enter Student Email Address" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-aramcoGreen outline-none bg-white">
+          <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Student Email Address *</label>
+          <input id="candidateBadge" type="email" required placeholder="name@example.com" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-aramcoGreen focus:border-transparent outline-none">
         </div>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div class="bg-slate-50 border border-gray-200 rounded-xl p-4 text-center">
-          <i class="fa-solid fa-list-check text-aramcoBlue text-2xl mb-2"></i>
-          <h3 class="font-bold text-gray-800">Total Unique MCQs</h3>
-          <p class="text-2xl font-black text-aramcoGreen">200 Questions</p>
-        </div>
-        <div class="bg-slate-50 border border-gray-200 rounded-xl p-4 text-center">
-          <i class="fa-solid fa-layer-group text-aramcoBlue text-2xl mb-2"></i>
-          <h3 class="font-bold text-gray-800">Sequential Range</h3>
-          <p class="text-xl font-black text-aramcoBlue">Q277 - Q325 First</p>
-        </div>
-        <div class="bg-slate-50 border border-gray-200 rounded-xl p-4 text-center">
-          <i class="fa-solid fa-trophy text-aramcoBlue text-2xl mb-2"></i>
-          <h3 class="font-bold text-gray-800">Passing Score</h3>
-          <p class="text-2xl font-black text-aramcoGreen">80%</p>
-        </div>
-      </div>
-
-      <div class="flex justify-center">
-        <button id="btnStartQuiz" onclick="startQuizDirectly()" type="button" class="aramco-gradient text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-95 transform transition flex items-center gap-3 cursor-pointer">
-          <i class="fa-solid fa-play"></i> Start Practice Test Now
+        <button type="submit" class="w-full bg-aramcoGreen hover:bg-aramcoDarkGreen text-white font-bold py-3 rounded-xl shadow-lg transition flex justify-center items-center gap-2 cursor-pointer">
+          <i class="fa-solid fa-play"></i> Start Assessment Now
         </button>
-      </div>
+      </form>
     </div>
 
-    <!-- Active Test Screen -->
-    <div id="quizScreen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
-      <div class="lg:col-span-3 bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between border-t-4 border-aramcoBlue min-h-[500px]">
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="hidden space-y-4 my-4">
+      <div class="bg-white rounded-xl shadow p-4 flex justify-between items-center">
         <div>
-          <div class="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-            <span id="questionCategoryBadge" class="bg-emerald-100 text-aramcoGreen text-xs font-bold px-3 py-1 rounded-md">
-              Mandatory Sequence
-            </span>
-            <span id="questionCounter" class="text-gray-500 text-sm font-semibold">
-              Question 1 of 200
-            </span>
-          </div>
-
-          <h3 id="questionText" class="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-relaxed">
-            Question text loading...
-          </h3>
-
-          <div id="optionsContainer" class="space-y-3 mb-6"></div>
-          <div id="instantFeedback" class="hidden p-3 rounded-lg font-bold text-center text-sm mb-4"></div>
+          <span class="text-xs font-semibold text-gray-500">Question</span>
+          <h3 class="text-lg font-bold text-aramcoBlue" id="questionCounter">1 / 200</h3>
         </div>
+        <div id="feedbackBadge" class="hidden text-xs font-bold px-3 py-1.5 rounded-lg"></div>
+      </div>
 
-        <div class="flex flex-wrap justify-between items-center gap-3 pt-4 border-t border-gray-100">
-          <button id="btnPrev" onclick="prevQuestion()" type="button" class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition flex items-center gap-2 cursor-pointer">
-            <i class="fa-solid fa-arrow-left"></i> Previous
+      <!-- Question Card -->
+      <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+        <h2 id="questionText" class="text-base md:text-lg font-bold text-gray-800 mb-6 leading-relaxed"></h2>
+
+        <div id="optionsContainer" class="space-y-3"></div>
+
+        <div class="flex justify-between items-center mt-8 pt-4 border-t">
+          <button id="prevBtn" onclick="prevQuestion()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-4 py-2 rounded-lg text-sm transition">
+            <i class="fa-solid fa-arrow-left mr-1"></i> Previous
           </button>
           
-          <button id="btnBookmark" onclick="toggleBookmark()" type="button" class="px-4 py-2.5 rounded-lg border border-yellow-400 text-yellow-600 hover:bg-yellow-50 font-semibold transition cursor-pointer">
-            <i class="fa-regular fa-bookmark" id="bookmarkIcon"></i> Mark Question
+          <button id="nextBtn" onclick="nextQuestion()" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white font-semibold px-6 py-2 rounded-lg text-sm transition">
+            Next <i class="fa-solid fa-arrow-right ml-1"></i>
           </button>
 
-          <button id="btnNext" onclick="nextQuestion()" type="button" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white font-bold px-6 py-2.5 rounded-lg shadow transition flex items-center gap-2 cursor-pointer">
-            Next <i class="fa-solid fa-arrow-right"></i>
+          <button id="submitBtn" onclick="submitQuiz()" class="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2 rounded-lg text-sm transition shadow-md">
+            Submit Test <i class="fa-solid fa-paper-plane ml-1"></i>
           </button>
         </div>
       </div>
 
-      <!-- Navigation Sidebar -->
-      <div class="bg-white rounded-2xl shadow-xl p-5 border-t-4 border-aramcoGreen flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between items-center mb-4 pb-2 border-b">
-            <h4 class="font-bold text-gray-900 text-sm">Question Palette</h4>
-            <span id="answeredCountBadge" class="text-xs bg-emerald-100 text-aramcoGreen font-bold px-2 py-0.5 rounded">0/200</span>
-          </div>
-          <div id="questionPaletteGrid" class="grid grid-cols-5 gap-2 max-h-[350px] overflow-y-auto custom-scrollbar pr-1"></div>
-        </div>
-
-        <div class="mt-6 pt-4 border-t">
-          <button id="btnSubmitQuiz" onclick="submitQuiz()" type="button" class="w-full bg-aramcoGreen hover:bg-aramcoDarkGreen text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2 cursor-pointer">
-            <i class="fa-solid fa-paper-plane"></i> Submit Test Final
-          </button>
-        </div>
+      <!-- Question Palette Grid -->
+      <div class="bg-white rounded-xl shadow p-4">
+        <h4 class="text-xs font-bold text-gray-600 uppercase mb-3">Question Palette</h4>
+        <div id="paletteGrid" class="grid grid-cols-10 sm:grid-cols-20 gap-1.5 text-xs"></div>
       </div>
     </div>
 
-    <!-- Confirmation Screen (Score Hidden) -->
-    <div id="resultScreen" class="hidden space-y-8">
-      <div class="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border-t-8 border-aramcoGreen text-center">
-        <div class="w-20 h-20 bg-emerald-100 text-aramcoGreen rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
-          <i class="fa-solid fa-circle-check"></i>
-        </div>
-        <h2 class="text-2xl font-black text-gray-900 mb-2">Test Submitted Successfully!</h2>
-        <p class="text-gray-600 mb-6">Aapka test record securely submit ho chuka hai. Result report Admin / Teacher Panel par live save ho gayi hai.</p>
-
-        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-left space-y-2 mb-6 text-sm text-gray-700">
-          <p><strong>Agency:</strong> Hadqeeqa Manpower Express OEP (Lic #: MPD/2442/LHR)</p>
-          <p><strong>Owner:</strong> MUHAMMAD ASIF (03216140467)</p>
-          <p><strong>Prepared By:</strong> TANZEEL BUTT</p>
-          <p><strong>Student Name:</strong> <span id="certCandidateName" class="font-bold text-gray-900">--</span></p>
-          <p><strong>Email:</strong> <span id="certBadge" class="font-bold text-aramcoBlue">--</span></p>
-          <p><strong>Date:</strong> <span id="certDate" class="font-bold text-gray-800">--</span></p>
-        </div>
-
-        <p class="text-xs text-gray-500">Official scorecard instructor se issue hoga.</p>
+    <!-- Result Confirmation Screen -->
+    <div id="resultScreen" class="hidden bg-white rounded-2xl shadow-xl p-8 my-8 text-center border-t-4 border-aramcoGreen">
+      <div class="w-16 h-16 bg-emerald-100 text-aramcoGreen rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+        <i class="fa-solid fa-circle-check"></i>
       </div>
+      
+      <h2 class="text-2xl font-extrabold text-gray-800">Test Submitted Successfully!</h2>
+      <p class="text-gray-600 text-sm mt-2 max-w-md mx-auto">Your responses have been securely logged into the portal database. Results are accessible by the Academy Admin.</p>
+
+      <div class="bg-gray-50 border rounded-xl p-4 max-w-md mx-auto my-6 text-left space-y-2 text-sm">
+        <div><strong class="text-gray-600">Candidate Name:</strong> <span id="certCandidateName" class="font-bold text-gray-800"></span></div>
+        <div><strong class="text-gray-600">Email Address:</strong> <span id="certBadge" class="font-bold text-aramcoBlue"></span></div>
+        <div><strong class="text-gray-600">Submission Date:</strong> <span id="certDate" class="text-gray-700"></span></div>
+        <div><strong class="text-gray-600">Agency:</strong> <span class="text-gray-700">HADQEEQA MANPOWER EXPRESS</span></div>
+      </div>
+
+      <button onclick="window.location.reload()" class="bg-aramcoGreen hover:bg-aramcoDarkGreen text-white font-bold px-6 py-2.5 rounded-xl transition text-sm">
+        Return to Home Page
+      </button>
     </div>
 
   </main>
 
-  <!-- Teacher / Admin Panel Modal -->
-  <div id="adminModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full p-6 max-h-[90vh] flex flex-col border-t-8 border-aramcoBlue">
-      <div class="flex justify-between items-center pb-4 border-b">
-        <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
-          <i class="fa-solid fa-user-shield text-aramcoBlue"></i> Teacher Results & Student Database
-        </h3>
-        <button onclick="closeAdminModal()" type="button" class="text-gray-400 hover:text-gray-600 text-lg cursor-pointer">
-          <i class="fa-solid fa-xmark"></i>
+  <!-- Admin Modal -->
+  <div id="adminModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="bg-gradient-to-r from-aramcoGreen to-aramcoBlue text-white px-6 py-4 flex justify-between items-center">
+        <h3 class="font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Live Admin Cloud Results</h3>
+        <button onclick="closeAdminModal()" class="text-white hover:text-gray-200 text-xl font-bold cursor-pointer">&times;</button>
+      </div>
+
+      <div class="p-4 bg-gray-50 border-b flex justify-between items-center flex-wrap gap-2">
+        <span class="text-xs text-gray-500 font-semibold">Real-time sync across all countries & devices</span>
+        <button onclick="exportToCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 cursor-pointer">
+          <i class="fa-solid fa-file-excel"></i> Export (.CSV)
         </button>
       </div>
 
-      <div class="flex-grow overflow-y-auto custom-scrollbar py-4">
-        <table class="w-full text-left text-sm text-gray-600">
-          <thead class="bg-gray-100 text-gray-700 font-bold uppercase text-xs">
-            <tr>
+      <div class="overflow-y-auto p-4 flex-grow">
+        <table class="w-full text-left text-xs md:text-sm border-collapse">
+          <thead>
+            <tr class="bg-gray-100 text-gray-700 uppercase text-xs border-b">
               <th class="p-3">Student Name</th>
-              <th class="p-3">Student Email</th>
+              <th class="p-3">Email</th>
               <th class="p-3">Score</th>
               <th class="p-3">Status</th>
               <th class="p-3">Date</th>
               <th class="p-3">Action</th>
             </tr>
           </thead>
-          <tbody id="adminTableBody"></tbody>
+          <tbody id="adminTableBody">
+            <tr>
+              <td colspan="6" class="p-4 text-center text-gray-500">No submissions found yet.</td>
+            </tr>
+          </tbody>
         </table>
       </div>
 
-      <div class="pt-4 border-t flex justify-between items-center">
-        <button onclick="exportToCSV()" type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm shadow transition flex items-center gap-2 cursor-pointer">
-          <i class="fa-solid fa-file-excel"></i> Download Excel Report (.CSV)
-        </button>
+      <div class="bg-gray-100 p-3 text-right">
+        <button onclick="closeAdminModal()" class="bg-gray-600 text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-gray-700 transition">Close</button>
       </div>
     </div>
   </div>
 
-  <footer class="bg-gray-900 text-gray-400 py-4 text-center text-xs">
-    <p>Hadqeeqa Manpower Express Overseas Employment Promoter &copy; 2026</p>
+  <footer class="bg-gray-800 text-gray-400 py-4 text-center text-xs">
+    <p>© Saudi Aramco Rigger Level 3 Academy Portal. All Rights Reserved.</p>
   </footer>
 
-  <!-- Complete Non-Repeating Questions Database JS -->
+  <!-- Include Questions Array -->
+  <script src="questions_data.js"></script>
+
   <script>
-    const mcqData = [
-      // SEQUENTIAL RANGE (Q277-Q325 FIRST)
-      { "question": "Q277: A lift plan states that a rigid load is rigged using a refer to graphic at 60 degrees with 5/8\" Dia wire rope slings (6X37, IPS, IWRC). What is the capacity of the hitch arrangement shown?", "options": ["A) 11950", "B) 17940", "C) 9750", "D) 6900"], "answer": "A" },
-      { "question": "Q278: A lift plan states that a load is rigged using a refer to graphic at 30 degrees with 1/2\" Dia wire rope slings (6X37, IPS, IWRC). What is the capacity of the hitch arrangement shown?", "options": ["A) 4300", "B) 6450", "C) 8600", "D) 6100"], "answer": "A" },
-      { "question": "Q279: A lift plan states that a rigid load is rigged using a refer to graphic at 60 degrees with 14Ton, Wire rope slings (6X37, IPS, IWRC). What Diameter of sling is required for the load shown?", "options": ["A) 1-1/8", "B) 7/8", "C) 1-1/4", "D) 1"], "answer": "A" },
-      { "question": "Q280: Refer to graphic and tables for rigging calculation (Q280). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q281: Refer to graphic and tables for rigging calculation (Q281). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q282: Refer to graphic and tables for rigging calculation (Q282). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q283: A lift plan states that a load is rigged using a refer to graphic at 45 degrees with 3/4\" Dia wire rope slings (6X37, IPS, IWRC). What is the capacity of the hitch arrangement shown?", "options": ["A) 17866", "B) 10050", "C) 16450", "D) 9500"], "answer": "B" },
-      { "question": "Q284: Refer to graphic and tables for rigging calculation (Q284). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q285: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 3/4” DIA WIRE ROPE SLING 6 X 19, IPS, FC", "options": ["A) 9,500 lbs.", "B) 10,050 lbs.", "C) 12,375 lbs.", "D) 13,400 lbs."], "answer": "B" },
-      { "question": "Q286: Refer to graphic and tables for rigging calculation (Q286). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q287: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING RIGID LOAD", "options": ["A) 1/2”", "B) 5/8”", "C) 3/4”", "D) 7/8”"], "answer": "C" },
-      { "question": "Q288: A lift plan states that a load is rigged using a refer to graphic at 30 degrees with 18,900 LB, Wire rope slings (6X37, IPS, IWRC). What Diameter of sling is required for the load shown?", "options": ["A) 1-1/8", "B) 1", "C) 1-1/4", "D) 7/8"], "answer": "C" },
-      { "question": "Q289: A lift plan states that a Rigid load is rigged using a refer to graphic at 45 degrees with 13,000LBS, Nylon Web slings (8000Lb). What Diameter of sling is required for the load shown?", "options": ["A) 6\"", "B) 8\"", "C) 5\"", "D) 9\""], "answer": "A" },
-      { "question": "Q290: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 8 TON", "options": ["A) ½”", "B) 5/8”", "C) 7/8”", "D) 1”"], "answer": "D" },
-      { "question": "Q291: Refer to graphic and tables for rigging calculation (Q291). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q292: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 12,000 LB", "options": ["A) 7/8”", "B) 5/8”", "C) 9/16”", "D) 1/2”"], "answer": "A" },
-      { "question": "Q293: Refer to graphic and tables for rigging calculation (Q293). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q294: Refer to graphic and tables for rigging calculation (Q294). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q295: Refer to graphic and tables for rigging calculation (Q295). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q296: Refer to graphic and tables for rigging calculation (Q296). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q297: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 10,000LB", "options": ["A) 1/2”", "B) 3/4”", "C) 7/8”", "D) 1”"], "answer": "B" },
-      { "question": "Q298: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING WEIGHT OF LOAD 5,250 LB", "options": ["A) ½”", "B) 5/8”", "C) 3/4”", "D) 7/8”"], "answer": "C" },
-      { "question": "Q299: Refer to graphic and tables for rigging calculation (Q299). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q300: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8” DIA WIRE ROPE SLING 6 X 19, IPS, FC 30 degrees", "options": ["A) 9,600 lbs.", "B) 12,800 lbs.", "C) 16,700 lbs.", "D) 25,600 lbs."], "answer": "A" },
-      { "question": "Q301: Refer to graphic and tables for rigging calculation (Q301). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q302: 6X37, IPS, FC ¼ DIA WIR ROPE SLING CAPACITY OF THE HITCH ARRGEMENT SHOWN?", "options": ["A) 750", "B) 2250", "C) 1600", "D) 1750"], "answer": "A" },
-      { "question": "Q303: A lift plan states that a Rigid load is rigged using a refer to graphic at 45 degrees with 3/4\" Dia wire rope slings (6X37, IPS, Fc). What is the capacity of the hitch arrangement shown?", "options": ["A) 16800", "B) 12600", "C) 15400", "D) 8900"], "answer": "B" },
-      { "question": "Q304: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8” DIA WIRE ROPE SLING 6 X 19, IPS, FC", "options": ["A) 13,575 lbs.", "B) 18,100 lbs.", "C) 22,200 lbs.", "D) 23,600 lbs."], "answer": "A" },
-      { "question": "Q305: A lift plan states that a load is rigged using a refer to graphic at 45 degrees with 12Ton, Wire rope slings (6X37, IPS, IWRC). What Diameter of sling is required for the load shown?", "options": ["A) 1-1/2", "B) 1-3/4", "C) 1-1/8", "D) 1-1/4"], "answer": "D" },
-      { "question": "Q306: 7\"(8000LBS) Nylon web sling the load capacity of the sling?", "options": ["A) 15800Kg", "B) 36000Kg", "C) 14363Kg", "D) 19000Kg"], "answer": "C" },
-      { "question": "Q307: Refer to graphic and tables for rigging calculation (Q307). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q308: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 5/8” DIA WIRE ROPE SLING 6 X 19, IPS, FC", "options": ["A) 7,500 lbs.", "B) 9,350 lbs.", "C) 11,400 lbs.", "D) 13,400 lbs."], "answer": "B" },
-      { "question": "Q309: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8” DIA WIRE ROPE SLING 6 X 19, IPS, FC", "options": ["A) 9,600 lbs.", "B) 12,800 lbs.", "C) 18,100 lbs.", "D) 22,200 lbs."], "answer": "D" },
-      { "question": "Q310: Refer to graphic and the tables. What is the capacity of the hitch arrangement shown? 7/8” DIA WIRE ROPE SLING 6 X 19, IPS, FC", "options": ["A) 18,100 lbs.", "B) 22,200 lbs.", "C) 44,400 lbs.", "D) 57,800 lbs."], "answer": "C" },
-      { "question": "Q311: Refer to graphic and tables for rigging calculation (Q311). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q312: Refer to graphic and tables for rigging calculation (Q312). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q313: A lift plan states that a load is rigged using a refer to graphic at 30 degrees with 1\" Dia wire rope slings (6X37, IPS, FC). What is the capacity of the hitch arrangement shown?", "options": ["A) 3445", "B) 15800", "C) 17100", "D) 12600"], "answer": "B" },
-      { "question": "Q314: A lift plan states that a Rigid load is rigged using a refer to graphic at 60 degrees with 19,000LBS, Wire rope slings (6X37, IPS, FC). What Diameter of sling is required for the load shown?", "options": ["A) 5/8\"", "B) 3/4\"", "C) 7/8\"", "D) 1\""], "answer": "C" },
-      { "question": "Q315: Refer to graphic and tables for rigging calculation (Q315). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q316: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING", "options": ["A) 5/8”", "B) 3/4”", "C) 7/8”", "D) 1”"], "answer": "A" },
-      { "question": "Q317: Refer to graphic and tables for rigging calculation (Q317). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q318: Refer to graphic and tables for rigging calculation (Q318). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q319: A lift plan states that a load is rigged using a refer to graphic at 60 degrees with 16,000LBS, Wire rope slings (6 X 37, IPS, FC). What Diameter of sling is required for the load shown?", "options": ["A) 3/4\"", "B) 7/8\"", "C) 9/16\"", "D) 11/4\""], "answer": "C" },
-      { "question": "Q320: A lift plan states that a load is rigged using a refer to graphic at 60 degrees with 3500LB, Wire rope slings (6 X 37, IPS, IWRC). What Diameter of sling is required for the load shown?", "options": ["A) 3/8", "B) 1/2", "C) 7/16", "D) 1-1/2"], "answer": "A" },
-      { "question": "Q321: (6 X 37, IPS, IWRC). 5/8’’ DIA WIR ROPE SLING CAPACITY OF HITCH SHOWN?", "options": ["A) 9690", "B) 16700", "C) 13800", "D) 25600"], "answer": "C" },
-      { "question": "Q322: Refer to graphic and tables for rigging calculation (Q322). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-      { "question": "Q323: REFFER TO GRAPIC AND THE TABLES WHAT DIAMETER OF SLING IS REQUIRED FOR THE LOAD SHOWN? 6×37, IPS, FC WIRE ROPE SLING TRELEG BREDLE 60* 28000LBS (RIGID LOAD)", "options": ["A) 1/2", "B) 3/4", "C) 1", "D) 1-1/8"], "answer": "D" },
-      { "question": "Q324: Refer to graphic and the tables. What diameter of sling is required for the load shown? 6 X 19, IPS, FC DIA WIRE ROPE SLING FLEXIBLE LOAD", "options": ["A) 3/4”", "B) 7/8”", "C) 1”", "D) 1-1/4”"], "answer": "B" },
-      { "question": "Q325: Refer to graphic and tables for rigging calculation (Q325). What is the capacity / sling requirement for the arrangement?", "options": ["A) Standard Capacity A", "B) Standard Capacity B", "C) Standard Capacity C", "D) Standard Capacity D"], "answer": "A" },
-
-      // UNIQUE GENERAL MCQS (NO DUPLICATES)
-      { "question": "Q115: When we are put a sling in a hook you must check?", "options": ["A) Shackle", "B) Safety latch", "C) Tag line", "D) Wire rope clip"], "answer": "B" },
-      { "question": "Q179: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Lower the boom", "B) Retract the boom", "C) Lower the load", "D) Extend the boom"], "answer": "B" },
-      { "question": "Q148: What affects the capacity of a crane?", "options": ["A) The length of the load", "B) The Radius", "C) The wheels", "D) The number of wheels"], "answer": "B" },
-      { "question": "Q58: If an eye bolt develops a crack, you must?", "options": ["A) Destroy it", "B) Weld the crack", "C) Use it carefully", "D) Reduce its capacity"], "answer": "A" },
-      { "question": "Q133: 1000 Lbs. Weight how 2 feet move is?", "options": ["A) Belt", "B) Chain host", "C) Pinch bar", "D) Plate clamp"], "answer": "C" },
-      { "question": "Q94: When inspecting a turnbuckle for wear and damage, one of the main things to look for that they?", "options": ["A) End fitting are not distorted", "B) End fittings are painted", "C) Eyes are not the same", "D) Threads are greased"], "answer": "A" },
-      { "question": "Q187: Refer to picture: What is the meaning of the hand signal shown?", "options": ["A) Raise the boom and lower the hoist", "B) Lower the boom and extend the hoist", "C) Lower the boom and raise the hoist", "D) Lower the boom"], "answer": "C" },
-      { "question": "Q162: Refer to graphic. What is the name of the component indicated by the arrow?", "options": ["A) Main hoist", "B) Outriggers", "C) Whip line", "D) Counter weight"], "answer": "D" },
-      { "question": "Q241: Refer to graphic. What is the name of the connecting equipment shown?", "options": ["A) Sling", "B) Plate clamp", "C) Shackle", "D) Hoist"], "answer": "B" },
-      { "question": "Q144: If you found a fire exit Blocked by a wooden Pallet would you..?", "options": ["A) Leave It", "B) Move it at Quitting Time", "C) Move it immediately", "D) Wait for someone else to move it"], "answer": "C" },
-      { "question": "Q95: When inspecting a turnbuckle for wear and damage, one of the main things to look for that they?", "options": ["A) Size is indicted", "B) Body has been painted", "C) Eyes are not the same", "D) Hook are not spread"], "answer": "D" },
-      { "question": "Q169: Refer to graphic. What is the name of the hoisting equipment shown?", "options": ["A) Come-along", "B) Chain fall", "C) Block and tackle", "D) Hand winch"], "answer": "C" },
-      { "question": "Q160: Refer to graphic. What is the name of the crane shown?", "options": ["A) Gantry", "B) Tower", "C) Crawler", "D) Mobile"], "answer": "A" },
-      { "question": "Q22: A plate clamp?", "options": ["A) Spreads the weight of the load", "B) Stack steel plates", "C) Protects steel plates from damage", "D) Lifts steel plates without the need of holes"], "answer": "D" },
-      { "question": "Q59: What type of sling should you use when there could be contact with acid?", "options": ["A) Nylon fiber", "B) Polyester fiber", "C) Natural fiber", "D) Wire rope"], "answer": "D" },
-      { "question": "Q230: Refer to graphic what is showing in below picture?", "options": ["A) Roller jib crane", "B) Dollies Hand Operator winch", "C) Skid roller move", "D) Dollies pinch Bar"], "answer": "C" },
-      { "question": "Q66: What type of sling should you use when there could be contact with electrical equipment?", "options": ["A) Synthetic fiber", "B) Endless wire rope", "C) Single wire rope", "D) Chain brothers"], "answer": "A" },
-      { "question": "Q3: What is the maximum crane’s rated load capacity for lift?", "options": ["A) Maximum 85% of load capacity,", "B) Maximum 60% of load capacity,", "C) Maximum 45% of load capacity,", "D) Maximum 30% of load capacity,"], "answer": "A" },
-      { "question": "Q202: Refer to graphic. What is the name of the equipment shown?", "options": ["A) Wire rope clip", "B) Plate clamp", "C) Lifting beam", "D) Beam clamp"], "answer": "C" },
-      { "question": "Q216: Refer to graphic what kind of hitch arrangement shown?", "options": ["A) Double leg basket", "B) Double rope choker", "C) Two leg choker", "D) Double rope basket"], "answer": "B" },
-      { "question": "Q81: Hand operated winches?", "options": ["A) Adjusting sling lengths", "B) Pull and lift loads over long distances", "C) Balance loads", "D) Protect slings from sharp edges"], "answer": "B" },
-      { "question": "Q99: A hook is a?", "options": ["A) Spreader of load weight", "B) Connector on hoists, cranes and slings", "C) Protector of sling eyes", "D) Lifting point on loads"], "answer": "B" },
-      { "question": "Q82: When inspecting a hand-operated winch for wear and damage, one of the main things to look for?", "options": ["A) The manufacturers on it", "B) Broken wires in the wire rope", "C) How clean the winch look", "D) How the winch is painted"], "answer": "B" },
-      { "question": "Q232: Refer to picture: what is the name of the connecting equipment shown?", "options": ["A) Sling", "B) Shackle", "C) Eye bolt", "D) Shoulder type eye bolt"], "answer": "C" },
-      { "question": "Q123: What time use Safety Belt.?", "options": ["A) Only use lifting time", "B) Fall’s passible", "C) Group meeting time", "D) After accident"], "answer": "B" },
-      { "question": "Q250: Refer to graphic what kind of damage shown?", "options": ["A) Eye bolt bent", "B) Wire rope bent", "C) Shackle", "D) Thread damage"], "answer": "A" },
-      { "question": "Q25: If the threads on the pin of a shackle are damaged you must?", "options": ["A) Not use it", "B) Use it on small loads only", "C) Still use it", "D) Reduce its capacity"], "answer": "A" },
-      { "question": "Q34: When inspecting a chain hoist for wear and damage, one of the main things to look for is?", "options": ["A) That it is painted", "B) The manufactures name", "C) That is looks clean", "D) A damaged load hook"], "answer": "D" },
-      { "question": "Q63: The biggest single case of fatalities associated with cranes is?", "options": ["A) Hooks falling", "B) Booms braking", "C) Jumping from the driver cab", "D) Working overhead power lines"], "answer": "D" },
-      { "question": "Q126: What is the Damage of winch?", "options": ["A) Threads", "B) Hydraulic pipe", "C) Handle Operational", "D) Screw bolt"], "answer": "C" },
-      { "question": "Q46: Tag lines must be used on lifts?", "options": ["A) High", "B) All", "C) Long", "D) Heavy"], "answer": "B" },
-      { "question": "Q149: What do the letter WLL lifting and rigging equipment mean?", "options": ["A) Working layer limit", "B) Working Load limit", "C) Working load layer", "D) Work long limit"], "answer": "B" },
-      { "question": "Q244: Refer to graphic. What kind of damage to the sling is shown?", "options": ["A) Broken wires", "B) Corrosion on", "C) Kinking", "D) Flattening"], "answer": "A" },
-      { "question": "Q161: Refer to graphic. What is the name of the component indicated by the arrow?", "options": ["A) Boom", "B) Main hoist", "C) Whip line", "D) Jib"], "answer": "D" },
-      { "question": "Q113: NOT…?", "options": ["A) Cover up", "B) Head", "C) Riding Load", "D) Load cap"], "answer": "C" },
-      { "question": "Q151: Refer to graphic LOAD is heavy for manual lift showing in below picture?", "options": ["A) Ask the supervisor lift for you", "B) Ask for someone help for lift", "C) Wait for someone lift for you", "D) Leave it there without lift"], "answer": "B" },
-      { "question": "Q233: Refer to graphic. What is the name of the connecting equipment shown?", "options": ["A) Turnbuckle", "B) Spreader beam", "C) Shoulder type eye bolt", "D) Eye bolt"], "answer": "C" },
-      { "question": "Q182: REFFER TO GRAPHIC WHAT IS THE MEANING OF THE HAND SIGNAL SHOWN?", "options": ["A) STOP", "B) SWING", "C) RAISE THE HOST", "D) RAISE THE BOOM"], "answer": "B" },
-      { "question": "Q269: Refer to graphic. What is the name of the hitch shown?", "options": ["A) Two leg bridle hitch", "B) Double wrap choker hitch", "C) Two leg choker hitch", "D) Double wrap basket hitch"], "answer": "B" },
-      { "question": "Q37: Chain hoists?", "options": ["A) Protect loads from sharp edges", "B) Lift two loads at the same time", "C) Lift loads vertically", "D) Pull loads horizontally"], "answer": "C" },
-      { "question": "Q70: Hydraulic jack using over to………?", "options": ["A) 20 Ton", "B) 40 Ton", "C) 24 Ton", "D) 30 Ton"], "answer": "C" },
-      { "question": "Q134: Dolly Skid unsafe?", "options": ["A) Fuller damage", "B) That the handle is straight", "C) A crock in the hoist body", "D) The hydraulic fluid level"], "answer": "A" },
-      { "question": "Q200: Refer to graphic (picture). What is the name of the equipment shown?", "options": ["A) Chain hoist", "B) Cone-along", "C) Hand-operated winch", "D) Turnbuckle"], "answer": "A" },
-      { "question": "Q67: What equipment prevents a load from being crushed?", "options": ["A) Chaffing gear", "B) Beam clamp", "C) Spreader beam", "D) Turnbuckle"], "answer": "C" },
-      { "question": "Q98: If a hook does not have a safety latch attached, it?", "options": ["A) Use with a reduced capacity", "B) Should be reversed", "C) Can be used safely as it is", "D) Should not used"], "answer": "D" },
-      { "question": "Q103: What position you must use hydraulic jacks?", "options": ["A) Horizontal", "B) On an angle", "C) Upside down", "D) Vertical"], "answer": "D" },
-      { "question": "Q12: IF THE THREDS OF A PINE OF SHACKLE IS DAMAGED WHAT WIL YOU DO?", "options": ["A) REMOVE IT FROM SERVICE", "B) REDUCE SWL", "C) USE NEW PIN", "D) REPAIR IT"], "answer": "A" },
-      { "question": "Q186: Refer to picture: What is the meaning of the hand signal shown?", "options": ["A) Raise the boom slowly", "B) Raise the boom", "C) Raise the boom and lower the hoist", "D) Lower the boom and raise the hoist"], "answer": "C" },
-      { "question": "Q194: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Lower the load", "B) Raise the boom slowly", "C) Raise the hoist slowly", "D) Lower the boom"], "answer": "B" },
-      { "question": "Q273: Refer to graphic. What is the name of the hitch shown?", "options": ["A) Double choker hitch", "B) Double wrap double basket hitch", "C) Single choker hitch", "D) Double basket hitch"], "answer": "B" },
-      { "question": "Q174: Refer to graphic what is the name of the equipment show?", "options": ["A) D-Shackle", "B) Turnbuckle", "C) Bow shackle", "D) Wire rope clip"], "answer": "A" },
-      { "question": "Q171: Refer to graphic. What is the name of the equipment shown below?", "options": ["A) Boom", "B) Jib", "C) Whip line", "D) Main hoist"], "answer": "C" },
-      { "question": "Q125: Don’t walk in area……?", "options": ["A) Rest room area", "B) Suspend the load", "C) Laydown area", "D) Parking area"], "answer": "B" },
-      { "question": "Q238: Refer to picture: What is the name of the equipment shown?", "options": ["A) Jaw and eye combination turnbuckle", "B) Eye and eye combination turnbuckle", "C) Hook and eye combination turnbuckle", "D) Hook and hook combination turnbuckle"], "answer": "B" },
-      { "question": "Q210: Refer to the graphic. Which graphic Shows A Balanced Lift .?", "options": ["A) C", "B) A", "C) B", "D) D"], "answer": "D" },
-      { "question": "Q225: Refer to graphic what is showing in below picture?", "options": ["A) Screw jack", "B) Step jack", "C) Hydraulic jack", "D) Dollies"], "answer": "D" },
-      { "question": "Q207: Refer to graphic. What is the name of the Equipment shown……?", "options": ["A) Rubber wedge", "B) Steel wedge", "C) Plastic wedge", "D) Wooden wedge"], "answer": "D" },
-      { "question": "Q56: Before you leave lifting working area select all?", "options": ["A) Return to store all equipment", "B) Sleep in crane", "C) Clean and check the area", "D) Remove the PPE"], "answer": "A" },
-      { "question": "Q48: When lifting any object, the back must be?", "options": ["A) Allowed to bend", "B) Used to lift the object", "C) Kept as straight as possible", "D) Kept at an angle"], "answer": "C" },
-      { "question": "Q39: A Lifting beam….?", "options": ["A) Lift two loads that same time", "B) Distributes the weight of load evenly", "C) Guides a heavy load", "D) Directs heavy objects over large obstacles"], "answer": "B" },
-      { "question": "Q180: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Stop", "B) Swing", "C) Extend the boom", "D) Lower the load"], "answer": "D" },
-      { "question": "Q208: Refer to graphic. What Equipment Used for move the Load……?", "options": ["A) Chain Hoist", "B) Come- a long", "C) Hand operator Winch", "D) Turn Buckle"], "answer": "B" },
-      { "question": "Q97: What does rated capacity mean?", "options": ["A) Minimum weight the equipment can lift", "B) Maximum weight the equipment can safely lift", "C) The weight that the equipment will break", "D) The weight of the equipment"], "answer": "A" },
-      { "question": "Q72: A Plate clamp for……?", "options": ["A) Stacks steel plates", "B) Lifts steel plates without the need of holes", "C) Spreads the weight of the load", "D) Protects steel plates from damage"], "answer": "B" },
-      { "question": "Q260: Refer to graphic what is the name of the equipment show?", "options": ["A) Shackle", "B) Master link", "C) Hook", "D) Safety latch"], "answer": "B" },
-      { "question": "Q246: Refer to graphic what is the name of the equipment show?", "options": ["A) SINGLE VERTICAL", "B) SINGLE CHOCKER", "C) SINGLE BASKET", "D) DOUBLE BASKET"], "answer": "A" },
-      { "question": "Q227: Refer to graphic what is showing in below picture?", "options": ["A) Center point", "B) Hook point", "C) Down side", "D) Hold hook and must Back Shank"], "answer": "D" },
-      { "question": "Q101: Screw jack are most often use for?", "options": ["A) Lifting against metal", "B) Because they are not heavy", "C) They make small adjustments", "D) They have a cylinder"], "answer": "C" },
-      { "question": "Q195: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Travel Back", "B) Travel Both Track", "C) Travel one Track", "D) Stop Travel"], "answer": "A" },
-      { "question": "Q183: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Lower the hoist", "B) Lower the boom", "C) Use the main hoist", "D) Raise the hoist slowly"], "answer": "D" },
-      { "question": "Q217: Refer to graphic what kind of hitch arrangement shown?", "options": ["A) Two leg bridle", "B) Two leg basket", "C) Two leg choker", "D) Double rope choker"], "answer": "A" },
-      { "question": "Q190: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Use the outriggers", "B) Raise the hoist", "C) Lower the load slowly", "D) Use the whip line"], "answer": "D" },
-      { "question": "Q17: What type of life line must be used when working near energized electrical equipment?", "options": ["A) Wire rope", "B) Non-conductive fiber rope", "C) Metal chain", "D) Leather"], "answer": "B" },
-      { "question": "Q176: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Use the main hoist", "B) Lower the hoist", "C) Lower the load", "D) Raise the boom"], "answer": "A" },
-      { "question": "Q157: Refer to graphic. What is the name of the crane show?", "options": ["A) Tower crane", "B) Mobile crane", "C) Jib crane", "D) Wall crane"], "answer": "C" },
-      { "question": "Q40: Inspection of Turnbuckle select all the correct option given below?", "options": ["A) Bent chain", "B) Broken wires", "C) Damage threads", "D) Bent and distortion"], "answer": "C" },
-      { "question": "Q42: What is the maximum weight that can be lifted using a two-man pole lift?", "options": ["A) 350 Kilo grams", "B) 60 Kilo grams", "C) 75 Kilo grams", "D) 90 Kilo grams"], "answer": "B" },
-      { "question": "Q204: What is the reason of graphic shown below?", "options": ["A) Keep an under the load", "B) Keep an the visible load", "C) Keep load low and slow", "D) Keep an eye on the Load"], "answer": "D" },
-      { "question": "Q129: What type of Equipment used for arrangement at overhead Attachments?", "options": ["A) Shackle", "B) Slings", "C) Beam clamp", "D) Chain hoist"], "answer": "C" },
-      { "question": "Q235: REFFER TO GRAPHIC WHAT TYPE OF SLING SHOWN?", "options": ["A) EYE TO EYE WIRE ROPE SLING", "B) WIRE ROPE SLING", "C) SINGLE LEG BELT", "D) ENDLESS SLING"], "answer": "B" },
-      { "question": "Q135: What is Must Condition use Roller if it is Unsafe?", "options": ["A) Fuller damage", "B) The hydraulic fluid level", "C) A crock in the hoist body", "D) Flat and Damage"], "answer": "D" },
-      { "question": "Q221: Refer to graphic. What is the name of the equipment shown below?", "options": ["A) Chain hoist", "B) Come-along", "C) Turnbuckle", "D) Hand operated winch"], "answer": "D" },
-      { "question": "Q203: Refer to graphic. What is the name of the Equipment Shown?", "options": ["A) Spreader beam", "B) Plate clamp", "C) Chain hoist", "D) Beam clamp"], "answer": "A" },
-      { "question": "Q27: If a beam clamp is found to have cracks on its body, you must?", "options": ["A) It only on small loads", "B) Still use it", "C) Red use its capacity", "D) Not use it"], "answer": "D" },
-      { "question": "Q91: How do you determine the SWL of a turnbuckle?", "options": ["A) It’s size", "B) It can adjust any load", "C) Diameter of the threaded rods", "D) The body"], "answer": "C" },
-      { "question": "Q219: REFFER TO GRAPIC which equipment shown below?", "options": ["A) Wedges", "B) Pinch Bar", "C) Roller", "D) Dolly"], "answer": "B" },
-      { "question": "Q248: Refer to graphic what is the name of the equipment show?", "options": ["A) Chain Block", "B) Come along", "C) Plate clamp", "D) Block and tackle"], "answer": "B" },
-      { "question": "Q4: WHAT TYPE OF LIFELINE MUST BE USED WHEN WORKING NEAR ENERGIZED ELECRICAL EQUIPMENT?", "options": ["A) WIRE ROPE", "B) METAL CHAIN", "C) NON-CONDUCTIVE FIBER ROPE", "D) LEATHER"], "answer": "C" },
-      { "question": "Q57: An eyebolt?", "options": ["A) Makes and eye in the wire rope", "B) Attaches slings and shackles to loads", "C) Protects the eye of a sling", "D) Spreads the weight to the load"], "answer": "B" },
-      { "question": "Q96: The biggest single cause of fatalities associated with cranes is?", "options": ["A) Hooks falling", "B) Booms braking", "C) Jumping from the driver’s cab", "D) Contact with electrical power lines"], "answer": "D" },
-      { "question": "Q68: PPE Select All?", "options": ["A) Hard hot", "B) Safety Glass", "C) Hand gloves", "D) Sports shoes"], "answer": "A" },
-      { "question": "Q242: Which drawing shown the best hitch arrangement for the load?", "options": ["A) C", "B) A", "C) D", "D) B"], "answer": "B" },
-      { "question": "Q274: Refer to graphic. What is the name of the hitch shown?", "options": ["A) Four leg vertical", "B) Four leg bridle", "C) Four leg choker", "D) Double leg basket"], "answer": "B" },
-      { "question": "Q9: INSPECTION OF WIRE ROPE SLING. SELECT ALL THE CORRECT OPTION GIVEN BELOW?", "options": ["A) BROKEN WIRE", "B) CUTS", "C) CORROSION", "D) BURN"], "answer": "A" },
-      { "question": "Q41: A Hook is a……?", "options": ["A) Lifting point on the loads", "B) Protector of sling eyes", "C) Spreader of load weight", "D) Connector on hoists, Cranes and slings"], "answer": "D" },
-      { "question": "Q87: A come-along?", "options": ["A) Make vertical lifts and horizontal pulls", "B) Make eyes for wire ropes", "C) Protect slings from sharp edges", "D) Lift two loads at the same time"], "answer": "A" },
-      { "question": "Q23: If the jaws of a plate clamp are coated with dirt or grease you must?", "options": ["A) Use the clamp only on small plate", "B) Not use the clamp", "C) Replace the jaws", "D) Clean and inspect them before use"], "answer": "D" },
-      { "question": "Q54: What is a major type of damage to wire rope slings?", "options": ["A) Broken stitches", "B) Broken links", "C) Kinking", "D) Stretched links"], "answer": "C" },
-      { "question": "Q69: at what height must a safety belt be worn when the is no working platform?", "options": ["A) 1.8Mtr (6FT)", "B) 16.5Mtr (30FT)", "C) 11Mtr (20FT)", "D) 5.6Mtr (10FT)"], "answer": "A" },
-      { "question": "Q43: Before any lifting operation is carried out, the rigger must?", "options": ["A) Inform the superintendent", "B) Clean the load to be lifted", "C) Erect a large sign", "D) Barricade the area"], "answer": "D" },
-      { "question": "Q264: Refer to graphic what is showing in below picture?", "options": ["A) Marking of safe working limit (Load)", "B) Inspection of shackles", "C) Inspection of Turn Buckles", "D) Inspection of slings"], "answer": "B" },
-      { "question": "Q20: What is the most important item of safety equipment used by a rigger?", "options": ["A) Safety hat", "B) Sport shoes", "C) Coveralls", "D) Crane"], "answer": "A" },
-      { "question": "Q30: When accident is happened. Select All", "options": ["A) Uncertified equipment", "B) Unsafe Condition equipment", "C) Uncertified Law", "D) Uncertified Time"], "answer": "A" },
-      { "question": "Q73: Dollies are commonly used where?", "options": ["A) Uneven ground", "B) Over through short distance", "C) Uneven ground", "D) Restricted closed area"], "answer": "B" },
-      { "question": "Q71: Before any lifting operation is carried out the rigger must (Select All)?", "options": ["A) Check the load", "B) Barricade the area", "C) Arrange fire extinguisher", "D) Inform the superintendent"], "answer": "A" },
-      { "question": "Q47: When a load is being lifted, the rigger must?", "options": ["A) Stand directly beneath the load", "B) Sit under the crane driver’s cabin", "C) Stand clear of the load", "D) Sit on top of the load"], "answer": "C" },
-      { "question": "Q77: When load is lifting?", "options": ["A) Chat with others", "B) Keep an eye on the load", "C) Remove PPE", "D) Sleep in crane"], "answer": "B" },
-      { "question": "Q231: Refer to graphic what is the name of the component indicated by the arrow?", "options": ["A) Wire rope eye", "B) Thimble", "C) D Shackle", "D) Bow shackle"], "answer": "B" },
-      { "question": "Q152: Refer to graphic. What is the Type of the Eye bolt?", "options": ["A) Damage thread eye bolt", "B) Lubricated eye bolt", "C) Broken eye bolt", "D) Colored eye bolt"], "answer": "B" },
-      { "question": "Q228: Refer to graphic what is showing in below picture?", "options": ["A) Wire rope", "B) Knots", "C) Slings", "D) Belt"], "answer": "B" },
-      { "question": "Q80: If to lift a load the hand signal must give by?", "options": ["A) Supervisor", "B) The riggers", "C) Banks man", "D) Crane operator"], "answer": "C" },
-      { "question": "Q5: Write down the (G.I) of Rigger?", "options": ["A) G.I is 7.025", "B) G.I is 8.012", "C) G.I is 2.100", "D) G.I is 6.012"], "answer": "A" },
-      { "question": "Q60: What type of sling provides the most flexibility and grip?", "options": ["A) Wire rope slings", "B) Chain slings", "C) Synthetic fiber slings", "D) Wire mesh slings"], "answer": "C" },
-      { "question": "Q272: Refer to graphic. What kind of hitch is shown?", "options": ["A) Two leg choker", "B) Two leg bridle", "C) Double basket", "D) Single basket"], "answer": "B" },
-      { "question": "Q90: Turnbuckles?", "options": ["A) Adjust the lengths of sling", "B) Suspend heavy loads", "C) Reduce tuition on the loads", "D) Protect slings form damage"], "answer": "A" },
-      { "question": "Q13: MAXIMUM CAPACITY OF STEP JACK IS___?", "options": ["A) 10TONE", "B) 20TONE", "C) 24TONE", "D) 5TONE"], "answer": "C" },
-      { "question": "Q206: Which drawing shown the best hitch arrangement for the load?", "options": ["A) C", "B) A", "C) D", "D) B"], "answer": "B" },
-      { "question": "Q178: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Swing the boom slowly", "B) Lower the hoist slowly", "C) Lower the boom slowly", "D) Extend the boom"], "answer": "C" },
-      { "question": "Q163: Refer to graphic. What is the name of the component indicated by the arrow?", "options": ["A) Boom", "B) Main hoist", "C) Whip line", "D) Jib"], "answer": "A" },
-      { "question": "Q209: Refer To graphic. Which graphic shows the best method of lifting?", "options": ["A) C", "B) D", "C) A", "D) B"], "answer": "C" },
-      { "question": "Q267: Refer to graphic. What is the name of the hitch shown?", "options": ["A) One leg choker", "B) Two leg bridle", "C) Two leg choker", "D) Two leg basket"], "answer": "C" },
-      { "question": "Q237: Refer to picture: What is the name of the connecting equipment shown below?", "options": ["A) Jaw to eye combination turnbuckle", "B) Jaw to jaw combination turnbuckle", "C) Hook to eye combination turnbuckle", "D) Hook to hook combination turnbuckle"], "answer": "C" },
-      { "question": "Q14: SCREW JACK MOSTLY USED FOR SMALL_____?", "options": ["A) MOVEMENT", "B) ADJUSTMENT", "C) LIFTING", "D) TRAVELLING"], "answer": "B" },
-      { "question": "Q175: Refer to graphic. What is the name of the connecting equipment shown?", "options": ["A) Spreader beam", "B) Plate clamp", "C) Beam clamp", "D) Eye bolt"], "answer": "C" },
-      { "question": "Q185: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Stop", "B) Emergency stop", "C) Extend the boom", "D) Swing slow"], "answer": "A" },
-      { "question": "Q109: A shackle is used to?", "options": ["A) Make an eye in the load", "B) Support a load", "C) Join two separate load", "D) Connect a sling to a load"], "answer": "D" },
-      { "question": "Q138: Safety belts and Life lines must be used When Working on high Structures Scaffolding and ladders exceeding..?", "options": ["A) 40 FT", "B) 30 FT", "C) 20 FT", "D) 10 FT"], "answer": "C" },
-      { "question": "Q268: Refer to graphic. What is the name of the hitch shown?", "options": ["A) Double choker", "B) Single basket", "C) Single vertical", "D) Single choker"], "answer": "D" },
-      { "question": "Q205: What below drawing shown that before any lifting operation is carried out, the rigger must?", "options": ["A) Inform the superintendent", "B) Clean the load to be lifted", "C) Erect a large sign", "D) Barricade the area"], "answer": "D" },
-      { "question": "Q271: Refer to graphic. What is the name of the hitch shown?", "options": ["A) Double wrap hitch", "B) Double choker hitch", "C) Single choker hitch", "D) Double basket hitch"], "answer": "D" },
-      { "question": "Q124: How to catching Hook?", "options": ["A) Center point", "B) Hook point", "C) Down side", "D) Hold hook and must Back Shank"], "answer": "D" },
-      { "question": "Q112: IF you are working overhead power lines for any crane operation when the maximum safe distance?", "options": ["A) Cover up", "B) De-energized", "C) Tab of", "D) Safety cover"], "answer": "B" },
-      { "question": "Q245: Refer to graphic. What is the name of the sling shown?", "options": ["A) Rope", "B) Chain", "C) Endless", "D) Belt"], "answer": "D" },
-      { "question": "Q62: Synthetic slings are used when a load?", "options": ["A) Has sharp edges", "B) Would be damaged by other types of slings", "C) Is less than 2 tons", "D) More than 5 tons"], "answer": "B" },
-      { "question": "Q31: When lowering an object to the ground what should you do select All?", "options": ["A) Bend your knees", "B) Use your leg muscles", "C) Bent your back", "D) Keep your back as straight as possible"], "answer": "A" },
-      { "question": "Q121: What the Wedge used For Try to roister the 4 Ton Weight of load?", "options": ["A) Steel Wedge", "B) Wooden Wedge", "C) Plastic Wedge", "D) Robber Wedge"], "answer": "A" },
-      { "question": "Q154: Refer to graphic. What is the name of the crane show?", "options": ["A) Lattice boom crane", "B) Overhead crane", "C) Tower boom crane", "D) Hydraulic boom crane"], "answer": "A" },
-      { "question": "Q106: Who not do critical lift?", "options": ["A) Aramco Rigger3", "B) Aramco Rigger1", "C) Rigging supervisor", "D) Mechanical Engineer"], "answer": "A" },
-      { "question": "Q258: In this Graphic what is # 1.", "options": ["A) Boom", "B) Main hoist", "C) Crawler", "D) A Frame"], "answer": "D" },
-      { "question": "Q218: Refer to graphic witch equipment safe for easy move?", "options": ["A) Come Along", "B) Skid roller move", "C) Dollies &hand operator winch", "D) Dollies pinch bar"], "answer": "C" },
-      { "question": "Q197: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Travel Back", "B) Travel Both Track", "C) Travel one Track", "D) Stop Travel"], "answer": "C" },
-      { "question": "Q214: Refer to Graphic. Witch Equipment safe for easy move?", "options": ["A) Roller jib crane", "B) Dollies Hand Operator winch", "C) Skid roller move", "D) Dollies pinch Bar"], "answer": "D" },
-      { "question": "Q167: Refer to graphic. What is the name of the component indicated by the arrow?", "options": ["A) Control line", "B) Counter weight", "C) Main boom", "D) Outrigger"], "answer": "D" },
-      { "question": "Q114: When inspecting a roller one of the main things to look for is..??", "options": ["A) Roller and Broken Teeth", "B) Flat and damage", "C) It is painted", "D) It looks clean"], "answer": "B" },
-      { "question": "Q199: Refer to graphic. What is the name of the sling shown?", "options": ["A) Endless belt", "B) Endless wire rope", "C) Sing leg belt", "D) Endless chain"], "answer": "B" },
-      { "question": "Q75: The function of beam clamp?", "options": ["A) Temporary attachment at overhead", "B) Make an eye in beam clamp", "C) Attach plates without making whole", "D) Holding the two separate load"], "answer": "A" },
-      { "question": "Q64: Turnbuckles………?", "options": ["A) Adjust the tension on a sling", "B) Lift heavy loads", "C) Protect slings from sharp edges", "D) Lift two loads at the same time"], "answer": "A" },
-      { "question": "Q198: Refer to graphic what is the damage of web sling below?", "options": ["A) Cuts", "B) Broken", "C) Kinking", "D) Corrosion"], "answer": "A" },
-      { "question": "Q142: When you lifting any Pipe of Materials you should wear?", "options": ["A) Safety glass", "B) Safety gloves", "C) Hand hats", "D) Safety shoes"], "answer": "B" },
-      { "question": "Q259: What missing in hook?", "options": ["A) Safety latch", "B) Master link", "C) Shackle", "D) Shackle pin"], "answer": "A" },
-      { "question": "Q49: When lowering any object to the floor you should?", "options": ["A) Let the object drop", "B) Bend the knees and use your leg muscles", "C) Ask a second person to help", "D) Bend from the waist"], "answer": "B" },
-      { "question": "Q265: Refer to graphic what is showing in below picture?", "options": ["A) Marking of safe working limit (Load)", "B) Inspection of shackles", "C) Inspection of Turn Buckles", "D) Inspection of slings"], "answer": "C" },
-      { "question": "Q120: What is the Equipment for use Raise chock and alignment Machinery..?", "options": ["A) Dollies", "B) Come-along", "C) Wedges", "D) Stop"], "answer": "C" },
-      { "question": "Q215: REFFER TO GRAPHIC WHAT KIND OF HITCH IS SHOWN?", "options": ["A) FOUR LEG VERTICAL", "B) DOUBLE LEG BASKET", "C) FOUR LEG BRIDLE", "D) FOUR LEG CHOCKER"], "answer": "C" },
-      { "question": "Q255: Refer to picture: What is the name of the rigging equipment shown?", "options": ["A) Car jack", "B) Hydraulic jack", "C) Step jack", "D) Screw jack"], "answer": "B" },
-      { "question": "Q33: When checking wire slings for wear and damage, one of the main things to look for is?", "options": ["A) Corrosion", "B) It the sling is greased", "C) The manufacturer’s name", "D) How the sling is painted"], "answer": "A" },
-      { "question": "Q165: Refer to graphic. What is the name of the crane shown?", "options": ["A) Hydraulic-boom crane", "B) Counterweight crane", "C) Truck-mounted mobile crane", "D) Crawler crane"], "answer": "C" },
-      { "question": "Q236: Refer to graphic what is the name of the equipment show?", "options": ["A) Hook and Hook Turnbuckle", "B) Hole and eye Turnbuckle", "C) Clevis and clevis Turnbuckle", "D) Hook and Clevis Turnbuckle"], "answer": "C" },
-      { "question": "Q270: Refer to graphic. What is the name of the hitch shown?", "options": ["A) Single vertical basket hitch", "B) Single choker hitch", "C) Single vertical choker hitch", "D) Double basket hitch"], "answer": "A" },
-      { "question": "Q45: At what height must a safety belt be worn when there is no working platform?", "options": ["A) Any height", "B) 6 feet & above", "C) 2o feet & above", "D) Below 20 feet"], "answer": "B" },
-      { "question": "Q168: Refer to graphic. What is the name of the component shown below?", "options": ["A) Boom", "B) Outrigger", "C) Main hoist", "D) Counter weight"], "answer": "C" },
-      { "question": "Q127: What type Equipment /materials kept at all clear in the Workshop any Time?", "options": ["A) Tool Boxes", "B) Fire Exits", "C) Windows", "D) Tables"], "answer": "B" },
-      { "question": "Q119: What is main thing of Equipment Beam Clamp used At Overhead it is Unsafe..?", "options": ["A) Destroyed or Bend", "B) Rope", "C) Chain", "D) Belt"], "answer": "A" },
-      { "question": "Q55: A lifting beam?", "options": ["A) Lifts two loads at the same time", "B) Directs heavy objects over large obstacles", "C) Distributes the weight of a load evenly", "D) Guides a heavy load"], "answer": "C" },
-      { "question": "Q172: Refer to graphic. What is the name of the hoisting equipment shown?", "options": ["A) Dolly", "B) Shackle", "C) Turnbuckle", "D) Wire rope block"], "answer": "D" },
-      { "question": "Q36: When inspecting a chain fall hoist for wear and damage, one of the main things to look for is?", "options": ["A) Hook safety latch works correctly", "B) Hydraulic fluid level is correct", "C) Threads are not damaged", "D) Hand chain is greased"], "answer": "A" },
-      { "question": "Q192: Refer to graphic. What is the meaning of the hand signal shown?", "options": ["A) Lower the load", "B) Raise the boom", "C) Lower the hoist", "D) Lower the boom"], "answer": "D" },
-      { "question": "Q85: When inspecting a come-along hoist for wear and damage, you must?", "options": ["A) Check that the hook is well oiled", "B) Make sure that the chain cannot move", "C) Check that the chain has not shrunk", "D) Check for excessive were in the chain"], "answer": "C" },
-      { "question": "Q173: Refer to graphic what is the name of the equipment show?", "options": ["A) D-shackle", "B) Eye bolt", "C) Wire rope clip", "D) Bow shackle"], "answer": "D" },
-      { "question": "Q253: Refer to graphic what is the name of the equipment show?", "options": ["A) Hook", "B) Wire rope clip", "C) Beam clamp", "D) Wedge"], "answer": "A" },
-      { "question": "Q18: What do the letter SWL=RWL lifting and rigging equipment mean?", "options": ["A) Strong/Recommended working limit", "B) Safe/Recommended working limit (load)", "C) Swing/Recommended the load", "D) Stamped/Recommended with limit"], "answer": "B" }
-    ];
-
-    let candidateInfo = { name: '', badge: '' };
     let currentQuestionIndex = 0;
     let userAnswers = {};
-    let bookmarkedQuestions = new Set();
     let timerInterval = null;
     let secondsElapsed = 0;
+    let candidateInfo = { name: '', badge: '' };
     let fetchedLiveResults = [];
 
-    function startQuizDirectly() {
+    async function startQuizDirectly() {
       const name = document.getElementById('candidateName').value.trim();
       const badge = document.getElementById('candidateBadge').value.trim().toLowerCase();
 
       if (!name) { alert("Please enter Student Full Name!"); return; }
       if (!badge) { alert("Please enter Student Email Address!"); return; }
 
+      // Check Cloud & Local for Existing Email Submission
+      let alreadySubmitted = false;
+      try {
+        if (window.db && window.collection && window.getDocs) {
+          const colRef = window.collection(window.db, 'artifacts', window.appId, 'public', 'data', 'student_results');
+          const snapshot = await window.getDocs(colRef);
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            if (data.badge && data.badge.toLowerCase() === badge) {
+              alreadySubmitted = true;
+            }
+          });
+        }
+      } catch(e) {}
+
       try {
         let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
         if (localLogs.some(l => l.badge && l.badge.toLowerCase() === badge)) {
-          alert("This Email Address has already submitted the test. Single attempt allowed!");
-          return;
+          alreadySubmitted = true;
         }
       } catch(e) {}
+
+      if (alreadySubmitted) {
+        alert("This Email Address has already submitted the test. Single attempt allowed!");
+        return;
+      }
 
       candidateInfo.name = name;
       candidateInfo.badge = badge;
@@ -517,8 +298,6 @@
     }
 
     function startTimer() {
-      secondsElapsed = 0;
-      if (timerInterval) clearInterval(timerInterval);
       timerInterval = setInterval(() => {
         secondsElapsed++;
         const hrs = String(Math.floor(secondsElapsed / 3600)).padStart(2, '0');
@@ -528,120 +307,107 @@
       }, 1000);
     }
 
-    function buildPaletteGrid() {
-      const grid = document.getElementById('questionPaletteGrid');
-      grid.innerHTML = '';
-      mcqData.forEach((_, idx) => {
-        const btn = document.createElement('button');
-        btn.id = `palette-btn-${idx}`;
-        btn.innerText = idx + 1;
-        btn.type = 'button';
-        btn.onclick = () => loadQuestion(idx);
-        btn.className = `h-9 w-9 text-xs font-bold rounded-lg border flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200 cursor-pointer`;
-        grid.appendChild(btn);
-      });
-    }
-
-    function updatePaletteStatus() {
-      mcqData.forEach((_, idx) => {
-        const btn = document.getElementById(`palette-btn-${idx}`);
-        if (!btn) return;
-        let isCurrent = idx === currentQuestionIndex;
-        let isAnswered = userAnswers[idx] !== undefined;
-        let isMarked = bookmarkedQuestions.has(idx);
-
-        if (isCurrent) {
-          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border flex items-center justify-center relative ring-2 ring-aramcoBlue text-white bg-aramcoBlue cursor-pointer`;
-        } else if (isAnswered) {
-          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border flex items-center justify-center relative bg-emerald-600 text-white border-emerald-700 cursor-pointer`;
-        } else {
-          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200 cursor-pointer`;
-        }
-
-        btn.innerHTML = isMarked ? `${idx + 1}<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-yellow-400 rounded-full"></span>` : idx + 1;
-      });
-
-      document.getElementById('answeredCountBadge').innerText = `${Object.keys(userAnswers).length}/${mcqData.length}`;
-    }
-
     function loadQuestion(index) {
       currentQuestionIndex = index;
       const q = mcqData[index];
 
-      document.getElementById('questionCounter').innerText = `Question ${index + 1} of ${mcqData.length}`;
-      
-      const badge = document.getElementById('questionCategoryBadge');
-      if (index < 49) {
-        badge.innerText = `Mandatory Sequence Range (Q277 - Q325)`;
-        badge.className = "bg-emerald-100 text-aramcoGreen text-xs font-bold px-3 py-1 rounded-md border border-emerald-300";
-      } else {
-        badge.innerText = `General Rigging MCQ`;
-        badge.className = "bg-blue-100 text-aramcoBlue text-xs font-bold px-3 py-1 rounded-md border border-blue-300";
-      }
-
+      document.getElementById('questionCounter').innerText = `${index + 1} / ${mcqData.length}`;
       document.getElementById('questionText').innerText = q.question;
 
       const container = document.getElementById('optionsContainer');
       container.innerHTML = '';
 
-      const feedbackDiv = document.getElementById('instantFeedback');
-      if (userAnswers[index] !== undefined) {
+      const feedbackBadge = document.getElementById('feedbackBadge');
+      if (userAnswers[index]) {
         const isCorrect = userAnswers[index] === q.answer;
-        feedbackDiv.classList.remove('hidden');
-        feedbackDiv.innerText = isCorrect ? "✓ TRUE - Selected Answer is Correct" : "✗ FALSE - Selected Answer is Incorrect";
-        feedbackDiv.className = `p-3 rounded-lg font-bold text-center text-sm mb-4 ${isCorrect ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300'}`;
+        feedbackBadge.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+        if (isCorrect) {
+          feedbackBadge.classList.add('bg-emerald-100', 'text-emerald-800');
+          feedbackBadge.innerHTML = '<i class="fa-solid fa-check mr-1"></i> True (Correct)';
+        } else {
+          feedbackBadge.classList.add('bg-rose-100', 'text-rose-800');
+          feedbackBadge.innerHTML = '<i class="fa-solid fa-xmark mr-1"></i> False (Incorrect)';
+        }
       } else {
-        feedbackDiv.classList.add('hidden');
+        feedbackBadge.classList.add('hidden');
       }
 
-      q.options.forEach((opt) => {
-        const optKey = opt.charAt(0);
-        const isSelected = userAnswers[index] === optKey;
+      q.options.forEach(opt => {
+        const optLetter = opt.charAt(0);
+        const isSelected = userAnswers[index] === optLetter;
 
-        const optDiv = document.createElement('div');
-        optDiv.className = `p-4 rounded-xl border-2 cursor-pointer transition flex items-center justify-between ${
-          isSelected ? 'border-aramcoGreen bg-emerald-50 text-emerald-950 font-semibold shadow-sm' : 'border-gray-200 hover:border-gray-300 bg-white hover:bg-slate-50'
+        const div = document.createElement('div');
+        div.onclick = () => selectOption(index, optLetter);
+        div.className = `p-3.5 rounded-xl border-2 transition cursor-pointer flex items-center justify-between ${
+          isSelected 
+            ? 'border-aramcoGreen bg-emerald-50 text-emerald-900 font-semibold shadow-sm' 
+            : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
         }`;
-        optDiv.onclick = () => selectOption(optKey);
 
-        optDiv.innerHTML = `
-          <div class="flex items-center space-x-3">
-            <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-aramcoGreen text-white' : 'bg-gray-200 text-gray-700'}">${optKey}</span>
-            <span class="text-gray-800 text-sm md:text-base">${opt}</span>
-          </div>
-          <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center ${isSelected ? 'border-aramcoGreen bg-aramcoGreen text-white' : 'border-gray-300'}">
-            ${isSelected ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
-          </div>
+        div.innerHTML = `
+          <span>${opt}</span>
+          ${isSelected ? '<i class="fa-solid fa-circle-check text-aramcoGreen"></i>' : '<i class="fa-regular fa-circle text-gray-300"></i>'}
         `;
-        container.appendChild(optDiv);
+        container.appendChild(div);
       });
 
-      updatePaletteStatus();
+      // Controls setup
+      document.getElementById('prevBtn').disabled = index === 0;
+      document.getElementById('prevBtn').classList.toggle('opacity-50', index === 0);
+
+      if (index === mcqData.length - 1) {
+        document.getElementById('nextBtn').classList.add('hidden');
+        document.getElementById('submitBtn').classList.remove('hidden');
+      } else {
+        document.getElementById('nextBtn').classList.remove('hidden');
+        document.getElementById('submitBtn').classList.add('hidden');
+      }
+
+      updatePaletteGrid();
     }
 
-    function selectOption(optKey) {
-      userAnswers[currentQuestionIndex] = optKey;
-      loadQuestion(currentQuestionIndex);
-    }
-
-    function nextQuestion() {
-      if (currentQuestionIndex < mcqData.length - 1) loadQuestion(currentQuestionIndex + 1);
+    function selectOption(qIdx, selectedLetter) {
+      userAnswers[qIdx] = selectedLetter;
+      loadQuestion(qIdx);
     }
 
     function prevQuestion() {
       if (currentQuestionIndex > 0) loadQuestion(currentQuestionIndex - 1);
     }
 
-    function toggleBookmark() {
-      if (bookmarkedQuestions.has(currentQuestionIndex)) {
-        bookmarkedQuestions.delete(currentQuestionIndex);
-      } else {
-        bookmarkedQuestions.add(currentQuestionIndex);
-      }
-      updatePaletteStatus();
+    function nextQuestion() {
+      if (currentQuestionIndex < mcqData.length - 1) loadQuestion(currentQuestionIndex + 1);
     }
 
-    function submitQuiz() {
+    function buildPaletteGrid() {
+      const grid = document.getElementById('paletteGrid');
+      grid.innerHTML = '';
+      mcqData.forEach((_, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `palette-${idx}`;
+        btn.onclick = () => loadQuestion(idx);
+        btn.innerText = idx + 1;
+        btn.className = "h-7 w-full rounded font-bold border transition text-gray-600 border-gray-300 bg-gray-50 hover:bg-gray-200";
+        grid.appendChild(btn);
+      });
+    }
+
+    function updatePaletteGrid() {
+      mcqData.forEach((_, idx) => {
+        const btn = document.getElementById(`palette-${idx}`);
+        if (!btn) return;
+        btn.className = "h-7 w-full rounded font-bold border transition text-xs ";
+        if (idx === currentQuestionIndex) {
+          btn.classList.add("ring-2", "ring-aramcoBlue", "bg-sky-100", "text-aramcoBlue", "border-aramcoBlue");
+        } else if (userAnswers[idx]) {
+          btn.classList.add("bg-emerald-600", "text-white", "border-emerald-600");
+        } else {
+          btn.classList.add("bg-gray-50", "text-gray-600", "border-gray-200");
+        }
+      });
+    }
+
+    async function submitQuiz() {
       if (!confirm("Are you sure you want to submit your final test?")) return;
       if (timerInterval) clearInterval(timerInterval);
 
@@ -660,9 +426,21 @@
         score: `${correctCount}/${total}`,
         percentage: percentage,
         status: status,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
+        timestamp: Date.now()
       };
 
+      // 1. Save to Cloud Database (Accessible worldwide)
+      try {
+        if (window.db && window.collection && window.addDoc) {
+          const colRef = window.collection(window.db, 'artifacts', window.appId, 'public', 'data', 'student_results');
+          await window.addDoc(colRef, record);
+        }
+      } catch(e) {
+        console.error("Cloud Save Exception:", e);
+      }
+
+      // 2. Save locally as fallback
       try {
         let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
         localLogs.push(record);
@@ -683,19 +461,51 @@
       modal.classList.remove('hidden');
 
       const tbody = document.getElementById('adminTableBody');
-      let localLogs = [];
-      try {
-        localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
-      } catch(e) {}
+      tbody.innerHTML = '<tr><td colspan="6" class="p-4 text-center text-gray-500"><i class="fa-solid fa-spinner fa-spin text-aramcoBlue mr-2"></i> Connecting to Cloud Sync...</td></tr>';
 
-      fetchedLiveResults = localLogs;
+      // Realtime Listener for Cloud Submissions
+      if (window.db && window.collection && window.onSnapshot) {
+        const colRef = window.collection(window.db, 'artifacts', window.appId, 'public', 'data', 'student_results');
+        window.onSnapshot(colRef, (snapshot) => {
+          let cloudResults = [];
+          snapshot.forEach(doc => cloudResults.push(doc.data()));
+          
+          cloudResults.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+          
+          let localLogs = [];
+          try { localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]'); } catch(e) {}
+          
+          let combined = [...cloudResults];
+          localLogs.forEach(loc => {
+            if (!combined.some(c => c.badge === loc.badge && c.date === loc.date)) {
+              combined.push(loc);
+            }
+          });
+
+          renderAdminTable(combined);
+        }, (error) => {
+          console.error("Cloud listener error:", error);
+          let localLogs = [];
+          try { localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]'); } catch(e) {}
+          renderAdminTable(localLogs);
+        });
+      } else {
+        let localLogs = [];
+        try { localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]'); } catch(e) {}
+        renderAdminTable(localLogs);
+      }
+    }
+
+    function renderAdminTable(records) {
+      fetchedLiveResults = records;
+      const tbody = document.getElementById('adminTableBody');
       tbody.innerHTML = '';
-      if (localLogs.length === 0) {
+      if (records.length === 0) {
         tbody.innerHTML = '<tr><td colspan="6" class="p-4 text-center text-gray-500">No student submissions found yet.</td></tr>';
         return;
       }
 
-      localLogs.forEach((log, idx) => {
+      records.forEach((log, idx) => {
         const tr = document.createElement('tr');
         tr.className = "border-b hover:bg-gray-50";
         tr.innerHTML = `
@@ -727,15 +537,10 @@
     }
 
     function exportToCSV() {
-      let localLogs = [];
-      try {
-        localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
-      } catch(e) {}
-
-      if (localLogs.length === 0) { alert("No results available to export!"); return; }
+      if (fetchedLiveResults.length === 0) { alert("No results available to export!"); return; }
 
       let csvContent = "data:text/csv;charset=utf-8,Student Name,Student Email,Score,Percentage,Status,Date\n";
-      localLogs.forEach(row => {
+      fetchedLiveResults.forEach(row => {
         csvContent += `"${row.name}","${row.badge}","${row.score}","${row.percentage}","${row.status}","${row.date}"\n`;
       });
 
