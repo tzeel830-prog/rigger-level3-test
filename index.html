@@ -8,9 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- html2canvas for Exporting Result Card as Image/JPG -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
+  
   <!-- Firebase Live Database SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
@@ -57,16 +55,21 @@
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center space-x-3">
         <div class="bg-white px-3 py-1.5 rounded-lg shadow-md flex items-center justify-center">
-          <span class="font-bold text-xl text-[#008338] tracking-wider">RIGGER</span>
+          <span class="font-bold text-xl text-[#008338] tracking-wider">HADQEEQA</span>
         </div>
         <div>
-          <h1 class="text-xl md:text-2xl font-bold tracking-wide">Rigger Level 3 Academy Portal</h1>
-          <p class="text-xs md:text-sm text-blue-100 font-medium">Saudi Aramco Preparation & Practice Test</p>
+          <h1 class="text-xl md:text-2xl font-bold tracking-wide flex items-center gap-2">
+            Rigger Level 3 Academy Portal
+            <span class="bg-yellow-400 text-gray-900 text-xs px-2 py-0.5 rounded font-black uppercase">EXPRESS OEP</span>
+          </h1>
+          <p class="text-xs md:text-sm text-blue-100 font-medium">
+            Lic #: <span class="font-bold underline">MPD/2442/LHR</span> | Saudi Aramco Preparation Test
+          </p>
         </div>
       </div>
       
       <div class="flex items-center space-x-3">
-        <button onclick="openAdminModal()" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 border border-white/30">
+        <button id="btnAdminModal" type="button" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition flex items-center gap-1.5 border border-white/30 cursor-pointer">
           <i class="fa-solid fa-user-shield"></i> Teacher / Admin Results
         </button>
         
@@ -83,10 +86,32 @@
 
     <!-- Welcome / Start Screen -->
     <div id="startScreen" class="bg-white rounded-2xl shadow-xl p-6 md:p-10 max-w-3xl mx-auto border-t-8 border-aramcoGreen">
-      <div class="text-center mb-8">
-        <span class="bg-emerald-100 text-aramcoGreen text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Academy Practice & Exam Module</span>
-        <h2 class="text-3xl font-extrabold text-gray-900 mt-3 mb-2">Rigger Level 3 Student Test</h2>
-        <p class="text-gray-600">Apna Name aur Student Roll No / ID likh kar test shuru karein</p>
+      <div class="text-center mb-6">
+        <div class="inline-block bg-emerald-50 border border-emerald-200 px-4 py-1.5 rounded-full mb-3">
+          <span class="text-aramcoGreen text-xs font-bold uppercase tracking-wider">HADQEEQA MANPOWER EXPRESS OVERSEAS EMPLOYMENT PROMOTER</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Rigger Level 3 Student Assessment</h2>
+        <p class="text-gray-600 text-sm">Apna Name aur Student Email Address likh kar test shuru karein</p>
+      </div>
+
+      <!-- Agency & Owner / Instructor Info Box -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-700">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-building text-aramcoBlue"></i>
+          <span><strong>Agency:</strong> Hadqeeqa Manpower Express OEP</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-id-card text-aramcoGreen"></i>
+          <span><strong>License No:</strong> MPD/2442/LHR</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-user-tie text-aramcoBlue"></i>
+          <span><strong>Owner:</strong> MUHAMMAD ASIF (Cell: 3216140467)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-chalkboard-user text-aramcoGreen"></i>
+          <span><strong>Prepared By:</strong> TANZEEL BUTT</span>
+        </div>
       </div>
 
       <!-- Student Information Form -->
@@ -120,7 +145,7 @@
       </div>
 
       <div class="flex justify-center">
-        <button id="btnStartQuiz" type="button" onclick="startQuizDirectly()" class="aramco-gradient text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transform transition hover:-translate-y-0.5 flex items-center gap-3 cursor-pointer z-10">
+        <button id="btnStartQuiz" type="button" class="aramco-gradient text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transform transition hover:-translate-y-0.5 flex items-center gap-3 cursor-pointer z-10">
           <i class="fa-solid fa-play"></i> Start Practice Test Now
         </button>
       </div>
@@ -154,15 +179,15 @@
         </div>
 
         <div class="flex flex-wrap justify-between items-center gap-3 pt-4 border-t border-gray-100">
-          <button id="btnPrev" onclick="prevQuestion()" class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition flex items-center gap-2">
+          <button id="btnPrev" type="button" class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition flex items-center gap-2 cursor-pointer">
             <i class="fa-solid fa-arrow-left"></i> Previous
           </button>
           
-          <button id="btnBookmark" onclick="toggleBookmark()" class="px-4 py-2.5 rounded-lg border border-yellow-400 text-yellow-600 hover:bg-yellow-50 font-semibold transition">
+          <button id="btnBookmark" type="button" class="px-4 py-2.5 rounded-lg border border-yellow-400 text-yellow-600 hover:bg-yellow-50 font-semibold transition cursor-pointer">
             <i class="fa-regular fa-bookmark" id="bookmarkIcon"></i> Mark Question
           </button>
 
-          <button id="btnNext" onclick="nextQuestion()" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white font-bold px-6 py-2.5 rounded-lg shadow transition flex items-center gap-2">
+          <button id="btnNext" type="button" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white font-bold px-6 py-2.5 rounded-lg shadow transition flex items-center gap-2 cursor-pointer">
             Next <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -181,7 +206,7 @@
         </div>
 
         <div class="mt-6 pt-4 border-t space-y-2">
-          <button onclick="submitQuiz()" class="w-full bg-aramcoGreen hover:bg-aramcoDarkGreen text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2">
+          <button id="btnSubmitQuiz" type="button" class="w-full bg-aramcoGreen hover:bg-aramcoDarkGreen text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2 cursor-pointer">
             <i class="fa-solid fa-paper-plane"></i> Submit Test Final
           </button>
         </div>
@@ -198,6 +223,9 @@
         <p class="text-gray-600 mb-6">Aapka test record securely submit ho chuka hai. Detailed result teacher / admin portal par send kar diya gaya hai.</p>
 
         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-left space-y-2 mb-6">
+          <p class="text-sm text-gray-600"><strong>Agency:</strong> <span class="font-bold text-gray-800">Hadqeeqa Manpower Express OEP (Lic #: MPD/2442/LHR)</span></p>
+          <p class="text-sm text-gray-600"><strong>Owner / Contact:</strong> <span class="font-bold text-gray-800">Muhammad Asif (03216140467)</span></p>
+          <p class="text-sm text-gray-600"><strong>Prepared By:</strong> <span class="font-bold text-gray-800">Tanzeel Butt</span></p>
           <p class="text-sm text-gray-600"><strong>Student Name:</strong> <span id="certCandidateName" class="font-bold text-gray-800">--</span></p>
           <p class="text-sm text-gray-600"><strong>Registered Email:</strong> <span id="certBadge" class="font-bold text-aramcoBlue">--</span></p>
           <p class="text-sm text-gray-600"><strong>Submission Date:</strong> <span id="certDate" class="font-bold text-gray-800">--</span></p>
@@ -216,7 +244,7 @@
         <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
           <i class="fa-solid fa-user-shield text-aramcoBlue"></i> Teacher Results & Student Database
         </h3>
-        <button onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-lg">
+        <button id="btnCloseAdmin" type="button" class="text-gray-400 hover:text-gray-600 text-lg cursor-pointer">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -240,7 +268,7 @@
       </div>
 
       <div class="pt-4 border-t flex flex-wrap justify-between items-center gap-2">
-        <button onclick="exportToCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm shadow transition flex items-center gap-2">
+        <button id="btnExportCSV" type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm shadow transition flex items-center gap-2 cursor-pointer">
           <i class="fa-solid fa-file-excel"></i> Download Excel Report (.CSV)
         </button>
       </div>
@@ -279,6 +307,49 @@
     let timerInterval = null;
     let secondsElapsed = 0;
     let fetchedLiveResults = [];
+
+    // Attach Event Listeners on DOM Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const btnStart = document.getElementById('btnStartQuiz');
+      if (btnStart) {
+        btnStart.onclick = startQuizDirectly;
+      }
+
+      const btnAdmin = document.getElementById('btnAdminModal');
+      if (btnAdmin) {
+        btnAdmin.onclick = openAdminModal;
+      }
+
+      const btnCloseAdmin = document.getElementById('btnCloseAdmin');
+      if (btnCloseAdmin) {
+        btnCloseAdmin.onclick = closeAdminModal;
+      }
+
+      const btnNext = document.getElementById('btnNext');
+      if (btnNext) {
+        btnNext.onclick = nextQuestion;
+      }
+
+      const btnPrev = document.getElementById('btnPrev');
+      if (btnPrev) {
+        btnPrev.onclick = prevQuestion;
+      }
+
+      const btnBookmark = document.getElementById('btnBookmark');
+      if (btnBookmark) {
+        btnBookmark.onclick = toggleBookmark;
+      }
+
+      const btnSubmit = document.getElementById('btnSubmitQuiz');
+      if (btnSubmit) {
+        btnSubmit.onclick = submitQuiz;
+      }
+
+      const btnExport = document.getElementById('btnExportCSV');
+      if (btnExport) {
+        btnExport.onclick = exportToCSV;
+      }
+    });
 
     function startQuizDirectly() {
       const nameInput = document.getElementById('candidateName');
@@ -342,7 +413,7 @@
         btn.innerText = idx + 1;
         btn.type = 'button';
         btn.onclick = () => loadQuestion(idx);
-        btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200`;
+        btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200 cursor-pointer`;
         grid.appendChild(btn);
       });
     }
@@ -357,11 +428,11 @@
         let isMarked = bookmarkedQuestions.has(idx);
 
         if (isCurrent) {
-          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative ring-2 ring-aramcoBlue border-aramcoBlue text-white bg-aramcoBlue`;
+          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative ring-2 ring-aramcoBlue border-aramcoBlue text-white bg-aramcoBlue cursor-pointer`;
         } else if (isAnswered) {
-          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-emerald-600 text-white border-emerald-700`;
+          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-emerald-600 text-white border-emerald-700 cursor-pointer`;
         } else {
-          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200`;
+          btn.className = `h-9 w-9 text-xs font-bold rounded-lg border transition flex items-center justify-center relative bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200 cursor-pointer`;
         }
 
         if (isMarked) {
@@ -431,39 +502,15 @@
 
           optDiv.innerHTML = `
             <div class="flex items-center space-x-3">
-              <span class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
-                isSelected ? 'bg-aramcoGreen text-white' : 'bg-gray-200 text-gray-700'
-              }">${optKey}</span>
-              <span class="text-base">${opt.substring(3)}</span>
+              <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${isSelected ? 'bg-aramcoGreen text-white' : 'bg-gray-200 text-gray-700'}">${optKey}</span>
+              <span class="text-gray-800 text-sm md:text-base">${opt}</span>
             </div>
-            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-              isSelected ? 'border-aramcoGreen bg-aramcoGreen' : 'border-gray-300'
-            }">
-              ${isSelected ? '<i class="fa-solid fa-check text-white text-xs"></i>' : ''}
+            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center ${isSelected ? 'border-aramcoGreen bg-aramcoGreen text-white' : 'border-gray-300'}">
+              ${isSelected ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
             </div>
           `;
-
           container.appendChild(optDiv);
         });
-      }
-
-      const bookmarkIcon = document.getElementById('bookmarkIcon');
-      if (bookmarkIcon) {
-        if (bookmarkedQuestions.has(index)) {
-          bookmarkIcon.className = "fa-solid fa-bookmark text-yellow-500";
-        } else {
-          bookmarkIcon.className = "fa-regular fa-bookmark";
-        }
-      }
-
-      const btnPrev = document.getElementById('btnPrev');
-      if (btnPrev) btnPrev.disabled = (index === 0);
-
-      const btnNext = document.getElementById('btnNext');
-      if (btnNext) {
-        btnNext.innerHTML = (index === mcqData.length - 1) 
-          ? 'Finish <i class="fa-solid fa-check-double"></i>' 
-          : 'Next <i class="fa-solid fa-arrow-right"></i>';
       }
 
       updatePaletteStatus();
@@ -474,17 +521,15 @@
       loadQuestion(currentQuestionIndex);
     }
 
-    function prevQuestion() {
-      if (currentQuestionIndex > 0) {
-        loadQuestion(currentQuestionIndex - 1);
-      }
-    }
-
     function nextQuestion() {
       if (currentQuestionIndex < mcqData.length - 1) {
         loadQuestion(currentQuestionIndex + 1);
-      } else {
-        submitQuiz();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        loadQuestion(currentQuestionIndex - 1);
       }
     }
 
@@ -494,15 +539,11 @@
       } else {
         bookmarkedQuestions.add(currentQuestionIndex);
       }
-      loadQuestion(currentQuestionIndex);
+      updatePaletteStatus();
     }
 
     function submitQuiz() {
-      const answeredCount = Object.keys(userAnswers).length;
-      if (answeredCount < mcqData.length) {
-        const confirmSubmit = confirm(`Aapne ${answeredCount} of ${mcqData.length} MCQs ka jawab diya hy. Test submit kar dein?`);
-        if (!confirmSubmit) return;
-      }
+      if (!confirm("Kya aap apna test submit karna chahte hain?")) return;
 
       if (timerInterval) clearInterval(timerInterval);
 
@@ -513,33 +554,34 @@
         }
       });
 
-      const percentage = Math.round((correctCount / mcqData.length) * 100);
-      const isPassed = percentage >= 80;
+      const total = mcqData.length;
+      const percentage = ((correctCount / total) * 100).toFixed(1) + "%";
+      const status = (correctCount / total) >= 0.8 ? "PASS" : "FAIL";
 
-      const resultPayload = {
+      const record = {
         name: candidateInfo.name,
         badge: candidateInfo.badge,
-        score: `${correctCount}/${mcqData.length}`,
-        percentage: `${percentage}%`,
-        status: isPassed ? 'PASSED' : 'FAILED',
+        score: `${correctCount}/${total}`,
+        percentage: percentage,
+        status: status,
         date: new Date().toLocaleString()
       };
 
-      // Save Local Storage backup
+      // Save locally
       try {
         let localLogs = JSON.parse(localStorage.getItem('academy_rigger_results') || '[]');
-        localLogs.push(resultPayload);
+        localLogs.push(record);
         localStorage.setItem('academy_rigger_results', JSON.stringify(localLogs));
       } catch(e) {
-        console.log("Local storage save error", e);
+        console.log("Local save error", e);
       }
 
-      // Save Live Cloud Database (Firebase)
+      // Save to Firebase Cloud
       if (db) {
         try {
-          db.ref('rigger_test_submissions').push(resultPayload);
+          db.ref('rigger_results').push(record);
         } catch(e) {
-          console.log("Firebase sync error", e);
+          console.log("Firebase push error", e);
         }
       }
 
@@ -547,23 +589,18 @@
       document.getElementById('quizTimer').classList.add('hidden');
       document.getElementById('resultScreen').classList.remove('hidden');
 
-      const certName = document.getElementById('certCandidateName');
-      if (certName) certName.innerText = candidateInfo.name;
-
-      const certBadge = document.getElementById('certBadge');
-      if (certBadge) certBadge.innerText = candidateInfo.badge;
-
-      const certDate = document.getElementById('certDate');
-      if (certDate) certDate.innerText = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+      document.getElementById('certCandidateName').innerText = candidateInfo.name;
+      document.getElementById('certBadge').innerText = candidateInfo.badge;
+      document.getElementById('certDate').innerText = record.date;
     }
 
     function openAdminModal() {
       const modal = document.getElementById('adminModal');
-      if (modal) modal.classList.remove('hidden');
+      if (!modal) return;
+      modal.classList.remove('hidden');
 
       const tbody = document.getElementById('adminTableBody');
-      if (!tbody) return;
-      tbody.innerHTML = '';
+      tbody.innerHTML = '<tr><td colspan="6" class="p-4 text-center text-gray-500">Loading records...</td></tr>';
 
       let localLogs = [];
       try {
@@ -572,30 +609,50 @@
         localLogs = [];
       }
 
-      fetchedLiveResults = localLogs.reverse();
+      const renderTable = (logs) => {
+        fetchedLiveResults = logs;
+        tbody.innerHTML = '';
+        if (logs.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="p-4 text-center text-gray-500">No submissions found yet.</td></tr>';
+          return;
+        }
 
-      if (fetchedLiveResults.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-400">No student submissions recorded yet.</td></tr>`;
-        return;
+        logs.forEach((log, idx) => {
+          const tr = document.createElement('tr');
+          tr.className = "border-b hover:bg-gray-50";
+          tr.innerHTML = `
+            <td class="p-3 font-semibold text-gray-800">${log.name}</td>
+            <td class="p-3 text-aramcoBlue">${log.badge}</td>
+            <td class="p-3 font-bold">${log.score} (${log.percentage})</td>
+            <td class="p-3">
+              <span class="px-2 py-1 rounded text-xs font-bold ${log.status === 'PASS' ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">${log.status}</span>
+            </td>
+            <td class="p-3 text-xs text-gray-500">${log.date}</td>
+            <td class="p-3">
+              <button onclick="forwardStudentResult(${idx})" type="button" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-bold transition flex items-center gap-1 cursor-pointer">
+                <i class="fa-brands fa-whatsapp"></i> Forward
+              </button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      };
+
+      if (db) {
+        db.ref('rigger_results').once('value', (snapshot) => {
+          const data = snapshot.val();
+          let cloudLogs = [];
+          if (data) {
+            cloudLogs = Object.values(data);
+          }
+          const combined = [...localLogs, ...cloudLogs];
+          renderTable(combined);
+        }, (err) => {
+          renderTable(localLogs);
+        });
+      } else {
+        renderTable(localLogs);
       }
-
-      fetchedLiveResults.forEach((rec, i) => {
-        const tr = document.createElement('tr');
-        tr.className = "border-b hover:bg-gray-50";
-        tr.innerHTML = `
-          <td class="p-3 font-semibold text-gray-800">${rec.name}</td>
-          <td class="p-3 font-mono text-xs">${rec.badge}</td>
-          <td class="p-3 font-bold text-aramcoBlue">${rec.score} (${rec.percentage})</td>
-          <td class="p-3"><span class="px-2 py-1 text-xs font-bold rounded ${rec.status === 'PASSED' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${rec.status}</span></td>
-          <td class="p-3 text-xs text-gray-400">${rec.date}</td>
-          <td class="p-3">
-            <button onclick="forwardStudentResult(${i})" class="bg-aramcoBlue hover:bg-aramcoDarkBlue text-white text-xs font-bold px-3 py-1.5 rounded shadow transition flex items-center gap-1">
-              <i class="fa-solid fa-share-nodes"></i> Forward
-            </button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
     }
 
     function closeAdminModal() {
